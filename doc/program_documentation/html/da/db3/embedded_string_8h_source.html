@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hangman Game:  Fichier source de embeddedString/embeddedString.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Hangman Game<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">Jeu du pendu en C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_54d9563f00fd1b301d936f70d0aba5fc.html">embeddedString</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">embeddedString.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/db3/embedded_string_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">   23</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">   24</a></span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a>, </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">   26</a></span>} <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html">   37</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">   38</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">value</a>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">   39</a></span>    <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">isFinded</a>; </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">   51</a></span><span class="keyword">typedef</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a> *<a class="code hl_typedef" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">   60</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">embeddedStrlen</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> toCount);</div>
+<div class="ttc" id="aembedded_string_8h_html_a27f2c91a8f76b06f25c2f0ac2ed89766"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a></div><div class="ttdeci">EmbeddedChar * EmbeddedString</div><div class="ttdoc">EmbeddedString est un pointeur sur un EmbeddedChar.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:51</div></div>
+<div class="ttc" id="aembedded_string_8h_html_a4a278caeeec171157dab343f53172a89"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">embeddedStrlen</a></div><div class="ttdeci">size_t embeddedStrlen(EmbeddedString toCount)</div><div class="ttdoc">embeddedStrlen répond à la même attente que strlen</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></div><div class="ttdeci">Boolean</div><div class="ttdoc">Enum d'un type Boolean.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:23</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a></div><div class="ttdeci">@ True</div><div class="ttdef"><b>Definition:</b> embeddedString.h:25</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a></div><div class="ttdeci">@ False</div><div class="ttdef"><b>Definition:</b> embeddedString.h:24</div></div>
+<div class="ttc" id="astruct_embedded_char_html"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a></div><div class="ttdoc">EmbeddedChar est un wrapper de char.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:37</div></div>
+<div class="ttc" id="astruct_embedded_char_html_a15a702cdf4a211a83c0468edc3e6c667"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">EmbeddedChar::isFinded</a></div><div class="ttdeci">Boolean isFinded</div><div class="ttdef"><b>Definition:</b> embeddedString.h:39</div></div>
+<div class="ttc" id="astruct_embedded_char_html_ac7607809114d78d0db658512bb875ad0"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">EmbeddedChar::value</a></div><div class="ttdeci">char value</div><div class="ttdef"><b>Definition:</b> embeddedString.h:38</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>
