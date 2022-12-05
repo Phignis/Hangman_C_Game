@@ -1,11 +1,6 @@
 #include <stdio.h>
 
-typedef enum {False, True} Boolean;
-
-typedef struct {
-	char value;
-	Boolean trouve = False;
-} EmbeddedChar;
+#include "embeddedString/embeddedString.h"
 
 char* embeddedStrcpy(EmbeddedChar* dest, char* src) {
 	int i = 0;

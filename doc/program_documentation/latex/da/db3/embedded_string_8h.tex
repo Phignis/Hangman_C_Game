@@ -1,0 +1,186 @@
+\hypertarget{embedded_string_8h}{}\doxysection{Référence du fichier embedded\+String/embedded\+String.h}
+\label{embedded_string_8h}\index{embeddedString/embeddedString.h@{embeddedString/embeddedString.h}}
+
+
+Définit la structure Embedded\+String, ainsi que le type enum Boolean.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} est un wrapper de char. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} $\ast$ \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}
+\begin{DoxyCompactList}\small\item\em Embedded\+String est un pointeur sur un \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
+, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum d\textquotesingle{}un type Boolean. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embedded\+Strlen}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Count)
+\begin{DoxyCompactList}\small\item\em renvoit le nombre de char de la string \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embedded\+Strcmp}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str1, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str2)
+\begin{DoxyCompactList}\small\item\em compare les chaînes de char lexicographiquement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}{embedded\+Strcpy}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
+\begin{DoxyCompactList}\small\item\em copie une chaine source dans une chaine destination \end{DoxyCompactList}\item 
+\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}{transform\+In\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, char $\ast$src)
+\begin{DoxyCompactList}\small\item\em transforme une string en Embedded\+String \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit la structure Embedded\+String, ainsi que le type enum Boolean. 
+
+Embedded\+String et Boolean, ainsi que leur comportement, sont définis. Boolean est un simple enum, Embedded\+String est un tableau d\textquotesingle{}\mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}.
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+04 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}\label{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}} 
+\index{embeddedString.h@{embeddedString.h}!EmbeddedString@{EmbeddedString}}
+\index{EmbeddedString@{EmbeddedString}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{EmbeddedString}{EmbeddedString}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}$\ast$ \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}
+
+
+
+Embedded\+String est un pointeur sur un \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}. 
+
+Il est pensé pour être utiliser comme tableau de \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}, donc l\textquotesingle{}équivalent du tableau de charactère classique.~\newline
+~\newline
+
+
+Il se finit donc par conséquence par un \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} contenant en value \textquotesingle{}\textbackslash{}0\textquotesingle{} pour être valide. 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}} 
+\index{embeddedString.h@{embeddedString.h}!Boolean@{Boolean}}
+\index{Boolean@{Boolean}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
+
+
+
+Enum d\textquotesingle{}un type Boolean. 
+
+Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens C du terme avec.~\newline
+ En comparant avec True, cela revient à tester que ce soit égal à 0 \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
+False&étiquette pour la valeur 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!True@{True}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
+True&étiquette pour la valeur 1 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}\label{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}} 
+\index{embeddedString.h@{embeddedString.h}!embeddedStrcmp@{embeddedStrcmp}}
+\index{embeddedStrcmp@{embeddedStrcmp}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{embeddedStrcmp()}{embeddedStrcmp()}}
+{\footnotesize\ttfamily int embedded\+Strcmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{str1,  }\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{str2 }\end{DoxyParamCaption})}
+
+
+
+compare les chaînes de char lexicographiquement. 
+
+ATTENTION! Si les string ne se finissent pas par \textquotesingle{}\textbackslash{}0\textquotesingle{}, comportement indéfini~\newline
+ Compare les champs value de \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}, et ne compare pas le champ is\+Finded
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str1} & première chaîne servant à la comparaison \\
+\hline
+{\em str2} & seconde chaîne servant à la comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/2 si un des paramètres vaut {\bfseries{NULL}}~\newline
+ 0 si les chaînes sont {\bfseries{identiques}}~\newline
+ 1 si la chaîne 1 est {\bfseries{supérieure lexicographiquement}} à la chaîne 2~\newline
+ -\/1 si la chaîne est {\bfseries{inférieure lexicographiquement}} à la chaîne 2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}\label{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}} 
+\index{embeddedString.h@{embeddedString.h}!embeddedStrcpy@{embeddedStrcpy}}
+\index{embeddedStrcpy@{embeddedStrcpy}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{embeddedStrcpy()}{embeddedStrcpy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} embedded\+Strcpy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{src }\end{DoxyParamCaption})}
+
+
+
+copie une chaine source dans une chaine destination 
+
+Copie la valeur des deux champs, value et is\+Finded, des \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} de src à ceux de dest, caractère \textquotesingle{}\textbackslash{}0\textquotesingle{} compris.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & chaîne dont les informations sont à copier \\
+\hline
+{\em dest} & chaîne servant de conteneur pour les informations à copier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}adresse de dest si tout c\textquotesingle{}est bien passé, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_a4a278caeeec171157dab343f53172a89}\label{embedded_string_8h_a4a278caeeec171157dab343f53172a89}} 
+\index{embeddedString.h@{embeddedString.h}!embeddedStrlen@{embeddedStrlen}}
+\index{embeddedStrlen@{embeddedStrlen}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{embeddedStrlen()}{embeddedStrlen()}}
+{\footnotesize\ttfamily int embedded\+Strlen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{to\+Count }\end{DoxyParamCaption})}
+
+
+
+renvoit le nombre de char de la string 
+
+Si NULL est passé en paramètre, renvoit 0
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Count} & chaîne dont la longueur est souhaitée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre de caractères dans la chaîne to\+Count, \textquotesingle{}\textbackslash{}0\textquotesingle{} non compris 
+\end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}\label{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}} 
+\index{embeddedString.h@{embeddedString.h}!transformInEmbeddedStr@{transformInEmbeddedStr}}
+\index{transformInEmbeddedStr@{transformInEmbeddedStr}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{transformInEmbeddedStr()}{transformInEmbeddedStr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} transform\+In\+Embedded\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{char $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+transforme une string en Embedded\+String 
+
+Tout les champs is\+Finded seront à False.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & chaîne de char à transformer en Embedded\+Str \\
+\hline
+{\em dest} & chaîne servant de conteneur pour la transformation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}adresse de dest si tout c\textquotesingle{}est bien passé, NULL sinon 
+\end{DoxyReturn}
