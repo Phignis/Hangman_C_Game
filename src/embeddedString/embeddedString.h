@@ -60,6 +60,8 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
+void printEmbeddedStr(const EmbeddedString toPrint);
+
 /**
  * \fn int embeddedStrlen(EmbeddedString toCount);
  * \brief renvoit le nombre de char de la string
@@ -114,3 +116,7 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
  * \return l'adresse de dest si tout c'est bien passé, NULL sinon
  */
 EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
+
+int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
+
+Boolean isEmbeddedStrFinded(const EmbeddedString word);

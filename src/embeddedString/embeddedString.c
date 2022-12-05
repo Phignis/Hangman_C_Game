@@ -1,5 +1,23 @@
 #include "embeddedString.h"
 
+
+void printEmbeddedStr(const EmbeddedString toPrint) {
+	if(!toPrint) return;
+	
+	{
+		int i = 0;
+		
+		while(toPrint[i].value) {
+			if(toPrint[i].isFinded == 1)
+				printf("%c ", toPrint[i].value);
+			else
+				printf("_ ");
+			++i;
+		}
+		printf("\n\n");
+	}
+}
+
 size_t embeddedStrlen(const EmbeddedString toCount) { // const garantit que la valeur ne sera pas modifié, ici de la première case de la chaine
 	
 	if(!toCount) return 0; // test a le même effet que toCount == NULL cas NULl est l'adresse 0x00
@@ -84,4 +102,41 @@ EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
 		return dest;
 	}
 	
+}
+
+int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar) {
+	
+	if(!toUpdate) return -1;
+	
+	{
+		int nbLetterFinded = 0, i = 0;
+		
+		while(toUpdate[i].value) {
+			if(toUpdate[i].value == suggestedChar) {
+				toUpdate[i].isFinded = 1;
+				++nbLetterFinded;
+			}
+			
+			++i;
+		}
+		
+		return nbLetterFinded;
+	}
+}
+
+Boolean isEmbeddedStrFinded(const EmbeddedString word) {
+	if(!word) return False;
+	
+	{
+		int i = 0;
+		
+		while(word[i].value) {
+			if(!word[i].isFinded) return False;
+			++i;
+		}
+		
+		
+		return True;
+		
+	}
 }

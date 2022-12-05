@@ -1,41 +1,48 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "embeddedString/embeddedString.h"
 
-char* embeddedStrcpy(EmbeddedChar* dest, char* src) {
-	int i = 0;
-	
-	if(src == NULL || dest == NULL)
-		return NULL;
-	
-	while(src[i]) {
-		dest[i].value = src[i];
-	}
-	return dest;
-}
-
 int main(void) {
 	char *tabMots[] = {"amical", "bibliothèque", "cinema", "saucisse"};
-	int rdm, tentatives = 11, choixLettre, i = 0;
-	EmbeddedChar *hasardMot;
+	int rdm, tentatives = 11;
+	char choixLettre;
+	EmbeddedString hasardMot;
 	
 	
 	srand(time(NULL));
 	rdm = rand() % 4; // dépend taille tabMots
-	hasardMot = (EmbeddedChar *) malloc(sizeof(EmbeddedChar) * (strlen(tabMots[rdm]) + 1));
+	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots[rdm]) + 1));
 	
 	
-	if(embeddedStrcpy(hasardMot, tabMots[rdm]) == NULL) {
+	if(transformInEmbeddedStr(hasardMot, tabMots[rdm]) == NULL) {
 		//  mettre ici le traitement de correction d'erreur a effectuer
 		printf("erreur.");
 	}
 	
 	while(tentatives) {
-		printf("Il vous reste %d tentatives.\n", tentatives);
+		
+		printf("Voici l'état du mot à trouver:\n");
+		printEmbeddedStr(hasardMot);
+		
+		printf("Il vous reste %d tentatives.\n\n", tentatives);
 		
 		printf("Veuillez rentrer une lettre :\n");
+		scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 		
+		printf("Bravo, vous avez trouvé %d lettres d'un coup!\n", updateFindEmbeddedStr(hasardMot, choixLettre));
+		
+		if(isEmbeddedStrFinded(hasardMot)) {
+			printf("\nBravo vous avez trouvé le mot en %d tentatives.\n\n",
+				11 - tentatives);
+			return 0;
+		}
+		
+		--tentatives;
 	}
+	
+	printf("dommage, vous avez perdu!\n");
 	
 	return 0;
 }
