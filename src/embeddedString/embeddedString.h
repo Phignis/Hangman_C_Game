@@ -62,7 +62,9 @@ typedef EmbeddedChar *EmbeddedString;
 
 /**
  * \fn int embeddedStrlen(EmbeddedString toCount);
- * \brief embeddedStrlen répond à la même attente que strlen
+ * \brief renvoit le nombre de char de la string
+ * 
+ * Si NULL est passé en paramètre, renvoit 0
  * 
  * \param toCount chaîne dont la longueur est souhaitée
  * \return le nombre de caractères dans la chaîne toCount, '\0' non compris
@@ -71,8 +73,25 @@ size_t embeddedStrlen(EmbeddedString toCount);
 
 
 /**
+ * \fn int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2);
+ * \brief compare les chaînes de char lexicographiquement.
+ * 
+ * ATTENTION! Si les string ne se finissent pas par '\0', comportement indéfini<br>
+ * Compare les champs value de EmbeddedChar, et ne compare pas le champ isFinded
+ * 
+ * \param str1 première chaîne servant à la comparaison
+ * \param str2 seconde chaîne servant à la comparaison
+ * \return -2 si un des paramètres vaut **NULL**<br>
+ * 			0 si les chaînes sont **identiques**<br>
+ * 			1 si la chaîne 1 est **supérieure lexicographiquement** à la chaîne 2<br>
+ * 			-1 si la chaîne est **inférieure lexicographiquement** à la chaîne 2
+ */
+int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2);
+
+
+/**
  * \fn EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
- * \brief embeddedStrcpy permet de copier une chaine source dans une chaine destination
+ * \brief copie une chaine source dans une chaine destination
  * 
  * Copie la valeur des deux champs, value et isFinded, des EmbeddedChar de src à ceux
  * de dest, caractère '\0' compris.
@@ -86,7 +105,7 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
 
 /**
  * \fn EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
- * \brief transformInEmbeddedStr permet de transformer une string en EmbeddedString
+ * \brief transforme une string en EmbeddedString
  * 
  * Tout les champs isFinded seront à False.
  * 
