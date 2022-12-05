@@ -13,6 +13,9 @@
 #include <stddef.h>
 
 
+
+
+
 /**
  * \brief Enum d'un type Boolean
  * 
@@ -55,6 +58,8 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
+
+
 /**
  * \fn int embeddedStrlen(EmbeddedString toCount);
  * \brief embeddedStrlen répond à la même attente que strlen
@@ -63,3 +68,30 @@ typedef EmbeddedChar *EmbeddedString;
  * \return le nombre de caractères dans la chaîne toCount, '\0' non compris
  */
 size_t embeddedStrlen(EmbeddedString toCount);
+
+
+/**
+ * \fn EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
+ * \brief embeddedStrcpy permet de copier une chaine source dans une chaine destination
+ * 
+ * Copie la valeur des deux champs, value et isFinded, des EmbeddedChar de src à ceux
+ * de dest, caractère '\0' compris.
+ * 
+ * \param src chaîne dont les informations sont à copier
+ * \param dest chaîne servant de conteneur pour les informations à copier
+ * \return l'adresse de dest si tout c'est bien passé, NULL sinon
+ */
+EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
+
+
+/**
+ * \fn EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
+ * \brief transformInEmbeddedStr permet de transformer une string en EmbeddedString
+ * 
+ * Tout les champs isFinded seront à False.
+ * 
+ * \param src chaîne de char à transformer en EmbeddedStr
+ * \param dest chaîne servant de conteneur pour la transformation
+ * \return l'adresse de dest si tout c'est bien passé, NULL sinon
+ */
+EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
