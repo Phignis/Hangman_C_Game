@@ -26,6 +26,8 @@ enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Bool
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}{print\+Embedded\+Str}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Print)
+\begin{DoxyCompactList}\small\item\em Affiche la chaine de char contenu dans to\+Print, si trouvé \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embedded\+Strlen}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Count)
 \begin{DoxyCompactList}\small\item\em renvoit le nombre de char de la string \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embedded\+Strcmp}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str1, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str2)
@@ -33,7 +35,11 @@ int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embed
 \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}{embedded\+Strcpy}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
 \begin{DoxyCompactList}\small\item\em copie une chaine source dans une chaine destination \end{DoxyCompactList}\item 
 \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}{transform\+In\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, char $\ast$src)
-\begin{DoxyCompactList}\small\item\em transforme une string en Embedded\+String \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em transforme une string en Embedded\+String \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{update\+Find\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Update, char suggested\+Char)
+\begin{DoxyCompactList}\small\item\em passe en état trouvé les char du mot correspondant au char suggéré \end{DoxyCompactList}\item 
+\mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
+\begin{DoxyCompactList}\small\item\em permet de savoir si une chaîne est entièrement trouvée \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -162,6 +168,40 @@ Si NULL est passé en paramètre, renvoit 0
 \begin{DoxyReturn}{Renvoie}
 le nombre de caractères dans la chaîne to\+Count, \textquotesingle{}\textbackslash{}0\textquotesingle{} non compris 
 \end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}\label{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}} 
+\index{embeddedString.h@{embeddedString.h}!isEmbeddedStrFinded@{isEmbeddedStrFinded}}
+\index{isEmbeddedStrFinded@{isEmbeddedStrFinded}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{isEmbeddedStrFinded()}{isEmbeddedStrFinded()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Embedded\+Str\+Finded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{word }\end{DoxyParamCaption})}
+
+
+
+permet de savoir si une chaîne est entièrement trouvée 
+
+Cela permet donc de savoir si tout les \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} de la chaine sont trouvés \+: les champs is\+Finded doivent être à True
+
+
+\begin{DoxyParams}{Paramètres}
+{\em word} & string potentiellement entièrement trouvé \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}\label{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}} 
+\index{embeddedString.h@{embeddedString.h}!printEmbeddedStr@{printEmbeddedStr}}
+\index{printEmbeddedStr@{printEmbeddedStr}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{printEmbeddedStr()}{printEmbeddedStr()}}
+{\footnotesize\ttfamily void print\+Embedded\+Str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{to\+Print }\end{DoxyParamCaption})}
+
+
+
+Affiche la chaine de char contenu dans to\+Print, si trouvé 
+
+Si le champ is\+Finded est à false, affiche un \char`\"{}\+\_\+\char`\"{}, sinon affiche le champ value
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Print} & chaine à afficher \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}\label{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}} 
 \index{embeddedString.h@{embeddedString.h}!transformInEmbeddedStr@{transformInEmbeddedStr}}
 \index{transformInEmbeddedStr@{transformInEmbeddedStr}!embeddedString.h@{embeddedString.h}}
@@ -183,4 +223,27 @@ Tout les champs is\+Finded seront à False.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 l\textquotesingle{}adresse de dest si tout c\textquotesingle{}est bien passé, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}\label{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}} 
+\index{embeddedString.h@{embeddedString.h}!updateFindEmbeddedStr@{updateFindEmbeddedStr}}
+\index{updateFindEmbeddedStr@{updateFindEmbeddedStr}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{updateFindEmbeddedStr()}{updateFindEmbeddedStr()}}
+{\footnotesize\ttfamily int update\+Find\+Embedded\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{to\+Update,  }\item[{char}]{suggested\+Char }\end{DoxyParamCaption})}
+
+
+
+passe en état trouvé les char du mot correspondant au char suggéré 
+
+tout les \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} ont un char équivalent à suggested\+Char sont mis à l\textquotesingle{}état trouvé (is\+Finded à True)
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Update} & chaîne contenant potentiellement les char à mettre à l\textquotesingle{}état Trouvé \\
+\hline
+{\em suggested\+Char} & caractère suggéré pour une itération du pendu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si to\+Update vaut NULL~\newline
+ le nombre de lettres de to\+Update passé à l\textquotesingle{}état trouvé 
 \end{DoxyReturn}

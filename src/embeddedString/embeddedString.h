@@ -59,7 +59,14 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
-
+/**
+ * \fn void printEmbeddedStr(const EmbeddedString toPrint);
+ * \brief Affiche la chaine de char contenu dans toPrint, si trouvé
+ * 
+ * Si le champ isFinded est à false, affiche un "_", sinon affiche le champ value
+ * 
+ * \param toPrint chaine à afficher
+ */
 void printEmbeddedStr(const EmbeddedString toPrint);
 
 /**
@@ -117,6 +124,29 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
  */
 EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
 
+
+/**
+ * \fn int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
+ * \brief passe en état trouvé les char du mot correspondant au char suggéré
+ * 
+ * tout les EmbeddedChar ont un char équivalent à suggestedChar sont mis à l'état
+ * trouvé (isFinded à True)
+ * 
+ * \param toUpdate chaîne contenant potentiellement les char à mettre à l'état Trouvé
+ * \param suggestedChar caractère suggéré pour une itération du pendu
+ * \return -1 si toUpdate vaut NULL<br>
+ * 			le nombre de lettres de toUpdate passé à l'état trouvé
+ * 			
+ */
 int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
 
+/**
+ * \fn Boolean isEmbeddedStrFinded(const EmbeddedString word);
+ * \brief permet de savoir si une chaîne est entièrement trouvée
+ * 
+ * Cela permet donc de savoir si tout les EmbeddedChar de la chaine sont trouvés :
+ * les champs isFinded doivent être à True
+ * 
+ * \param word string potentiellement entièrement trouvé
+ */
 Boolean isEmbeddedStrFinded(const EmbeddedString word);
