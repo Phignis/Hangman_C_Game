@@ -22,7 +22,7 @@ Boolean isProposedLetterValid(char submittedChar, Boolean alphabet[]) {
 	if(submittedChar > 64 && submittedChar < 91 && alphabet[submittedChar - 'A'] == False) {
 		return True;
 	}
-	else if(submittedChar > 96 && submittedChar < 123 && alphabet[submittedChar - 'a'] == False) { // minuscule
+	else if(submittedChar > 96 && submittedChar < 123 && alphabet[submittedChar - 'a'] == False) {
 		return True;
 	}
 	
@@ -60,6 +60,8 @@ int main(void) {
 	if(!transformInEmbeddedStr(hasardMot, tabMots[rdm])) {
 		//  mettre ici le traitement de correction d'erreur a effectuer
 		printf("erreur lors de la récupération du mot en mémoire\n.");
+		free(hasardMot);
+		return 2;
 	}
 	
 	/* l'alphabet est composé de 26 cases à False.
@@ -73,7 +75,7 @@ int main(void) {
 	
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
 		
-		printf("\n\n\x1B[33m");
+		printf("\n\n\x1B[36m");
 		printEmbeddedStr(hasardMot);
 		printf("\033[0m");
 		
@@ -86,8 +88,8 @@ int main(void) {
 		scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 		
 		
-		while(alphabet[choixLettre - 'a'] == 1) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
-			printf("La lettre a déjà été soumise. Veuillez rentrer une nouvelle lettre :\n");
+		while(!isProposedLetterValid(choixLettre, alphabet)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
+			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 
 		}
@@ -101,9 +103,23 @@ int main(void) {
 		
 		nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
 		
-		printf("Bravo, vous avez trouvé %d lettres d'un coup!\n", nbLettersFinded);
+		switch(nbLettersFinded - 2) {
+			case -3:
+				printf("null pointer for hasardMot"); // pas atteignable normalement
+				break;
+			case -2:
+				printf("La lettre %c n'est pas présente dans le mot à deviner.\n", choixLettre);
+				--tentatives;
+				
+				break;
+			case 0 || -1:
+				printf("Bravo, vous avez trouvé %d lettres.\n", nbLettersFinded);
+				
+				break;
+			default:
+				printf("Incroyable, vous êtes parvenu(e)s à trouver %d lettres en une fois!!\n", nbLettersFinded);			
+		}
 		
-		--tentatives;
 	}
 	
 	if(tentatives)
