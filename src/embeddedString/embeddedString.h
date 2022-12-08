@@ -10,6 +10,15 @@
  * \version 1.0
  */
 
+#ifndef EMBEDDEDSTRING_H_FT
+/*
+ * ce qui est entre le ifndef et le endif est pris en compte seulement si 
+ * l'identifiant n'était pas défini ici
+ */
+#define EMBEDDEDSTRING_H_FT // définit l'identifiant pour éviter de ré-importer
+
+
+
 #include <stddef.h>
 
 
@@ -153,3 +162,5 @@ int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
  * 			False sinon
  */
 Boolean isEmbeddedStrFinded(const EmbeddedString word);
+
+#endif // EMBEDDEDSTRING_H_FT
