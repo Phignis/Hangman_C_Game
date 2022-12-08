@@ -20,8 +20,9 @@
  * \brief Enum d'un type Boolean
  * 
  * Attention! Etant donné que True est une étiquette pour 1, il n'est pas possible
- * de vérifier qu'une sortie est vraie au sens C du terme avec.<br> En comparant
- * avec True, cela revient à tester que ce soit égal à 0
+ * de vérifier qu'une sortie est vraie au sens booléen du terme.<br> En comparant
+ * avec True, cela revient à tester que ce soit égal à 1, et non pas à n'importe quelle 
+ * valeur autre que 0.
  */
 typedef enum {
 	False, /**< étiquette pour la valeur 0 */
@@ -39,7 +40,7 @@ typedef enum {
  * a été trouvé.
  */
 typedef struct {
-	char value; /**< True est une étiquette pour la valeur 0 */
+	char value; /**< caractère wrappé dans EmbeddedChar */
 	Boolean isFinded; /**< indique si ce charactère a déjà été trouvé  */
 } EmbeddedChar;
 
@@ -86,7 +87,7 @@ size_t embeddedStrlen(EmbeddedString toCount);
  * \brief compare les chaînes de char lexicographiquement.
  * 
  * ATTENTION! Si les string ne se finissent pas par '\0', comportement indéfini<br>
- * Compare les champs value de EmbeddedChar, et ne compare pas le champ isFinded
+ * Compare le champ value des EmbeddedChar, et ne compare pas le champ isFinded
  * 
  * \param str1 première chaîne servant à la comparaison
  * \param str2 seconde chaîne servant à la comparaison
@@ -135,7 +136,7 @@ EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
  * \param toUpdate chaîne contenant potentiellement les char à mettre à l'état Trouvé
  * \param suggestedChar caractère suggéré pour une itération du pendu
  * \return -1 si toUpdate vaut NULL<br>
- * 			le nombre de lettres de toUpdate passé à l'état trouvé
+ * 			sinon le nombre de lettres de toUpdate passé à l'état trouvé
  * 			
  */
 int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
@@ -148,5 +149,7 @@ int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
  * les champs isFinded doivent être à True
  * 
  * \param word string potentiellement entièrement trouvé
+ * \return True si la chaîne a été trouvée entièrement<br>
+ * 			False sinon
  */
 Boolean isEmbeddedStrFinded(const EmbeddedString word);

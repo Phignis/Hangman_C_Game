@@ -174,8 +174,8 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Enum d'un type Boolean. </p>
-<p >Attention! Etant donné que True est une étiquette pour 1, il n'est pas possible de vérifier qu'une sortie est vraie au sens C du terme avec.<br  />
- En comparant avec True, cela revient à tester que ce soit égal à 0 </p>
+<p >Attention! Etant donné que True est une étiquette pour 1, il n'est pas possible de vérifier qu'une sortie est vraie au sens booléen du terme.<br  />
+ En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n'importe quelle valeur autre que 0. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24" name="ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24"></a>False&#160;</td><td class="fielddoc"><p >étiquette pour la valeur 0 </p>
 </td></tr>
@@ -214,7 +214,7 @@ Fonctions</h2></td></tr>
 
 <p>compare les chaînes de char lexicographiquement. </p>
 <p >ATTENTION! Si les string ne se finissent pas par '\0', comportement indéfini<br  />
- Compare les champs value de <a class="el" href="../../d2/d6c/struct_embedded_char.html" title="EmbeddedChar est un wrapper de char.">EmbeddedChar</a>, et ne compare pas le champ isFinded</p>
+ Compare le champ value des <a class="el" href="../../d2/d6c/struct_embedded_char.html" title="EmbeddedChar est un wrapper de char.">EmbeddedChar</a>, et ne compare pas le champ isFinded</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">str1</td><td>première chaîne servant à la comparaison </td></tr>
@@ -320,6 +320,8 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>True si la chaîne a été trouvée entièrement<br  />
+ False sinon </dd></dl>
 
 </div>
 </div>
@@ -425,7 +427,7 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>-1 si toUpdate vaut NULL<br  />
- le nombre de lettres de toUpdate passé à l'état trouvé </dd></dl>
+ sinon le nombre de lettres de toUpdate passé à l'état trouvé </dd></dl>
 
 </div>
 </div>

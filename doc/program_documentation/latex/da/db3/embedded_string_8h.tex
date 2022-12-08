@@ -86,8 +86,8 @@ Il se finit donc par conséquence par un \mbox{\hyperlink{struct_embedded_char}{
 
 Enum d\textquotesingle{}un type Boolean. 
 
-Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens C du terme avec.~\newline
- En comparant avec True, cela revient à tester que ce soit égal à 0 \begin{DoxyEnumFields}{Valeurs énumérées}
+Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens booléen du terme.~\newline
+ En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n\textquotesingle{}importe quelle valeur autre que 0. \begin{DoxyEnumFields}{Valeurs énumérées}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
 False&étiquette pour la valeur 0 \\
 \hline
@@ -111,7 +111,7 @@ True&étiquette pour la valeur 1 \\
 compare les chaînes de char lexicographiquement. 
 
 ATTENTION! Si les string ne se finissent pas par \textquotesingle{}\textbackslash{}0\textquotesingle{}, comportement indéfini~\newline
- Compare les champs value de \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}, et ne compare pas le champ is\+Finded
+ Compare le champ value des \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}, et ne compare pas le champ is\+Finded
 
 
 \begin{DoxyParams}{Paramètres}
@@ -185,6 +185,10 @@ Cela permet donc de savoir si tout les \mbox{\hyperlink{struct_embedded_char}{Em
 {\em word} & string potentiellement entièrement trouvé \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si la chaîne a été trouvée entièrement~\newline
+ False sinon 
+\end{DoxyReturn}
 \mbox{\Hypertarget{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}\label{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}} 
 \index{embeddedString.h@{embeddedString.h}!printEmbeddedStr@{printEmbeddedStr}}
 \index{printEmbeddedStr@{printEmbeddedStr}!embeddedString.h@{embeddedString.h}}
@@ -245,5 +249,5 @@ tout les \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} ont un char éq
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 -\/1 si to\+Update vaut NULL~\newline
- le nombre de lettres de to\+Update passé à l\textquotesingle{}état trouvé 
+ sinon le nombre de lettres de to\+Update passé à l\textquotesingle{}état trouvé 
 \end{DoxyReturn}

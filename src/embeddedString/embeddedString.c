@@ -85,6 +85,7 @@ EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
 	
 	if(!src || !dest)
 		return NULL;
+	
 	{
 		int i = 0;
 		
