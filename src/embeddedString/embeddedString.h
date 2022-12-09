@@ -24,7 +24,8 @@
 
 
 
-
+#ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean
+#define BOOLEAN_TF
 /**
  * \brief Enum d'un type Boolean
  * 
@@ -37,6 +38,7 @@ typedef enum {
 	False, /**< étiquette pour la valeur 0 */
 	True /**< étiquette pour la valeur 1 */
 } Boolean;
+#endif
 
 
 /**
