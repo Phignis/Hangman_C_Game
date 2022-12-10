@@ -31,6 +31,11 @@ int main(void) {
 		free(hasardMot);
 	}
 	
+	printf( "\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
+	/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.
+	 *  and e [2J adds a space to the top of all existing screen characters."
+	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/*/
+
 	
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
 		
@@ -46,7 +51,6 @@ int main(void) {
 		printf("Veuillez proposer une lettre :\n");
 		scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 		
-		
 		while(!isProposedLetterValid(*alphabet, choixLettre)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
@@ -57,6 +61,11 @@ int main(void) {
 		
 		nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
 		
+		printf( "\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
+		/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.
+		 *  and e [2J adds a space to the top of all existing screen characters."
+		 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/*/
+		printf("\n\n");
 		switch(nbLettersFinded - 2) {
 			case -3:
 				printf("null pointer for hasardMot"); // pas atteignable normalement

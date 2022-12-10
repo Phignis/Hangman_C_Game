@@ -6,7 +6,10 @@ Boolean createAlphabet(Alphabet **toCreate) {
 	if(!(*toCreate)) return False;
 	
 	(*toCreate)->array = (Boolean *) malloc(sizeof(Boolean) * 26);
-	if(!(*toCreate)->array) return False;
+	if(!(*toCreate)->array) {
+		free(*toCreate); // éviter les leaks de mémoire
+		return False;
+	}
 	
 	(*toCreate)->physicalSize = 26;
 	
