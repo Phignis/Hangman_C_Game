@@ -1,0 +1,53 @@
+\hypertarget{alphabet_8h_source}{}\doxysection{alphabet.\+h}
+\label{alphabet_8h_source}\index{alphabet/alphabet.h@{alphabet/alphabet.h}}
+\mbox{\hyperlink{alphabet_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef ALPHABET\_H\_TF}}
+\DoxyCodeLine{15 \textcolor{comment}{/*}}
+\DoxyCodeLine{16 \textcolor{comment}{ * ce qui est entre le ifndef et le endif est pris en compte seulement si }}
+\DoxyCodeLine{17 \textcolor{comment}{ * l'identifiant n'était pas défini ici}}
+\DoxyCodeLine{18 \textcolor{comment}{ */}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define ALPHABET\_H\_TF}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifndef BOOLEAN\_TF }\textcolor{comment}{// on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define BOOLEAN\_TF}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}, }
+\DoxyCodeLine{38     \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}} }
+\DoxyCodeLine{39 \} \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}};}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{50 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{51     \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} *\mbox{\hyperlink{struct_alphabet_a151e92a3a711a95fc917f1cae637c754}{array}}; }
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_alphabet_a17389b89f46dee0cd8f5f17566e1bdee}{logicalSize}}; }
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_alphabet_ae8af6fa999808e3f0e662e124c2166ac}{physicalSize}}; }
+\DoxyCodeLine{54 \} \mbox{\hyperlink{struct_alphabet}{Alphabet}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{71 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a2a532880617c8b8347a073216c420117}{createAlphabet}}(\mbox{\hyperlink{struct_alphabet}{Alphabet}} **toCreate);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{82 \textcolor{keywordtype}{void} \mbox{\hyperlink{alphabet_8h_a72ad49290140dfc68895ee64dbf8f051}{destroyAlphabet}}(\mbox{\hyperlink{struct_alphabet}{Alphabet}} *toDestroy);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{void} \mbox{\hyperlink{alphabet_8h_a7cb414ae9a698f85d5ee5ae880b5a122}{printAlphabet}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_alphabet}{Alphabet}} toPrint);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{114 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a3de376c264aba126365547e528abffb8}{isProposedLetterValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_alphabet}{Alphabet}} alphabet, \textcolor{keywordtype}{char} submittedChar);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{132 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a16640b0c2c4aab6ebc9af88bca8fe49e}{updateAlphabet}}(\mbox{\hyperlink{struct_alphabet}{Alphabet}} toUpdate, \textcolor{keywordtype}{char} submittedChar);}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ALPHABET\_H\_TF}}
+
+\end{DoxyCode}

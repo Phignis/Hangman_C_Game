@@ -2,9 +2,7 @@
 
 
 void printEmbeddedStr(const EmbeddedString toPrint) {
-	if(!toPrint) return;
-	
-	{
+	if(toPrint) {
 		int i = 0;
 		
 		while(toPrint[i].value) {
@@ -20,9 +18,7 @@ void printEmbeddedStr(const EmbeddedString toPrint) {
 
 size_t embeddedStrlen(const EmbeddedString toCount) { // const garantit que la valeur ne sera pas modifié, ici de la première case de la chaine
 	
-	if(!toCount) return 0; // test a le même effet que toCount == NULL cas NULl est l'adresse 0x00
-	
-	{
+	if(toCount) { // test a le même effet que toCount != NULL cas NULl est l'adresse 0x00
 		int i = 0; // réservation de la place mémoire qu'à l'entrée dans le scope (accolande ouvrante)
 		// non réservée si toCount n'est pas exploitable car NULL
 		
@@ -32,12 +28,12 @@ size_t embeddedStrlen(const EmbeddedString toCount) { // const garantit que la v
 		
 		return i;
 	}
+	
+	return 0;
 }
 
 int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2) {
-	if(!str1 || !str2) return -2;
-	
-	{
+	if(str1 && str2) {
 		int i = 0;
 		
 		while(str1[i].value && str2[i].value) {
@@ -52,18 +48,15 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2) {
 		// si il reste des char sur l'un, il est plus grand
 		if(str1[i].value) return 1;
 		if(str2[i].value) return -1;
-		
+		return 0;
 	}
 	
-	return 0;
+	return -2;
 }
 
 EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src) {
 	
-	if(!src || !dest)
-		return NULL;
-		
-	{
+	if(src && dest) {
 		int i = 0;
 		
 		while(src[i].value) {
@@ -79,14 +72,13 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src) {
 		
 		return dest;
 	}
+	
+	return NULL;
 }
 
 EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
 	
-	if(!src || !dest)
-		return NULL;
-	
-	{
+	if(src && dest) {
 		int i = 0;
 		
 		while(src[i]) {
@@ -103,13 +95,13 @@ EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
 		return dest;
 	}
 	
+	return NULL;
+	
 }
 
 int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar) {
 	
-	if(!toUpdate) return -1;
-	
-	{
+	if(toUpdate) {
 		int nbLetterFinded = 0, i = 0;
 		
 		while(toUpdate[i].value) {
@@ -123,12 +115,12 @@ int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar) {
 		
 		return nbLetterFinded;
 	}
+	
+	return -1;
 }
 
 Boolean isEmbeddedStrFinded(const EmbeddedString word) {
-	if(!word) return False;
-	
-	{
+	if(word) {
 		int i = 0;
 		
 		while(word[i].value) {
@@ -140,4 +132,5 @@ Boolean isEmbeddedStrFinded(const EmbeddedString word) {
 		return True;
 		
 	}
+	return False;
 }

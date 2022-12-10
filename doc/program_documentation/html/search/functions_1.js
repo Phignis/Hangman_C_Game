@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isembeddedstrfinded_0',['isEmbeddedStrFinded',['../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68',1,'embeddedString.h']]]
+  ['destroyalphabet_0',['destroyAlphabet',['../dd/d90/alphabet_8h.html#a72ad49290140dfc68895ee64dbf8f051',1,'alphabet.h']]]
 ];

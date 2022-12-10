@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['embeddedchar_0',['EmbeddedChar',['../d2/d6c/struct_embedded_char.html',1,'']]]
+  ['alphabet_0',['Alphabet',['../df/d1c/struct_alphabet.html',1,'']]]
 ];

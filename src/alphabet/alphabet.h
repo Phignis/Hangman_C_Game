@@ -19,8 +19,6 @@
 #define ALPHABET_H_TF
 
 
-
-
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi
 #define BOOLEAN_TF
 
@@ -57,7 +55,7 @@ typedef struct {
 
 
 /**
- * \fn Boolean createAlphabet(Alphabet *toCreate);
+ * \fn Boolean createAlphabet(Alphabet **toCreate);
  * \brief permet de créer un alphabet
  * 
  * déclare un array de Boolean de 26 champs, représentant l'utilisation
@@ -92,7 +90,44 @@ void destroyAlphabet(Alphabet *toDestroy);
  * 
  * \param toPrint alphabet à afficher
  */
-void printAlphabet(Alphabet toPrint);
+void printAlphabet(const Alphabet toPrint);
+
+
+/**
+ * \fn Boolean isProposedLetterValid(const Alphabet alphabet, char submittedChar);
+ * \brief Permet de savoir si une lettre proposée est valide, donc non utilisée
+ * 
+ * Recherche dans l'alphabet si le caractère est déjà utilisé, donc que le
+ * Boolean lié à son index est à True.
+ * 
+ * \param alphabet structure contenant l'état d'utilisation des lettres
+ * \param submittedChar caractère proposé par l'utilisateur
+ * \return True si le char est valide (une lettre, non déjà utilisé)
+ * 			False si: <br>
+ * 			*   ce n'est pas une lettre
+ * 			*   le tableau de l'alphabet n'existe pas (NULL)
+ * 			*   la lettre n'est pas dans l'alphabet passé en paramètre
+ * 			*   la lettre est déjà utilisé
+ */
+Boolean isProposedLetterValid(const Alphabet alphabet, char submittedChar);
+
+
+/**
+ * \fn Boolean updateAlphabet(Alphabet toUpdate, char submittedChar);
+ * \brief Permet de mettre à jour les lettres d'un alphabet
+ * 
+ * Permet de mettre à True l'état d'utilisation de la lettre dans alphabet, correspondant
+ * au charactère soumis
+ * 
+ * \param toUpdate alphabet dont il faut update l'état d'utilisation de la lettre propposé à True
+ * \param submittedChar caractère dont il faut mettre l'état d'utilisation à True dans l'alphabet
+ * \return True si la mise a jour a été effectué<br>
+ * 			False si quelque chose s'est mal passé:<br>
+ * 			* le champ array de Alphabet vaut NULL
+ * 			* le char n'est pas une lettre
+ * 			* la lettre n'est pas dans l'alphabet passé en paramètre
+ */
+Boolean updateAlphabet(Alphabet toUpdate, char submittedChar);
 
 
 #endif // ALPHABET_H_TF

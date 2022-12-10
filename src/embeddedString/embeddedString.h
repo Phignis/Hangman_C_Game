@@ -23,7 +23,6 @@
 
 
 
-
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean
 #define BOOLEAN_TF
 /**

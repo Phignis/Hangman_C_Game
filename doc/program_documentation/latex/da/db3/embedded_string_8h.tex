@@ -19,7 +19,9 @@ typedef \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} $\ast$ \mbox{\hy
 \doxysubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
+enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
+, \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
+, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
 , \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
  \}
 \begin{DoxyCompactList}\small\item\em Enum d\textquotesingle{}un type Boolean. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -38,7 +40,7 @@ int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embed
 \begin{DoxyCompactList}\small\item\em transforme une string en Embedded\+String \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{update\+Find\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Update, char suggested\+Char)
 \begin{DoxyCompactList}\small\item\em passe en état trouvé les char du mot correspondant au char suggéré \end{DoxyCompactList}\item 
-\mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
+\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
 \begin{DoxyCompactList}\small\item\em permet de savoir si une chaîne est entièrement trouvée \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -80,7 +82,7 @@ Il se finit donc par conséquence par un \mbox{\hyperlink{struct_embedded_char}{
 \index{embeddedString.h@{embeddedString.h}!Boolean@{Boolean}}
 \index{Boolean@{Boolean}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
 
 
 
@@ -88,6 +90,14 @@ Enum d\textquotesingle{}un type Boolean.
 
 Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens booléen du terme.~\newline
  En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n\textquotesingle{}importe quelle valeur autre que 0. \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
+False&étiquette pour la valeur 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!True@{True}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
+True&étiquette pour la valeur 1 \\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
 False&étiquette pour la valeur 0 \\
 \hline
@@ -172,7 +182,7 @@ le nombre de caractères dans la chaîne to\+Count, \textquotesingle{}\textbacks
 \index{embeddedString.h@{embeddedString.h}!isEmbeddedStrFinded@{isEmbeddedStrFinded}}
 \index{isEmbeddedStrFinded@{isEmbeddedStrFinded}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{isEmbeddedStrFinded()}{isEmbeddedStrFinded()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Embedded\+Str\+Finded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{word }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Embedded\+Str\+Finded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{word }\end{DoxyParamCaption})}
 
 
 
