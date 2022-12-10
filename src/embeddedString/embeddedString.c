@@ -54,7 +54,7 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2) {
 	return -2;
 }
 
-EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src) {
+EmbeddedString embeddedStrcpy(EmbeddedString dest, const EmbeddedString src) {
 	
 	if(src && dest) {
 		int i = 0;
@@ -76,7 +76,7 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src) {
 	return NULL;
 }
 
-EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
+EmbeddedString transformInEmbeddedStr(EmbeddedString dest, const char *src) {
 	
 	if(src && dest) {
 		int i = 0;
@@ -99,7 +99,23 @@ EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src) {
 	
 }
 
-int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar) {
+char* transformInStr(char *dest, const EmbeddedString src) {
+	if(src && dest) {
+		int i = 0;
+		while(src[i].value) {
+			dest[i] = src[i].value;
+			++i;
+		}
+		// when finished, we add the '\0' char
+		dest[i] = '\0';
+		
+		return dest;
+	}
+	
+	return NULL;
+}
+
+int updateFindEmbeddedStr(EmbeddedString toUpdate, const char suggestedChar) {
 	
 	if(toUpdate) {
 		int nbLetterFinded = 0, i = 0;

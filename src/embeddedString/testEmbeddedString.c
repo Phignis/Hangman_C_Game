@@ -91,7 +91,7 @@ int testEmbeddedStrcpy(void) {
 
 int testTransformInEmbeddedStr(void) {
 	
-	EmbeddedString dest = (EmbeddedString) malloc(sizeof(EmbeddedChar) * 5);
+	EmbeddedString dest;
 	char *src;
 	
 	src = (char *) malloc(sizeof(char) * 5);
@@ -116,6 +116,40 @@ int testTransformInEmbeddedStr(void) {
 	
 	if(dest[0].value != 't' || dest[1].value != 'o' || dest[2].value != 't'
 		|| dest[3].value != 'o' || dest[4].value != '\0')
+		return -1;
+	
+	free(src);
+	free(dest);
+	
+	return 0;
+}
+
+int testTransformInStr(void) {
+	char *dest;
+	EmbeddedString src;
+	
+	src = (EmbeddedString) malloc(sizeof(EmbeddedChar) * 5);
+	if(!src) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	dest = (char *) malloc(sizeof(char) * 5);
+	if(!dest) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	if(!transformInEmbeddedStr(src, "toto")) {
+		printf("Soucis lors du transformInEmbeddedStr.\n");
+		return -1;
+	}
+	
+	if(transformInStr(NULL, src) || transformInStr(dest, NULL)
+		|| !transformInStr(dest, src)) return -1;
+	
+	if(dest[0] != 't' || dest[1] != 'o' || dest[2] != 't'
+		|| dest[3] != 'o' || dest[4] != '\0')
 		return -1;
 	
 	free(src);
@@ -224,6 +258,11 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction isEmbeddedStrFinded.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction isEmbeddedStrFinded réussi!\033[0m\n");
+	
+	if(testTransformInStr())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction transformInStr.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction transformInStr réussi!\033[0m\n");
 	
 	
 	

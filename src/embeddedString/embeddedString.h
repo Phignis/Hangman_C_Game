@@ -120,7 +120,7 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2);
  * \param dest chaîne servant de conteneur pour les informations à copier
  * \return l'adresse de dest si tout c'est bien passé, NULL sinon
  */
-EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
+EmbeddedString embeddedStrcpy(EmbeddedString dest, const EmbeddedString src);
 
 
 /**
@@ -133,7 +133,17 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
  * \param dest chaîne servant de conteneur pour la transformation
  * \return l'adresse de dest si tout c'est bien passé, NULL sinon
  */
-EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
+EmbeddedString transformInEmbeddedStr(EmbeddedString dest, const char *src);
+
+/**
+ * \fn char* transformInStr(char *dest, EmbeddedString src);
+ * \brief transforme un EmbeddedString en string
+ * 
+ * \param src EmbeddedString à transformer en chaine de char
+ * \param dest chaîne servant de conteneur pour la transformation
+ * \return l'adresse de dest si tout c'est bien passé, NULL sinon
+ */
+char* transformInStr(char *dest, const EmbeddedString src);
 
 
 /**

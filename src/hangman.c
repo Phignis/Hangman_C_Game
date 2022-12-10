@@ -7,10 +7,10 @@
 #include "alphabet/alphabet.h"
 
 int main(void) {
-	char *tabMots[] = {"amical", "bibliothèque", "cinema", "saucisse"};
+	char *tabMots[] = {"amical", "bibliotheque", "cinema", "saucisse"};
 	int rdm, tentatives = 11, nbLettersFinded;
 	Alphabet *alphabet;
-	char choixLettre;
+	char choixLettre, *hasardMotStr;
 	EmbeddedString hasardMot;
 	
 	srand(time(NULL));
@@ -34,7 +34,8 @@ int main(void) {
 	printf( "\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
 	/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.
 	 *  and e [2J adds a space to the top of all existing screen characters."
-	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/*/
+	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/ 
+	 */
 
 	
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
@@ -89,12 +90,21 @@ int main(void) {
 		
 	}
 	
+	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
+	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
+		destroyAlphabet(alphabet);
+		free(hasardMot);
+		printf("Erreur lors de l'affichage du mot trouvé.\n");
+		return -1;
+	}
+	
 	if(tentatives)
-		printf("Bravo, vous avez trouvé le mot.\n");
+		printf("Bravo, le mot était bien \"%s\".\n", hasardMotStr);
 	else
-		printf("Dommage, vous avez perdu!\n");
+		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
 	
 	destroyAlphabet(alphabet);
+	free(hasardMotStr);
 	free(hasardMot);
 	return 0;
 }

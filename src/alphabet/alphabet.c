@@ -22,6 +22,7 @@ Boolean createAlphabet(Alphabet **toCreate) {
 }
 
 void destroyAlphabet(Alphabet *toDestroy) {
+	
 	if(toDestroy) {
 		free(toDestroy->array);
 	}
