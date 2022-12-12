@@ -1,3 +1,15 @@
+/**
+ * \file hangman.h
+ * \brief Définit le comportement global du jeu du pendu
+ * 
+ * Définit nottament la fonction de chargement des mots depuis un fichier,
+ * en plus de la fonction pour jouer au jeu du pendu.
+ * 
+ * \author FOUCRAS Baptiste, TOURE Makalé
+ * \date 12 décembre 2022
+ * \version 1.0
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,7 +32,7 @@
 void destroyWordsArr(char **toDestroy, int logicalSize);
 
 /**
- * \fn int loadWords(char *pathToFile, char ***myTab);
+ * \fn int loadWords(char *pathToFile, char ***storingTab);
  * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans myTab
  * 
  * Stocke dans storingTab les chaînes de caractères se trouvant dans le fichier indiqué par pathToFile<br>

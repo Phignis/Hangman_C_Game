@@ -19,8 +19,8 @@ typedef \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} $\ast$ \mbox{\hy
 \doxysubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
-, \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
+enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ {\bfseries False}
+, {\bfseries True}
 , \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
 , \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
  \}
@@ -34,10 +34,12 @@ size\+\_\+t \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a8
 \begin{DoxyCompactList}\small\item\em renvoit le nombre de char de la string \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embedded\+Strcmp}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str1, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str2)
 \begin{DoxyCompactList}\small\item\em compare les chaînes de char lexicographiquement. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}{embedded\+Strcpy}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
+\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}{embedded\+Strcpy}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
 \begin{DoxyCompactList}\small\item\em copie une chaine source dans une chaine destination \end{DoxyCompactList}\item 
-\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}{transform\+In\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, char $\ast$src)
+\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}{transform\+In\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, const char $\ast$src)
 \begin{DoxyCompactList}\small\item\em transforme une string en Embedded\+String \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f5}{transform\+In\+Str}} (char $\ast$dest, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
+\begin{DoxyCompactList}\small\item\em transforme un Embedded\+String en string \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{update\+Find\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Update, char suggested\+Char)
 \begin{DoxyCompactList}\small\item\em passe en état trouvé les char du mot correspondant au char suggéré \end{DoxyCompactList}\item 
 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
@@ -98,14 +100,6 @@ False&étiquette pour la valeur 0 \\
 True&étiquette pour la valeur 1 \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
-False&étiquette pour la valeur 0 \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!True@{True}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
-True&étiquette pour la valeur 1 \\
-\hline
-
 \end{DoxyEnumFields}
 
 
@@ -134,13 +128,13 @@ ATTENTION! Si les string ne se finissent pas par \textquotesingle{}\textbackslas
 -\/2 si un des paramètres vaut {\bfseries{NULL}}~\newline
  0 si les chaînes sont {\bfseries{identiques}}~\newline
  1 si la chaîne 1 est {\bfseries{supérieure lexicographiquement}} à la chaîne 2~\newline
- -\/1 si la chaîne est {\bfseries{inférieure lexicographiquement}} à la chaîne 2 
+ -\/1 si la chaîne 1 est {\bfseries{inférieure lexicographiquement}} à la chaîne 2 
 \end{DoxyReturn}
-\mbox{\Hypertarget{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}\label{embedded_string_8h_a59800a76f8199e4677ec06a2b62d2aca}} 
+\mbox{\Hypertarget{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}\label{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}} 
 \index{embeddedString.h@{embeddedString.h}!embeddedStrcpy@{embeddedStrcpy}}
 \index{embeddedStrcpy@{embeddedStrcpy}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{embeddedStrcpy()}{embeddedStrcpy()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} embedded\+Strcpy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{src }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} embedded\+Strcpy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{src }\end{DoxyParamCaption})}
 
 
 
@@ -216,11 +210,11 @@ Si le champ is\+Finded est à false, affiche un \char`\"{}\+\_\+\char`\"{}, sino
 {\em to\+Print} & chaine à afficher \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}\label{embedded_string_8h_aaf4bb866cc99cf37c2af4282981b5db2}} 
+\mbox{\Hypertarget{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}\label{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}} 
 \index{embeddedString.h@{embeddedString.h}!transformInEmbeddedStr@{transformInEmbeddedStr}}
 \index{transformInEmbeddedStr@{transformInEmbeddedStr}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{transformInEmbeddedStr()}{transformInEmbeddedStr()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} transform\+In\+Embedded\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{char $\ast$}]{src }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} transform\+In\+Embedded\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{dest,  }\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
 
 
 
@@ -231,6 +225,26 @@ Tout les champs is\+Finded seront à False.
 
 \begin{DoxyParams}{Paramètres}
 {\em src} & chaîne de char à transformer en Embedded\+Str \\
+\hline
+{\em dest} & chaîne servant de conteneur pour la transformation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}adresse de dest si tout c\textquotesingle{}est bien passé, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f5}\label{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f5}} 
+\index{embeddedString.h@{embeddedString.h}!transformInStr@{transformInStr}}
+\index{transformInStr@{transformInStr}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{transformInStr()}{transformInStr()}}
+{\footnotesize\ttfamily char $\ast$ transform\+In\+Str (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{src }\end{DoxyParamCaption})}
+
+
+
+transforme un Embedded\+String en string 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & Embedded\+String à transformer en chaine de char \\
 \hline
 {\em dest} & chaîne servant de conteneur pour la transformation \\
 \hline

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['isembeddedstrfinded_0',['isEmbeddedStrFinded',['../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68',1,'embeddedString.h']]],
-  ['isfinded_1',['isFinded',['../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667',1,'EmbeddedChar']]],
-  ['isproposedlettervalid_2',['isProposedLetterValid',['../dd/d90/alphabet_8h.html#a3de376c264aba126365547e528abffb8',1,'alphabet.h']]]
+  ['hangman_0',['hangman',['../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d',1,'hangman.h']]],
+  ['hangman_2eh_1',['hangman.h',['../d9/df9/hangman_8h.html',1,'']]]
 ];

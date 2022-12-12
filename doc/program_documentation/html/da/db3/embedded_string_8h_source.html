@@ -9,9 +9,18 @@
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -25,6 +34,18 @@
    </div>
    <div id="projectbrief">Jeu du pendu en C</div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -36,17 +57,23 @@
 var searchBox = new SearchBox("searchBox", "../../search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="../../menudata.js"></script>
-<script type="text/javascript" src="../../menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('../../',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('da/db3/embedded_string_8h_source.html','../../'); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,11 +95,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_54d9563f00fd1b301d936f70d0aba5fc.html">embeddedString</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">embeddedString.h</div></div>
 </div><!--header-->
@@ -91,23 +113,23 @@ $(function() {
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifndef BOOLEAN_TF </span><span class="comment">// on ne créé qu&#39;une fois le type boolean</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define BOOLEAN_TF</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">   37</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">   38</a></span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a>, </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">   40</a></span>} <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#ifndef BOOLEAN_TF </span><span class="comment">// on ne créé qu&#39;une fois le type boolean</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define BOOLEAN_TF</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">   36</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">   37</a></span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a>, </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">   39</a></span>} <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html">   53</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">   54</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">value</a>; </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">   55</a></span>    <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">isFinded</a>; </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>} <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html">   52</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">   53</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">value</a>; </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">   54</a></span>    <a class="code hl_enumeration" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> <a class="code hl_variable" href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">isFinded</a>; </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">   68</a></span><span class="keyword">typedef</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a> *<a class="code hl_typedef" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">   67</a></span><span class="keyword">typedef</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a> *<a class="code hl_typedef" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
@@ -121,36 +143,43 @@ $(function() {
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a0c3a73c35331ebcaf7259eec593e975f">  110</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a0c3a73c35331ebcaf7259eec593e975f">embeddedStrcmp</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> str1, <span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> str2);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a59800a76f8199e4677ec06a2b62d2aca">  124</a></span><a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a59800a76f8199e4677ec06a2b62d2aca">embeddedStrcpy</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> dest, <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> src);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#abcafd24e93ea01478a42c3895439cc72">  124</a></span><a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#abcafd24e93ea01478a42c3895439cc72">embeddedStrcpy</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> dest, <span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> src);</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#aaf4bb866cc99cf37c2af4282981b5db2">  137</a></span><a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#aaf4bb866cc99cf37c2af4282981b5db2">transformInEmbeddedStr</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> dest, <span class="keywordtype">char</span> *src);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a44dbb5917d993f2c24f4ca4f57be46ae">  137</a></span><a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a44dbb5917d993f2c24f4ca4f57be46ae">transformInEmbeddedStr</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> dest, <span class="keyword">const</span> <span class="keywordtype">char</span> *src);</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">  153</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">updateFindEmbeddedStr</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> toUpdate, <span class="keywordtype">char</span> suggestedChar);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">  166</a></span><a class="code hl_enumeration" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">isEmbeddedStrFinded</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> word);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif </span><span class="comment">// EMBEDDEDSTRING_H_FT</span></div>
-<div class="ttc" id="aalphabet_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13"><div class="ttname"><a href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></div><div class="ttdeci">Boolean</div><div class="ttdoc">Enum d'un type Boolean.</div><div class="ttdef"><b>Definition:</b> alphabet.h:36</div></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a93bc5a33dd6edf25639f7dcb836723f5">  147</a></span><span class="keywordtype">char</span>* <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a93bc5a33dd6edf25639f7dcb836723f5">transformInStr</a>(<span class="keywordtype">char</span> *dest, <span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> src);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">  163</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">updateFindEmbeddedStr</a>(<a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> toUpdate, <span class="keywordtype">char</span> suggestedChar);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">  176</a></span><a class="code hl_enumeration" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> <a class="code hl_function" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">isEmbeddedStrFinded</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6c/struct_embedded_char.html">EmbeddedString</a> word);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#endif </span><span class="comment">// EMBEDDEDSTRING_H_FT</span></div>
+<div class="ttc" id="aalphabet_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13"><div class="ttname"><a href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></div><div class="ttdeci">Boolean</div><div class="ttdoc">Enum d'un type Boolean.</div><div class="ttdef"><b>Definition:</b> alphabet.h:34</div></div>
 <div class="ttc" id="aembedded_string_8h_html_a0c3a73c35331ebcaf7259eec593e975f"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a0c3a73c35331ebcaf7259eec593e975f">embeddedStrcmp</a></div><div class="ttdeci">int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2)</div><div class="ttdoc">compare les chaînes de char lexicographiquement.</div></div>
-<div class="ttc" id="aembedded_string_8h_html_a27f2c91a8f76b06f25c2f0ac2ed89766"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a></div><div class="ttdeci">EmbeddedChar * EmbeddedString</div><div class="ttdoc">EmbeddedString est un pointeur sur un EmbeddedChar.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:68</div></div>
+<div class="ttc" id="aembedded_string_8h_html_a27f2c91a8f76b06f25c2f0ac2ed89766"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a></div><div class="ttdeci">EmbeddedChar * EmbeddedString</div><div class="ttdoc">EmbeddedString est un pointeur sur un EmbeddedChar.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:67</div></div>
+<div class="ttc" id="aembedded_string_8h_html_a44dbb5917d993f2c24f4ca4f57be46ae"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a44dbb5917d993f2c24f4ca4f57be46ae">transformInEmbeddedStr</a></div><div class="ttdeci">EmbeddedString transformInEmbeddedStr(EmbeddedString dest, const char *src)</div><div class="ttdoc">transforme une string en EmbeddedString</div></div>
 <div class="ttc" id="aembedded_string_8h_html_a4a278caeeec171157dab343f53172a89"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">embeddedStrlen</a></div><div class="ttdeci">size_t embeddedStrlen(EmbeddedString toCount)</div><div class="ttdoc">renvoit le nombre de char de la string</div></div>
-<div class="ttc" id="aembedded_string_8h_html_a59800a76f8199e4677ec06a2b62d2aca"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a59800a76f8199e4677ec06a2b62d2aca">embeddedStrcpy</a></div><div class="ttdeci">EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src)</div><div class="ttdoc">copie une chaine source dans une chaine destination</div></div>
 <div class="ttc" id="aembedded_string_8h_html_a61d20febc95f087ea9ceaacd42573f17"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">updateFindEmbeddedStr</a></div><div class="ttdeci">int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar)</div><div class="ttdoc">passe en état trouvé les char du mot correspondant au char suggéré</div></div>
 <div class="ttc" id="aembedded_string_8h_html_a6670841f10aefecc66f2dfa5784b2a68"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">isEmbeddedStrFinded</a></div><div class="ttdeci">Boolean isEmbeddedStrFinded(const EmbeddedString word)</div><div class="ttdoc">permet de savoir si une chaîne est entièrement trouvée</div></div>
+<div class="ttc" id="aembedded_string_8h_html_a93bc5a33dd6edf25639f7dcb836723f5"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#a93bc5a33dd6edf25639f7dcb836723f5">transformInStr</a></div><div class="ttdeci">char * transformInStr(char *dest, const EmbeddedString src)</div><div class="ttdoc">transforme un EmbeddedString en string</div></div>
 <div class="ttc" id="aembedded_string_8h_html_aa3dea05056847359eb3999f5ea62f4e6"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#aa3dea05056847359eb3999f5ea62f4e6">printEmbeddedStr</a></div><div class="ttdeci">void printEmbeddedStr(const EmbeddedString toPrint)</div><div class="ttdoc">Affiche la chaine de char contenu dans toPrint, si trouvé</div></div>
-<div class="ttc" id="aembedded_string_8h_html_aaf4bb866cc99cf37c2af4282981b5db2"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#aaf4bb866cc99cf37c2af4282981b5db2">transformInEmbeddedStr</a></div><div class="ttdeci">EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src)</div><div class="ttdoc">transforme une string en EmbeddedString</div></div>
-<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></div><div class="ttdeci">Boolean</div><div class="ttdoc">Enum d'un type Boolean.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:37</div></div>
-<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a></div><div class="ttdeci">@ True</div><div class="ttdef"><b>Definition:</b> embeddedString.h:39</div></div>
-<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a></div><div class="ttdeci">@ False</div><div class="ttdef"><b>Definition:</b> embeddedString.h:38</div></div>
-<div class="ttc" id="astruct_embedded_char_html"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a></div><div class="ttdoc">EmbeddedChar est un wrapper de char.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:53</div></div>
-<div class="ttc" id="astruct_embedded_char_html_a15a702cdf4a211a83c0468edc3e6c667"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">EmbeddedChar::isFinded</a></div><div class="ttdeci">Boolean isFinded</div><div class="ttdef"><b>Definition:</b> embeddedString.h:55</div></div>
-<div class="ttc" id="astruct_embedded_char_html_ac7607809114d78d0db658512bb875ad0"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">EmbeddedChar::value</a></div><div class="ttdeci">char value</div><div class="ttdef"><b>Definition:</b> embeddedString.h:54</div></div>
+<div class="ttc" id="aembedded_string_8h_html_abcafd24e93ea01478a42c3895439cc72"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#abcafd24e93ea01478a42c3895439cc72">embeddedStrcpy</a></div><div class="ttdeci">EmbeddedString embeddedStrcpy(EmbeddedString dest, const EmbeddedString src)</div><div class="ttdoc">copie une chaine source dans une chaine destination</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></div><div class="ttdeci">Boolean</div><div class="ttdoc">Enum d'un type Boolean.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:36</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a></div><div class="ttdeci">@ True</div><div class="ttdef"><b>Definition:</b> embeddedString.h:38</div></div>
+<div class="ttc" id="aembedded_string_8h_html_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a></div><div class="ttdeci">@ False</div><div class="ttdef"><b>Definition:</b> embeddedString.h:37</div></div>
+<div class="ttc" id="astruct_embedded_char_html"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html">EmbeddedChar</a></div><div class="ttdoc">EmbeddedChar est un wrapper de char.</div><div class="ttdef"><b>Definition:</b> embeddedString.h:52</div></div>
+<div class="ttc" id="astruct_embedded_char_html_a15a702cdf4a211a83c0468edc3e6c667"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667">EmbeddedChar::isFinded</a></div><div class="ttdeci">Boolean isFinded</div><div class="ttdef"><b>Definition:</b> embeddedString.h:54</div></div>
+<div class="ttc" id="astruct_embedded_char_html_ac7607809114d78d0db658512bb875ad0"><div class="ttname"><a href="../../d2/d6c/struct_embedded_char.html#ac7607809114d78d0db658512bb875ad0">EmbeddedChar::value</a></div><div class="ttdeci">char value</div><div class="ttdef"><b>Definition:</b> embeddedString.h:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_54d9563f00fd1b301d936f70d0aba5fc.html">embeddedString</a></li><li class="navelem"><a class="el" href="../../da/db3/embedded_string_8h.html">embeddedString.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
 </body>
 </html>

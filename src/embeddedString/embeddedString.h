@@ -125,7 +125,7 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, const EmbeddedString src);
 
 
 /**
- * \fn EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
+ * \fn EmbeddedString transformInEmbeddedStr(EmbeddedString dest, const char *src);
  * \brief transforme une string en EmbeddedString
  * 
  * Tout les champs isFinded seront à False.

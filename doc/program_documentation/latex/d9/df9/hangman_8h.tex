@@ -1,0 +1,100 @@
+\hypertarget{hangman_8h}{}\doxysection{Référence du fichier hangman.\+h}
+\label{hangman_8h}\index{hangman.h@{hangman.h}}
+
+
+Définit le comportement global du jeu du pendu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}embedded\+String/embedded\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}alphabet/alphabet.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hangman_8h_aa2d810faa6baa30bb16b07ebc0f60031}{destroy\+Words\+Arr}} (char $\ast$$\ast$to\+Destroy, int logical\+Size)
+\begin{DoxyCompactList}\small\item\em désalloue tout les tableaux alloués dynamiquement pour To\+Destroy \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hangman_8h_a38de075747e9fd1070eae23955aaadd8}{load\+Words}} (char $\ast$path\+To\+File, char $\ast$$\ast$$\ast$storing\+Tab)
+\begin{DoxyCompactList}\small\item\em Récupère d\textquotesingle{}un fichier au formatage particulier des mots, et les stockes dans my\+Tab. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}{hangman}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de lancer un jeu du pendu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit le comportement global du jeu du pendu. 
+
+Définit nottament la fonction de chargement des mots depuis un fichier, en plus de la fonction pour jouer au jeu du pendu.
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{hangman_8h_aa2d810faa6baa30bb16b07ebc0f60031}\label{hangman_8h_aa2d810faa6baa30bb16b07ebc0f60031}} 
+\index{hangman.h@{hangman.h}!destroyWordsArr@{destroyWordsArr}}
+\index{destroyWordsArr@{destroyWordsArr}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{destroyWordsArr()}{destroyWordsArr()}}
+{\footnotesize\ttfamily void destroy\+Words\+Arr (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{to\+Destroy,  }\item[{int}]{logical\+Size }\end{DoxyParamCaption})}
+
+
+
+désalloue tout les tableaux alloués dynamiquement pour To\+Destroy 
+
+to\+Destroy représente un tableau de chaine de caractère, chaque éléments ayant été alloué dynamiquement. Afin de désallouer proprement un tableau généré par load\+Words, veuillez utiliser cette méthode. Désalloue non seulement le tableau to\+Destroy lui même, mais aussi les tableaux chaînes de char qu\textquotesingle{}il contient.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Destroy} & tableau de string à désallouer \\
+\hline
+{\em logical\+Size} & nombre de string contenu dans to\+Destroy, et donc à désallouer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}\label{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}} 
+\index{hangman.h@{hangman.h}!hangman@{hangman}}
+\index{hangman@{hangman}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{hangman()}{hangman()}}
+{\footnotesize\ttfamily int hangman (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de lancer un jeu du pendu. 
+
+Utiliser cette fonction permet d\textquotesingle{}avoir tout le comportement du pendu
+
+\begin{DoxyReturn}{Renvoie}
+-\/1 si la récupération d\textquotesingle{}un mot pour le jeu c\textquotesingle{}est mal passé, ou que l\textquotesingle{}alphabet n\textquotesingle{}a pu etre alloué~\newline
+ 0 si le jeu a été perdu, donc que le mot n\textquotesingle{}a pu etre deviné 1 si le mot a été deviné 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hangman_8h_a38de075747e9fd1070eae23955aaadd8}\label{hangman_8h_a38de075747e9fd1070eae23955aaadd8}} 
+\index{hangman.h@{hangman.h}!loadWords@{loadWords}}
+\index{loadWords@{loadWords}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{loadWords()}{loadWords()}}
+{\footnotesize\ttfamily int load\+Words (\begin{DoxyParamCaption}\item[{char $\ast$}]{path\+To\+File,  }\item[{char $\ast$$\ast$$\ast$}]{storing\+Tab }\end{DoxyParamCaption})}
+
+
+
+Récupère d\textquotesingle{}un fichier au formatage particulier des mots, et les stockes dans my\+Tab. 
+
+Stocke dans storing\+Tab les chaînes de caractères se trouvant dans le fichier indiqué par path\+To\+File~\newline
+ ATTENTION! le chemin du fichier est relatif à la position de l\textquotesingle{}utilisateur, et non de l\textquotesingle{}executable lui même
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path\+To\+File} & chemin vers le fichier dont il faut récupérer les données \\
+\hline
+{\em storing\+Tab} & stocke l\textquotesingle{}adresse du tableau de string créé (passage par adresse) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/2 si le fichier n\textquotesingle{}a pu etre ouvert en mode lecture ou mal lu~\newline
+ -\/1 si une allocation dynamique n\textquotesingle{}a pu etre effectur~\newline
+ sinon, retourne le nombre de chaine de caractère récupérés 
+\end{DoxyReturn}

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['transforminembeddedstr_0',['transformInEmbeddedStr',['../da/db3/embedded_string_8h.html#aaf4bb866cc99cf37c2af4282981b5db2',1,'embeddedString.h']]],
-  ['true_1',['True',['../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b',1,'True():&#160;alphabet.h'],['../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b',1,'True():&#160;embeddedString.h']]]
+  ['physicalsize_0',['physicalSize',['../df/d1c/struct_alphabet.html#ae8af6fa999808e3f0e662e124c2166ac',1,'Alphabet']]],
+  ['printalphabet_1',['printAlphabet',['../dd/d90/alphabet_8h.html#a7cb414ae9a698f85d5ee5ae880b5a122',1,'alphabet.h']]],
+  ['printembeddedstr_2',['printEmbeddedStr',['../da/db3/embedded_string_8h.html#aa3dea05056847359eb3999f5ea62f4e6',1,'embeddedString.h']]]
 ];

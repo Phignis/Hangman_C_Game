@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transforminembeddedstr_0',['transformInEmbeddedStr',['../da/db3/embedded_string_8h.html#aaf4bb866cc99cf37c2af4282981b5db2',1,'embeddedString.h']]]
+  ['loadwords_0',['loadWords',['../d9/df9/hangman_8h.html#a38de075747e9fd1070eae23955aaadd8',1,'hangman.h']]]
 ];
