@@ -70,6 +70,7 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
+
 /**
  * \fn void printEmbeddedStr(const EmbeddedString toPrint);
  * \brief Affiche la chaine de char contenu dans toPrint, si trouvé
