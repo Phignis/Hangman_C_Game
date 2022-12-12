@@ -59,7 +59,7 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
-
+// TODO: documenter la fonction
 void printEmbeddedStr(const EmbeddedString toPrint);
 
 /**

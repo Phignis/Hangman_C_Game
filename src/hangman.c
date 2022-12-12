@@ -1,24 +1,81 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "hangman.h"
 
-#include "embeddedString/embeddedString.h"
+void destroyWordsArr(char **toDestroy, int logicalSize) {
+	if(toDestroy) {
+		for(int i = 0; i < logicalSize; ++i) {
+			free(toDestroy[i]);
+		}
+	}
+	free(toDestroy);
+}
 
-int main(void) {
-	char *tabMots[] = {"amical", "bibliothèque", "cinema", "saucisse"};
-	int rdm, tentatives = 11;
+int loadWords(char *pathToFile, char ***storingTab) {
+	if(pathToFile && strlen(pathToFile)) {
+		
+		int logicalSize = 0, physicalSize = 5;
+		char **myNewTab;
+		
+		*storingTab = (char **) malloc(sizeof(char*) * physicalSize);
+		if(!(*storingTab)) return -1;
+		
+		printf("\n%s\n", pathToFile);
+		
+		FILE *data = fopen(pathToFile, "r");
+		if(!data) {
+			return -2;
+		}
+		while(!feof(data)) {
+			// verifier si on a la place pour stocker
+			if(logicalSize == physicalSize) {
+				// plus de place, il faut realloc
+				physicalSize += 5; // on rajoute 5 cases
+				myNewTab = (char **) realloc(*storingTab, sizeof(char*) * physicalSize);
+				if(!(myNewTab)) {
+					destroyWordsArr(*storingTab, logicalSize);
+					return -1;
+				} else {
+					*storingTab = myNewTab;
+				}
+			}
+			
+			// alloue la place pour la str contenue dans la ligne courante
+			(*storingTab)[logicalSize] = (char *) malloc(sizeof(char) * 11);
+			if(!(*storingTab)[logicalSize]) {
+				destroyWordsArr(*storingTab, logicalSize);
+				return -1;
+			}
+			
+			fscanf(data, "%7s\n", (*storingTab)[logicalSize]);
+			
+			++logicalSize;
+		}
+		
+		fclose(data);
+		return logicalSize;
+	}
+	return -2;
+}
+
+int hangman(void) {
+	char **tabMots;
+	int rdm, tentatives = 11, nbWords;
 	char choixLettre;
 	EmbeddedString hasardMot;
 	
+	nbWords = loadWords("./ressources/dictionnary.don", &tabMots);
+	if(nbWords == -2 || nbWords == -1) {
+		return -1;
+	}
 	
 	srand(time(NULL));
-	rdm = rand() % 4; // dépend taille tabMots
+	rdm = rand() % nbWords; // dépend taille tabMots
 	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots[rdm]) + 1));
 	
 	
 	if(transformInEmbeddedStr(hasardMot, tabMots[rdm]) == NULL) {
 		//  mettre ici le traitement de correction d'erreur a effectuer
 		printf("erreur.");
+		return -1;
 	}
 	
 	while(tentatives) {
@@ -36,7 +93,7 @@ int main(void) {
 		if(isEmbeddedStrFinded(hasardMot)) {
 			printf("\nBravo vous avez trouvé le mot en %d tentatives.\n\n",
 				11 - tentatives);
-			return 0;
+			return 1;
 		}
 		
 		--tentatives;
