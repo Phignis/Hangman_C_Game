@@ -9,14 +9,14 @@ void destroyWordsArr(char **toDestroy, int logicalSize) {
 	free(toDestroy);
 }
 
-int loadWords(char *pathToFile, char ***myTab) {
+int loadWords(char *pathToFile, char ***storingTab) {
 	if(pathToFile && strlen(pathToFile)) {
 		
 		int logicalSize = 0, physicalSize = 5;
 		char **myNewTab;
 		
-		*myTab = (char **) malloc(sizeof(char*) * physicalSize);
-		if(!(*myTab)) return -1;
+		*storingTab = (char **) malloc(sizeof(char*) * physicalSize);
+		if(!(*storingTab)) return -1;
 		
 		printf("\n%s\n", pathToFile);
 		
@@ -29,23 +29,23 @@ int loadWords(char *pathToFile, char ***myTab) {
 			if(logicalSize == physicalSize) {
 				// plus de place, il faut realloc
 				physicalSize += 5; // on rajoute 5 cases
-				myNewTab = (char **) realloc(*myTab, sizeof(char*) * physicalSize);
+				myNewTab = (char **) realloc(*storingTab, sizeof(char*) * physicalSize);
 				if(!(myNewTab)) {
-					destroyWordsArr(*myTab, logicalSize);
+					destroyWordsArr(*storingTab, logicalSize);
 					return -1;
 				} else {
-					*myTab = myNewTab;
+					*storingTab = myNewTab;
 				}
 			}
 			
 			// alloue la place pour la str contenue dans la ligne courante
-			(*myTab)[logicalSize] = (char *) malloc(sizeof(char) * 11);
-			if(!(*myTab)[logicalSize]) {
-				destroyWordsArr(*myTab, logicalSize);
+			(*storingTab)[logicalSize] = (char *) malloc(sizeof(char) * 11);
+			if(!(*storingTab)[logicalSize]) {
+				destroyWordsArr(*storingTab, logicalSize);
 				return -1;
 			}
 			
-			fscanf(data, "%7s\n", (*myTab)[logicalSize]);
+			fscanf(data, "%7s\n", (*storingTab)[logicalSize]);
 			
 			++logicalSize;
 		}
@@ -64,7 +64,7 @@ int hangman(void) {
 	
 	nbWords = loadWords("./ressources/dictionnary.don", &tabMots);
 	if(nbWords == -2 || nbWords == -1) {
-		return 0;
+		return -1;
 	}
 	
 	srand(time(NULL));
@@ -75,6 +75,7 @@ int hangman(void) {
 	if(transformInEmbeddedStr(hasardMot, tabMots[rdm]) == NULL) {
 		//  mettre ici le traitement de correction d'erreur a effectuer
 		printf("erreur.");
+		return -1;
 	}
 	
 	while(tentatives) {
@@ -92,7 +93,7 @@ int hangman(void) {
 		if(isEmbeddedStrFinded(hasardMot)) {
 			printf("\nBravo vous avez trouvé le mot en %d tentatives.\n\n",
 				11 - tentatives);
-			return 0;
+			return 1;
 		}
 		
 		--tentatives;
