@@ -43,6 +43,8 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2) {
 				return 1;
 			if(str1[i].value < str2[i].value)
 				return -1;
+			
+			++i;
 		}
 		
 		// si il reste des char sur l'un, il est plus grand

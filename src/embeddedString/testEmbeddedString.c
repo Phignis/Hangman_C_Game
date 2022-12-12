@@ -23,6 +23,41 @@ int testEmbeddedStrcmp(void) {
 	if(embeddedStrcmp(NULL, NULL) != -2 ||embeddedStrcmp(str1, NULL) != -2
 		|| embeddedStrcmp(NULL, str1) != -2) return -1;
 	
+	str1[0].value = 't';
+	str1[1].value = 'o';
+	str1[2].value = 't';
+	str1[3].value = 'o';
+	str1[4].value = '\0';
+	
+	str2[0].value = '\0';
+	
+	if(embeddedStrcmp(str1, str2) != 1) {
+		return -1;
+	}
+	
+	str2[0].value = 't';
+	str2[1].value = '\0';
+	
+	if(embeddedStrcmp(str1, str2) != 1) {
+		return -1;
+	}
+	
+	str2[0].value = 'u';
+	str2[1].value = '\0';
+	
+	if(embeddedStrcmp(str1, str2) != -1) {
+		return -1;
+	}
+	
+	str2[0].value = 't';
+	str2[1].value = 'o';
+	str2[2].value = 't';
+	str2[3].value = 'o';
+	str2[4].value = '\0';
+	
+	if(embeddedStrcmp(str1, str2) != 0) {
+		return -1;
+	}
 	
 	return 0;
 }
