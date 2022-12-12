@@ -1,0 +1,197 @@
+\hypertarget{alphabet_8h}{}\doxysection{Référence du fichier alphabet/alphabet.h}
+\label{alphabet_8h}\index{alphabet/alphabet.h@{alphabet/alphabet.h}}
+
+
+Définit la structure \mbox{\hyperlink{struct_alphabet}{Alphabet}}, ainsi que le type enum Boolean.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_alphabet}{Alphabet}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_alphabet}{Alphabet}} est un wrapper de tableau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
+, \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
+, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
+, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum d\textquotesingle{}un type Boolean. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a2a532880617c8b8347a073216c420117}{create\+Alphabet}} (\mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$$\ast$to\+Create)
+\begin{DoxyCompactList}\small\item\em permet de créer un alphabet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{alphabet_8h_a72ad49290140dfc68895ee64dbf8f051}{destroy\+Alphabet}} (\mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$to\+Destroy)
+\begin{DoxyCompactList}\small\item\em permet de détruire un alphabet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{alphabet_8h_a7cb414ae9a698f85d5ee5ae880b5a122}{print\+Alphabet}} (const \mbox{\hyperlink{struct_alphabet}{Alphabet}} to\+Print)
+\begin{DoxyCompactList}\small\item\em Affiche pour un jeu du pendu l\textquotesingle{}alphabet. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a3de376c264aba126365547e528abffb8}{is\+Proposed\+Letter\+Valid}} (const \mbox{\hyperlink{struct_alphabet}{Alphabet}} alphabet, char submitted\+Char)
+\begin{DoxyCompactList}\small\item\em Permet de savoir si une lettre proposée est valide, donc non utilisée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a16640b0c2c4aab6ebc9af88bca8fe49e}{update\+Alphabet}} (\mbox{\hyperlink{struct_alphabet}{Alphabet}} to\+Update, char submitted\+Char)
+\begin{DoxyCompactList}\small\item\em Permet de mettre à jour les lettres d\textquotesingle{}un alphabet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit la structure \mbox{\hyperlink{struct_alphabet}{Alphabet}}, ainsi que le type enum Boolean. 
+
+\mbox{\hyperlink{struct_alphabet}{Alphabet}} et Boolean, ainsi que leur comportement, sont définis. Boolean est un simple enum, \mbox{\hyperlink{struct_alphabet}{Alphabet}} est un tableau de Boolean, avec sa taille logique et physique
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}\label{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}} 
+\index{alphabet.h@{alphabet.h}!Boolean@{Boolean}}
+\index{Boolean@{Boolean}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
+
+
+
+Enum d\textquotesingle{}un type Boolean. 
+
+Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens booléen du terme.~\newline
+ En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n\textquotesingle{}importe quelle valeur autre que 0. \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!alphabet.h@{alphabet.h}}\index{alphabet.h@{alphabet.h}!False@{False}}}\mbox{\Hypertarget{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
+False&étiquette pour la valeur 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!alphabet.h@{alphabet.h}}\index{alphabet.h@{alphabet.h}!True@{True}}}\mbox{\Hypertarget{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
+True&étiquette pour la valeur 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!alphabet.h@{alphabet.h}}\index{alphabet.h@{alphabet.h}!False@{False}}}\mbox{\Hypertarget{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
+False&étiquette pour la valeur 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!alphabet.h@{alphabet.h}}\index{alphabet.h@{alphabet.h}!True@{True}}}\mbox{\Hypertarget{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
+True&étiquette pour la valeur 1 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{alphabet_8h_a2a532880617c8b8347a073216c420117}\label{alphabet_8h_a2a532880617c8b8347a073216c420117}} 
+\index{alphabet.h@{alphabet.h}!createAlphabet@{createAlphabet}}
+\index{createAlphabet@{createAlphabet}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{createAlphabet()}{createAlphabet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} create\+Alphabet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$$\ast$}]{to\+Create }\end{DoxyParamCaption})}
+
+
+
+permet de créer un alphabet 
+
+déclare un array de Boolean de 26 champs, représentant l\textquotesingle{}utilisation de chaque lettre de l\textquotesingle{}alphabet latin. Alloue dynamiquement l\textquotesingle{}espace pour l\textquotesingle{}alphabet. ATTENTION!! Utilisez destroy\+Alphabet pour éviter toutes fuites de mémoire
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Create} & pointeur contenant l\textquotesingle{}adresse de la structure alphabet créée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si la création est réussie, false sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{alphabet_8h_a72ad49290140dfc68895ee64dbf8f051}\label{alphabet_8h_a72ad49290140dfc68895ee64dbf8f051}} 
+\index{alphabet.h@{alphabet.h}!destroyAlphabet@{destroyAlphabet}}
+\index{destroyAlphabet@{destroyAlphabet}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{destroyAlphabet()}{destroyAlphabet()}}
+{\footnotesize\ttfamily void destroy\+Alphabet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$}]{to\+Destroy }\end{DoxyParamCaption})}
+
+
+
+permet de détruire un alphabet 
+
+permet de détruire de manière propre un alphabet créer via la fonction create\+Alphabet
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Destroy} & adresse de l\textquotesingle{}alphabet à détruire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{alphabet_8h_a3de376c264aba126365547e528abffb8}\label{alphabet_8h_a3de376c264aba126365547e528abffb8}} 
+\index{alphabet.h@{alphabet.h}!isProposedLetterValid@{isProposedLetterValid}}
+\index{isProposedLetterValid@{isProposedLetterValid}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{isProposedLetterValid()}{isProposedLetterValid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Proposed\+Letter\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_alphabet}{Alphabet}}}]{alphabet,  }\item[{char}]{submitted\+Char }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir si une lettre proposée est valide, donc non utilisée. 
+
+Recherche dans l\textquotesingle{}alphabet si le caractère est déjà utilisé, donc que le Boolean lié à son index est à True.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em alphabet} & structure contenant l\textquotesingle{}état d\textquotesingle{}utilisation des lettres \\
+\hline
+{\em submitted\+Char} & caractère proposé par l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si le char est valide (une lettre, non déjà utilisé) False si\+: ~\newline
+
+\begin{DoxyItemize}
+\item ce n\textquotesingle{}est pas une lettre
+\item le tableau de l\textquotesingle{}alphabet n\textquotesingle{}existe pas (NULL)
+\item la lettre n\textquotesingle{}est pas dans l\textquotesingle{}alphabet passé en paramètre
+\item la lettre est déjà utilisé 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{alphabet_8h_a7cb414ae9a698f85d5ee5ae880b5a122}\label{alphabet_8h_a7cb414ae9a698f85d5ee5ae880b5a122}} 
+\index{alphabet.h@{alphabet.h}!printAlphabet@{printAlphabet}}
+\index{printAlphabet@{printAlphabet}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{printAlphabet()}{printAlphabet()}}
+{\footnotesize\ttfamily void print\+Alphabet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_alphabet}{Alphabet}}}]{to\+Print }\end{DoxyParamCaption})}
+
+
+
+Affiche pour un jeu du pendu l\textquotesingle{}alphabet. 
+
+N\textquotesingle{}affiche que les lettres de l\textquotesingle{}alphabet non encore utilisées durant le jeu, donc dont le Boolean à son index est à False. Affiche un espace à la place de la lettre si cette dernier n\textquotesingle{}est pas présente
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Print} & alphabet à afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{alphabet_8h_a16640b0c2c4aab6ebc9af88bca8fe49e}\label{alphabet_8h_a16640b0c2c4aab6ebc9af88bca8fe49e}} 
+\index{alphabet.h@{alphabet.h}!updateAlphabet@{updateAlphabet}}
+\index{updateAlphabet@{updateAlphabet}!alphabet.h@{alphabet.h}}
+\doxysubsubsection{\texorpdfstring{updateAlphabet()}{updateAlphabet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} update\+Alphabet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_alphabet}{Alphabet}}}]{to\+Update,  }\item[{char}]{submitted\+Char }\end{DoxyParamCaption})}
+
+
+
+Permet de mettre à jour les lettres d\textquotesingle{}un alphabet. 
+
+Permet de mettre à True l\textquotesingle{}état d\textquotesingle{}utilisation de la lettre dans alphabet, correspondant au charactère soumis
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Update} & alphabet dont il faut update l\textquotesingle{}état d\textquotesingle{}utilisation de la lettre propposé à True \\
+\hline
+{\em submitted\+Char} & caractère dont il faut mettre l\textquotesingle{}état d\textquotesingle{}utilisation à True dans l\textquotesingle{}alphabet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si la mise a jour a été effectué~\newline
+ False si quelque chose s\textquotesingle{}est mal passé\+:~\newline
+
+\begin{DoxyItemize}
+\item le champ array de \mbox{\hyperlink{struct_alphabet}{Alphabet}} vaut NULL
+\item le char n\textquotesingle{}est pas une lettre
+\item la lettre n\textquotesingle{}est pas dans l\textquotesingle{}alphabet passé en paramètre 
+\end{DoxyItemize}
+\end{DoxyReturn}

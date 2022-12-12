@@ -10,23 +10,34 @@
  * \version 1.0
  */
 
+#ifndef EMBEDDEDSTRING_H_FT
+/*
+ * ce qui est entre le ifndef et le endif est pris en compte seulement si 
+ * l'identifiant n'était pas défini ici
+ */
+#define EMBEDDEDSTRING_H_FT // définit l'identifiant pour éviter de ré-importer
+
+
+
 #include <stddef.h>
 
 
 
-
-
+#ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean
+#define BOOLEAN_TF
 /**
  * \brief Enum d'un type Boolean
  * 
  * Attention! Etant donné que True est une étiquette pour 1, il n'est pas possible
- * de vérifier qu'une sortie est vraie au sens C du terme avec.<br> En comparant
- * avec True, cela revient à tester que ce soit égal à 0
+ * de vérifier qu'une sortie est vraie au sens booléen du terme.<br> En comparant
+ * avec True, cela revient à tester que ce soit égal à 1, et non pas à n'importe quelle 
+ * valeur autre que 0.
  */
 typedef enum {
 	False, /**< étiquette pour la valeur 0 */
 	True /**< étiquette pour la valeur 1 */
 } Boolean;
+#endif
 
 
 /**
@@ -39,7 +50,7 @@ typedef enum {
  * a été trouvé.
  */
 typedef struct {
-	char value; /**< True est une étiquette pour la valeur 0 */
+	char value; /**< caractère wrappé dans EmbeddedChar */
 	Boolean isFinded; /**< indique si ce charactère a déjà été trouvé  */
 } EmbeddedChar;
 
@@ -59,7 +70,15 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
-// TODO: documenter la fonction
+
+/**
+ * \fn void printEmbeddedStr(const EmbeddedString toPrint);
+ * \brief Affiche la chaine de char contenu dans toPrint, si trouvé
+ * 
+ * Si le champ isFinded est à false, affiche un "_", sinon affiche le champ value
+ * 
+ * \param toPrint chaine à afficher
+ */
 void printEmbeddedStr(const EmbeddedString toPrint);
 
 /**
@@ -79,7 +98,7 @@ size_t embeddedStrlen(EmbeddedString toCount);
  * \brief compare les chaînes de char lexicographiquement.
  * 
  * ATTENTION! Si les string ne se finissent pas par '\0', comportement indéfini<br>
- * Compare les champs value de EmbeddedChar, et ne compare pas le champ isFinded
+ * Compare le champ value des EmbeddedChar, et ne compare pas le champ isFinded
  * 
  * \param str1 première chaîne servant à la comparaison
  * \param str2 seconde chaîne servant à la comparaison
@@ -102,7 +121,7 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2);
  * \param dest chaîne servant de conteneur pour les informations à copier
  * \return l'adresse de dest si tout c'est bien passé, NULL sinon
  */
-EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
+EmbeddedString embeddedStrcpy(EmbeddedString dest, const EmbeddedString src);
 
 
 /**
@@ -115,8 +134,45 @@ EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);
  * \param dest chaîne servant de conteneur pour la transformation
  * \return l'adresse de dest si tout c'est bien passé, NULL sinon
  */
-EmbeddedString transformInEmbeddedStr(EmbeddedString dest, char *src);
+EmbeddedString transformInEmbeddedStr(EmbeddedString dest, const char *src);
 
+/**
+ * \fn char* transformInStr(char *dest, EmbeddedString src);
+ * \brief transforme un EmbeddedString en string
+ * 
+ * \param src EmbeddedString à transformer en chaine de char
+ * \param dest chaîne servant de conteneur pour la transformation
+ * \return l'adresse de dest si tout c'est bien passé, NULL sinon
+ */
+char* transformInStr(char *dest, const EmbeddedString src);
+
+
+/**
+ * \fn int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
+ * \brief passe en état trouvé les char du mot correspondant au char suggéré
+ * 
+ * tout les EmbeddedChar ont un char équivalent à suggestedChar sont mis à l'état
+ * trouvé (isFinded à True)
+ * 
+ * \param toUpdate chaîne contenant potentiellement les char à mettre à l'état Trouvé
+ * \param suggestedChar caractère suggéré pour une itération du pendu
+ * \return -1 si toUpdate vaut NULL<br>
+ * 			sinon le nombre de lettres de toUpdate passé à l'état trouvé
+ * 			
+ */
 int updateFindEmbeddedStr(EmbeddedString toUpdate, char suggestedChar);
 
+/**
+ * \fn Boolean isEmbeddedStrFinded(const EmbeddedString word);
+ * \brief permet de savoir si une chaîne est entièrement trouvée
+ * 
+ * Cela permet donc de savoir si tout les EmbeddedChar de la chaine sont trouvés :
+ * les champs isFinded doivent être à True
+ * 
+ * \param word string potentiellement entièrement trouvé
+ * \return True si la chaîne a été trouvée entièrement<br>
+ * 			False sinon
+ */
 Boolean isEmbeddedStrFinded(const EmbeddedString word);
+
+#endif // EMBEDDEDSTRING_H_FT

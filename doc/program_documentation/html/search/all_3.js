@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isfinded_0',['isFinded',['../d2/d6c/struct_embedded_char.html#a15a702cdf4a211a83c0468edc3e6c667',1,'EmbeddedChar']]]
+  ['destroyalphabet_0',['destroyAlphabet',['../dd/d90/alphabet_8h.html#a72ad49290140dfc68895ee64dbf8f051',1,'alphabet.h']]]
 ];
