@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "embeddedString/embeddedString.h"
+#include "alphabet/alphabet.h"
 
 
 /**
@@ -39,7 +40,7 @@ int loadWords(char *pathToFile, char ***storingTab);
  * 
  * Utiliser cette fonction permet d'avoir tout le comportement du pendu
  * 
- * \return -1 si la récupération d'un mot pour le jeu c'est mal passé<br>
+ * \return -1 si la récupération d'un mot pour le jeu c'est mal passé, ou que l'alphabet n'a pu etre alloué<br>
  * 			0 si le jeu a été perdu, donc que le mot n'a pu etre deviné
  * 			1 si le mot a été deviné
  */

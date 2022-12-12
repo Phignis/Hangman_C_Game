@@ -59,9 +59,10 @@ int loadWords(char *pathToFile, char ***storingTab) {
 }
 
 int hangman(void) {
-	char **tabMots, choixLettre;
-	int rdm, tentatives = 11, nbWords;
+	char **tabMots, choixLettre, *hasardMotStr;
+	int rdm, tentatives = 11, nbWords, nbLettersFinded;
 	EmbeddedString hasardMot;
+	Alphabet *alphabet;
 	
 	nbWords = loadWords("./ressources/dictionnary.don", &tabMots);
 	if(nbWords == -2 || nbWords == -1) {
@@ -72,20 +73,20 @@ int hangman(void) {
 	rdm = rand() % nbWords; // dépend taille tabMots
 	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots[rdm]) + 1));
 	if(!hasardMot) {
-    destroyWordsArr(tabMots, nbWords);
-    return -1;
-  }
+		destroyWordsArr(tabMots, nbWords);
+		return -1;
+	}
 	
 	
 	if(!transformInEmbeddedStr(hasardMot, tabMots[rdm])) {
 		free(hasardMot);
-    destroyWordsArr(tabMots, nbWords);
+		destroyWordsArr(tabMots, nbWords);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
-    destroyWordsArr(tabMots, nbWords);
+		destroyWordsArr(tabMots, nbWords);
 		return -1;
 	}
 	
@@ -150,6 +151,7 @@ int hangman(void) {
 			default:
 				printf("Incroyable, vous êtes parvenu(e) à trouver %d lettres en une fois!!!\n", nbLettersFinded);
 		
+		}
 	}
 	
 	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
@@ -163,17 +165,22 @@ int hangman(void) {
 	
 	if(tentatives) {
     printf("Bravo, le mot était bien \"%s\".\n", hasardMotStr);
+    
     destroyAlphabet(alphabet);
     destroyWordsArr(tabMots, nbWords);
     free(hasardMotStr);
     free(hasardMot);
+    
     return 1;
+    
   }	else {
     printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
+    
     destroyAlphabet(alphabet);
     destroyWordsArr(tabMots, nbWords);
     free(hasardMotStr);
     free(hasardMot);
+    
     return 0;
   }
 }
