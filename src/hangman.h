@@ -19,10 +19,15 @@
 
 
 /**
- * \fn void emptyStdin(void)
- * \brief vide l'entrée standard stdin de tout ses charactères
+ * \fn int emptyStream(FILE *stream);
+ * \brief vide un flux de tout ses charactères
+ * 
+ * ATTENTION! si le buffer spécifié est stdin et est vide, attendra la saisie d'un charactère sur cet input
+ * \param stream flux dont il faut vider tout les charactères
+ * \return 0 si tout s'est bien déroulé<br />
+ * 			valeur non nulle si quelque chose s'est mal passé (se référer au code de retour de ferror())
  */
-void emptyStdin(void);
+int emptyStream(FILE *stream);
 
 
 /**
