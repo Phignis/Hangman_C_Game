@@ -19,6 +19,13 @@
 
 
 /**
+ * \fn void emptyStdin(void)
+ * \brief vide l'entrée standard stdin de tout ses charactères
+ */
+void emptyStdin(void);
+
+
+/**
  * \fn void destroyWordsArr(char **toDestroy, int logicalSize);
  * \brief désalloue tout les tableaux alloués dynamiquement pour ToDestroy
  * 

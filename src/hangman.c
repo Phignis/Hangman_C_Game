@@ -1,5 +1,12 @@
 #include "hangman.h"
 
+void emptyStdin(void) {
+	char c;
+	do {
+		c = fgetc(stdin);
+	} while(c != EOF && c != '\n');
+}
+
 void destroyWordsArr(char **toDestroy, int logicalSize) {
 	if(toDestroy) {
 		for(int i = 0; i < logicalSize; ++i) {
@@ -22,7 +29,7 @@ int loadWords(char *pathToFile, char ***storingTab) {
 		
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {
-      free(*storingTab);
+			free(*storingTab);
 			return -2;
 		}
     
@@ -109,12 +116,13 @@ int hangman(void) {
 		printf("Il vous reste %d tentatives.\n\n", tentatives);
 		
 		printf("Veuillez proposer une lettre :\n");
-		scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
+		scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
+		emptyStdin();
 		
 		while(!isProposedLetterValid(*alphabet, choixLettre)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
-
+			emptyStdin();
 		}
 		
 		updateAlphabet(*alphabet, choixLettre);
@@ -127,9 +135,9 @@ int hangman(void) {
 		switch(nbLettersFinded - 2) {
 			case -3:
 				printf("null pointer for hasardMot"); // pas atteignable normalement
-        destroyWordsArr(tabMots, nbWords);
-        destroyAlphabet(alphabet);
-        free(hasardMot);
+				destroyWordsArr(tabMots, nbWords);
+				destroyAlphabet(alphabet);
+				free(hasardMot);
 				return -1;
         
 			case -2:
@@ -138,7 +146,7 @@ int hangman(void) {
 				
 				break;
         
-      case -1:
+			case -1:
 				printf("Bravo, vous avez trouvé %d lettres.\n", nbLettersFinded);
 				
 				break;
@@ -157,30 +165,30 @@ int hangman(void) {
 	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
 	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
 		destroyAlphabet(alphabet);
-    destroyWordsArr(tabMots, nbWords);
+		destroyWordsArr(tabMots, nbWords);
 		free(hasardMot);
 		printf("Erreur lors de l'affichage du mot trouvé.\n");
 		return -1;
 	}
 	
 	if(tentatives) {
-    printf("Bravo, le mot était bien \"%s\".\n", hasardMotStr);
+		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en %d tentatives.\n", hasardMotStr, tentatives);
+		
+		destroyAlphabet(alphabet);
+		destroyWordsArr(tabMots, nbWords);
+		free(hasardMotStr);
+		free(hasardMot);
+		
+		return 1;
     
-    destroyAlphabet(alphabet);
-    destroyWordsArr(tabMots, nbWords);
-    free(hasardMotStr);
-    free(hasardMot);
-    
-    return 1;
-    
-  }	else {
-    printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
-    
-    destroyAlphabet(alphabet);
-    destroyWordsArr(tabMots, nbWords);
-    free(hasardMotStr);
-    free(hasardMot);
-    
-    return 0;
-  }
+    }	else {
+		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
+
+		destroyAlphabet(alphabet);
+		destroyWordsArr(tabMots, nbWords);
+		free(hasardMotStr);
+		free(hasardMot);
+
+		return 0;
+	}
 }
