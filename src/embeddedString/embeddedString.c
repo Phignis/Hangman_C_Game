@@ -123,7 +123,8 @@ int updateFindEmbeddedStr(EmbeddedString toUpdate, const char suggestedChar) {
 		int nbLetterFinded = 0, i = 0;
 		
 		while(toUpdate[i].value) {
-			if(toUpdate[i].value == suggestedChar) {
+			if(toUpdate[i].value == suggestedChar ||
+			(toUpdate[i].value - 32) == suggestedChar) { // deuxieme condition si c'est une maj : - 32 correspond à + ('A' - 'a')
 				toUpdate[i].isFinded = 1;
 				++nbLetterFinded;
 			}
