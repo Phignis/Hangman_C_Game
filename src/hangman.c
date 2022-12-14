@@ -1,12 +1,17 @@
 #include "hangman.h"
 
-int emptyStream(FILE* stream) {
-	char c;
-	do {
-		c = fgetc(stream);
-	} while(c != EOF && c != '\n');
-	
-	return ferror(stream);
+int emptyStream(FILE* stream, int nbCharDumped) {
+	if(stream) {
+		char c;
+		int i = 0;
+		do {
+			c = fgetc(stream);
+			++i;
+		} while(c != EOF && c != '\n' && i != nbCharDumped);
+		
+		return ferror(stream);
+	}
+	return -1;
 }
 
 void destroyWordsArr(char **toDestroy, int logicalSize) {
@@ -119,12 +124,12 @@ int hangman(void) {
 		
 		printf("Veuillez proposer une lettre :\n");
 		scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
-		emptyStream(stdin);
+		emptyStream(stdin, -1);
 		
 		while(!isProposedLetterValid(*alphabet, choixLettre)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
-			emptyStream(stdin);
+			emptyStream(stdin -1);
 		}
 		
 		updateAlphabet(*alphabet, choixLettre);

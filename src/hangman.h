@@ -19,15 +19,18 @@
 
 
 /**
- * \fn int emptyStream(FILE *stream);
- * \brief vide un flux de tout ses charactères
+ * \fn int emptyStream(FILE* stream, int nbCharDumped);
+ * \brief vide un flux d'un certain nombre de charactère
  * 
  * ATTENTION! si le buffer spécifié est stdin et est vide, attendra la saisie d'un charactère sur cet input
- * \param stream flux dont il faut vider tout les charactères
+ * Si nbCharDumped est négatif, vide tout les charactères. Sinon vide le nombre spécifié par nbCharDumped
+ * 
+ * \param stream flux dont il faut vider tout les charactères. <b>Le flux n'est ni ouvert ni fermé, charge à l'appelant de le faire</b>
+ * \param nbCharDumped nombre de charactère à jeter. Si ce nombre est négatif, vide tout le flux. Sinon vide le nombre spécifié de charactère.
  * \return 0 si tout s'est bien déroulé<br />
- * 			valeur non nulle si quelque chose s'est mal passé (se référer au code de retour de ferror())
+ * 			valeur non nulle si quelque chose s'est mal passé (se référer au code de retour de ferror()) ou si stream est NULL
  */
-int emptyStream(FILE *stream);
+int emptyStream(FILE* stream, int nbCharDumped);
 
 
 /**

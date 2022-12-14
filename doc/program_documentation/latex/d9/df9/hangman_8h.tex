@@ -13,6 +13,8 @@ Définit le comportement global du jeu du pendu.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}{empty\+Stream}} (FILE $\ast$stream, int nb\+Char\+Dumped)
+\begin{DoxyCompactList}\small\item\em vide un flux d\textquotesingle{}un certain nombre de charactère \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{hangman_8h_aa2d810faa6baa30bb16b07ebc0f60031}{destroy\+Words\+Arr}} (char $\ast$$\ast$to\+Destroy, int logical\+Size)
 \begin{DoxyCompactList}\small\item\em désalloue tout les tableaux alloués dynamiquement pour To\+Destroy \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{hangman_8h_a38de075747e9fd1070eae23955aaadd8}{load\+Words}} (char $\ast$path\+To\+File, char $\ast$$\ast$$\ast$storing\+Tab)
@@ -57,6 +59,29 @@ to\+Destroy représente un tableau de chaine de caractère, chaque éléments ay
 {\em logical\+Size} & nombre de string contenu dans to\+Destroy, et donc à désallouer \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}\label{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}} 
+\index{hangman.h@{hangman.h}!emptyStream@{emptyStream}}
+\index{emptyStream@{emptyStream}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{emptyStream()}{emptyStream()}}
+{\footnotesize\ttfamily int empty\+Stream (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{int}]{nb\+Char\+Dumped }\end{DoxyParamCaption})}
+
+
+
+vide un flux d\textquotesingle{}un certain nombre de charactère 
+
+ATTENTION! si le buffer spécifié est stdin et est vide, attendra la saisie d\textquotesingle{}un charactère sur cet input Si nb\+Char\+Dumped est négatif, vide tout les charactères. Sinon vide le nombre spécifié par nb\+Char\+Dumped
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & flux dont il faut vider tout les charactères. {\bfseries{Le flux n\textquotesingle{}est ni ouvert ni fermé, charge à l\textquotesingle{}appelant de le faire}} \\
+\hline
+{\em nb\+Char\+Dumped} & nombre de charactère à jeter. Si ce nombre est négatif, vide tout le flux. Sinon vide le nombre spécifié de charactère. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien déroulé~\newline
+ valeur non nulle si quelque chose s\textquotesingle{}est mal passé (se référer au code de retour de ferror()) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}\label{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}} 
 \index{hangman.h@{hangman.h}!hangman@{hangman}}
 \index{hangman@{hangman}!hangman.h@{hangman.h}}

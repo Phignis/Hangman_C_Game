@@ -114,6 +114,9 @@ $(document).ready(function(){initNavTree('d9/df9/hangman_8h.html','../../'); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:ab47a738a3eada35524d6c6f2f2dce784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">emptyStream</a> (FILE *stream, int nbCharDumped)</td></tr>
+<tr class="memdesc:ab47a738a3eada35524d6c6f2f2dce784"><td class="mdescLeft">&#160;</td><td class="mdescRight">vide un flux d'un certain nombre de charactère  <a href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab47a738a3eada35524d6c6f2f2dce784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d810faa6baa30bb16b07ebc0f60031"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#aa2d810faa6baa30bb16b07ebc0f60031">destroyWordsArr</a> (char **toDestroy, int logicalSize)</td></tr>
 <tr class="memdesc:aa2d810faa6baa30bb16b07ebc0f60031"><td class="mdescLeft">&#160;</td><td class="mdescRight">désalloue tout les tableaux alloués dynamiquement pour ToDestroy  <a href="../../d9/df9/hangman_8h.html#aa2d810faa6baa30bb16b07ebc0f60031">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa2d810faa6baa30bb16b07ebc0f60031"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +169,46 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab47a738a3eada35524d6c6f2f2dce784" name="ab47a738a3eada35524d6c6f2f2dce784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47a738a3eada35524d6c6f2f2dce784">&#9670;&#160;</a></span>emptyStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int emptyStream </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbCharDumped</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>vide un flux d'un certain nombre de charactère </p>
+<p >ATTENTION! si le buffer spécifié est stdin et est vide, attendra la saisie d'un charactère sur cet input Si nbCharDumped est négatif, vide tout les charactères. Sinon vide le nombre spécifié par nbCharDumped</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>flux dont il faut vider tout les charactères. <b>Le flux n'est ni ouvert ni fermé, charge à l'appelant de le faire</b> </td></tr>
+    <tr><td class="paramname">nbCharDumped</td><td>nombre de charactère à jeter. Si ce nombre est négatif, vide tout le flux. Sinon vide le nombre spécifié de charactère. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si tout s'est bien déroulé<br  />
+ valeur non nulle si quelque chose s'est mal passé (se référer au code de retour de ferror()) </dd></dl>
 
 </div>
 </div>
