@@ -129,7 +129,7 @@ int hangman(void) {
 		while(!isProposedLetterValid(*alphabet, choixLettre)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
-			emptyStream(stdin -1);
+			emptyStream(stdin, -1);
 		}
 		
 		updateAlphabet(*alphabet, choixLettre);
@@ -179,7 +179,7 @@ int hangman(void) {
 	}
 	
 	if(tentatives) {
-		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en %d tentatives.\n", hasardMotStr, tentatives);
+		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 		destroyAlphabet(alphabet);
 		destroyWordsArr(tabMots, nbWords);
