@@ -102,14 +102,15 @@ void printAlphabet(const Alphabet toPrint);
  * 
  * \param alphabet structure contenant l'état d'utilisation des lettres
  * \param submittedChar caractère proposé par l'utilisateur
- * \return True si le char est valide (une lettre, non déjà utilisé)
- * 			False si: <br>
+ * \return  **2** si le char est '!'
+ * 			**1** si le char est valide (une lettre, non déjà utilisé)
+ * 			**0** si: <br>
  * 			*   ce n'est pas une lettre
  * 			*   le tableau de l'alphabet n'existe pas (NULL)
  * 			*   la lettre n'est pas dans l'alphabet passé en paramètre
  * 			*   la lettre est déjà utilisé
  */
-Boolean isProposedLetterValid(const Alphabet alphabet, char submittedChar);
+int isProposedLetterValid(const Alphabet alphabet, char submittedChar);
 
 
 /**

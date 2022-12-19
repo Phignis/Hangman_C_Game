@@ -75,7 +75,7 @@ int loadWords(char *pathToFile, char ***storingTab) {
 
 int hangman(void) {
 	char **tabMots, choixLettre, *hasardMotStr;
-	int rdm, tentatives = 11, nbWords, nbLettersFinded;
+	int rdm, tentatives = 11, nbWords, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
 	
@@ -128,46 +128,88 @@ int hangman(void) {
 		scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
 		emptyStream(stdin, -1);
 		
-		while(!isProposedLetterValid(*alphabet, choixLettre)) { // choixLettre - 'a' donne l'index dans alphabet de la lattre saisie
+		typeChar = isProposedLetterValid(*alphabet, choixLettre);
+		
+		while(!typeChar) {
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 			emptyStream(stdin, -1);
+			typeChar = isProposedLetterValid(*alphabet, choixLettre);
 		}
 		
-		updateAlphabet(*alphabet, choixLettre);
+		if(typeChar == 2) { // on cherche a deviner le mot
+			char suggestedStr[8];
+			printf("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères\n");
+			scanf("%7s", suggestedStr);
+			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
+			
+			printf( "\e[1;1H\e[2J");
+			printf("\n\n");
+			switch(mixedStrcmp(hasardMot, suggestedStr)) {
+				case -2:
+					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
+					destroyWordsArr(tabMots, nbWords);
+					destroyAlphabet(alphabet);
+					free(hasardMot);
+					return -1;
+				case 0:
+					hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
+					if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
+						destroyAlphabet(alphabet);
+						destroyWordsArr(tabMots, nbWords);
+						free(hasardMot);
+						printf("Erreur lors de l'affichage du mot trouvé.\n");
+						return -1;
+					}
+					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
-		nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
+					destroyAlphabet(alphabet);
+					destroyWordsArr(tabMots, nbWords);
+					free(hasardMotStr);
+					free(hasardMot);
+					
+					return 1;
+				default:
+					printf("Dommage, ce n'était pas le bon mot! Vous perdez une tentative!\n");
+					--tentatives;
+			}
+			
+		} else {
+			updateAlphabet(*alphabet, choixLettre);
 		
-		printf( "\e[1;1H\e[2J");
-		printf("\n\n");
-    
-		switch(nbLettersFinded - 2) {
-			case -3:
-				printf("null pointer for hasardMot"); // pas atteignable normalement
-				destroyWordsArr(tabMots, nbWords);
-				destroyAlphabet(alphabet);
-				free(hasardMot);
-				return -1;
-        
-			case -2:
-				printf("La lettre '%c' n'est pas présente dans le mot à deviner.\n", choixLettre);
-				--tentatives;
-				
-				break;
-        
-			case -1:
-				printf("Bravo, vous avez trouvé %d lettres.\n", nbLettersFinded);
-				
-				break;
-        
-			case 0:
-				printf("GG, vous avez trouvé %d lettres.\n", nbLettersFinded);
-				
-				break;
-        
-			default:
-				printf("Incroyable, vous êtes parvenu(e) à trouver %d lettres en une fois!!!\n", nbLettersFinded);
+			nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
+			
+			printf( "\e[1;1H\e[2J");
+			printf("\n\n");
 		
+			switch(nbLettersFinded - 2) {
+				case -3:
+					printf("null pointer for hasardMot\n"); // pas atteignable normalement
+					destroyWordsArr(tabMots, nbWords);
+					destroyAlphabet(alphabet);
+					free(hasardMot);
+					return -1;
+			
+				case -2:
+					printf("La lettre '%c' n'est pas présente dans le mot à deviner.\n", choixLettre);
+					--tentatives;
+					
+					break;
+			
+				case -1:
+					printf("Bravo, vous avez trouvé %d lettres.\n", nbLettersFinded);
+					
+					break;
+			
+				case 0:
+					printf("GG, vous avez trouvé %d lettres.\n", nbLettersFinded);
+					
+					break;
+			
+				default:
+					printf("Incroyable, vous êtes parvenu(e) à trouver %d lettres en une fois!!!\n", nbLettersFinded);
+			
+			}
 		}
 	}
 	

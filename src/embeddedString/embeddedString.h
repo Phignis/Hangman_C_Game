@@ -109,6 +109,22 @@ size_t embeddedStrlen(EmbeddedString toCount);
  */
 int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2);
 
+/**
+ * \fn int mixedStrcmp(const EmbeddedString str1, const char *str2);
+ * \brief compare les chaînes, une embeddedChar et une str C lexicographiquement.
+ * 
+ * ATTENTION! Si les string ne se finissent pas par '\0', comportement indéfini<br>
+ * Compare le champ value de EmbeddedChar avec les char de char*
+ * 
+ * \param str1 première chaîne servant à la comparaison
+ * \param str2 seconde chaîne servant à la comparaison
+ * \return -2 si un des paramètres vaut **NULL**<br>
+ * 			0 si les chaînes sont **identiques**<br>
+ * 			1 si la chaîne 1 est **supérieure lexicographiquement** à la chaîne 2<br>
+ * 			-1 si la chaîne 1 est **inférieure lexicographiquement** à la chaîne 2
+ */
+int mixedStrcmp(const EmbeddedString str1, const char *str2);
+
 
 /**
  * \fn EmbeddedString embeddedStrcpy(EmbeddedString dest, EmbeddedString src);

@@ -42,19 +42,22 @@ void printAlphabet(const Alphabet toPrint) {
 	}
 }
 
-Boolean isProposedLetterValid(const Alphabet alphabet, char submittedChar) {
+int isProposedLetterValid(const Alphabet alphabet, char submittedChar) {
 	
 	if(alphabet.array) {
+		if(submittedChar == '!')
+			return 2;
+		
 		if(submittedChar > 64 && submittedChar < 91 && (submittedChar - 'A') < alphabet.logicalSize
 			&& alphabet.array[submittedChar - 'A'] == False) {
-			return True;
+			return 1;
 		}
 		else if(submittedChar > 96 && submittedChar < 123 && (submittedChar - 'a') < alphabet.logicalSize
 			&& alphabet.array[submittedChar - 'a'] == False) {
-			return True;
+			return 1;
 		}
 	}
-	return False;
+	return 0;
 }
 
 Boolean updateAlphabet(Alphabet toUpdate, char submittedChar) {

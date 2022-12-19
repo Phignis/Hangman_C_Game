@@ -62,6 +62,65 @@ int testEmbeddedStrcmp(void) {
 	return 0;
 }
 
+int testMixedStrcmp(void) {
+	
+	EmbeddedString str1;
+	char* str2;
+	
+	str1 = (EmbeddedString) malloc(sizeof(EmbeddedChar) * 5);
+	if(!str1) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	str2 = (char *) malloc(sizeof(char) * 5);
+	if(!str2) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	if(mixedStrcmp(NULL, NULL) != -2 ||mixedStrcmp(str1, NULL) != -2
+		|| mixedStrcmp(NULL, str2) != -2) return -1;
+	
+	str1[0].value = 't';
+	str1[1].value = 'o';
+	str1[2].value = 't';
+	str1[3].value = 'o';
+	str1[4].value = '\0';
+	
+	str2[0] = '\0';
+	
+	if(mixedStrcmp(str1, str2) != 1) {
+		return -1;
+	}
+	
+	str2[0] = 't';
+	str2[1] = '\0';
+	
+	if(mixedStrcmp(str1, str2) != 1) {
+		return -1;
+	}
+	
+	str2[0] = 'u';
+	str2[1] = '\0';
+	
+	if(mixedStrcmp(str1, str2) != -1) {
+		return -1;
+	}
+	
+	str2[0] = 't';
+	str2[1] = 'o';
+	str2[2] = 't';
+	str2[3] = 'o';
+	str2[4] = '\0';
+	
+	if(mixedStrcmp(str1, str2) != 0) {
+		return -1;
+	}
+	
+	return 0;
+}
+
 int testEmbeddedStrlen(void) {
 	EmbeddedString toto = (EmbeddedString) malloc(sizeof(EmbeddedChar) * 5);
 	
@@ -270,6 +329,11 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction embeddedStrcmp.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction embeddedStrcmp réussi!\033[0m\n");
+		
+	if(testMixedStrcmp())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction mixedStrcmp.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction mixedStrcmp réussi!\033[0m\n");
 	
 	if(testEmbeddedStrlen())
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction embeddedStrlen.\033[0m\n");
