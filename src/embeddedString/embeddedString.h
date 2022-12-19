@@ -68,8 +68,26 @@ typedef EmbeddedChar *EmbeddedString;
 
 
 
-
-
+/**
+ * \fn void toLowerCase(char *toConvert);
+ * \brief transform capitals letters in lowercase letters
+ * 
+ * capitals letters match with regex [A-Z], transform to their equivalent in [a-z]
+ * ATTENTION! if toConvert is not a valid C str finishing by '\0', undefined behaviour is expected
+ * 
+ * \param toConvert string to convert in lowerCase
+ */
+void toLowerCase(char *toConvert);
+/**
+ * \fn void toUpperCase(char *toConvert);
+ * \brief transform lowercase letters in uppercase letters
+ * 
+ * capitals letters match with regex [a-z], transform to their equivalent in [A-Z]
+ * ATTENTION! if toConvert is not a valid C str finishing by '\0', undefined behaviour is expected
+ * 
+ * \param toConvert string to convert in upperCase
+ */
+void toUpperCase(char *toConvert);
 
 /**
  * \fn void printEmbeddedStr(const EmbeddedString toPrint);

@@ -145,6 +145,8 @@ int hangman(void) {
 			
 			printf( "\e[1;1H\e[2J");
 			printf("\n\n");
+			
+			toLowerCase(suggestedStr);
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
 					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement

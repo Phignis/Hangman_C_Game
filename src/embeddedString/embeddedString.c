@@ -1,6 +1,44 @@
 #include "embeddedString.h"
 
 
+void toLowerCase(char *toConvert) {
+	if(toConvert) {
+		/* copie du pointeur sur le premier char, et avance d'un char jusqu'à rencontrer
+		 * le \0.
+		 * un for fonctionne en 3 partie: une utilisation d'itérateur avec affectation optionnelle,
+		 * puis la condition pour continuer les itérations, et l'instruction a effectuer a chaque fin de boucle
+		 * 
+		 * Ici la condition pour continuer est *current, donc tant que *current est différent de 0, ici \0
+		 */
+		for(char *current = toConvert; *current; ++current) {
+			/* en hexa, 'A' se note 0x41, et 'a' 0x61. 'Z' se note 0x5A, 'z' se note 0x7A
+			 * ainsi pour passer de 0x4 à 0x6 et de 0x5 à 0x7, il suffit de mettre le second bit
+			 * depuis le bit de poids faible à 1, et laisser les autres tels quels:
+			 * 0100 à 0110 et 0101 à 0111 -> on met le bit 2 à partir du poids faible à 1
+			 * 
+			 * le masque OR permet de forcer des bits à 1, ici le bit 2 : 0x20 = 0010 0000
+			*/
+			*current = (*current > 0x40 && *current < 0x5b) ? *current | 0x20 : *current;
+			/*
+			 * le ternaire fonctionne comme suit: si la condition avant le '?' est vraie au sens C,
+			 * effectue l'opération avant les ':'. Sinon, effectue celle après.
+			 * Ici cela ne permet de mettre le bit 2 du second quartet à 1 que si c'est une majuscule.
+			 */
+		}
+	}
+}
+
+void toUpperCase(char *toConvert) {
+	if(toConvert) {
+		for(char *current = toConvert; *current; ++current) {
+			
+			// le masque AND permet de forcer des bits à 0 là où le masque vaut 0, ici le bit 2: 0xDF -> 1101 1111
+			// le masque AND appliqué est le récirpoque du masque OR ox20
+			*current = (*current > 0x60 && *current < 0x7b) ? *current & 0xDF : *current;
+		}
+	}
+}
+
 void printEmbeddedStr(const EmbeddedString toPrint) {
 	if(toPrint) {
 		int i = 0;

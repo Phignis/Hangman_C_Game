@@ -4,6 +4,56 @@
 #include <stdlib.h>
 #include <string.h>
 
+int testToLowerCase(void) {
+	
+	char* str = (char *) malloc(sizeof(char) * 6);
+	if(!str) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	str[0] = 'T';
+	str[1] = 'o';
+	str[2] = 't';
+	str[3] = '0';
+	str[4] = '!';
+	str[5] = '\0';
+	
+	toLowerCase(str);
+	
+	if(str[0] != 't' || str[1] != 'o'|| str[2] != 't' || str[3] != '0'
+		|| str[4] != '!' || str[5] != '\0') return -1;
+		
+	free(str);
+	
+	return 0;
+}
+
+int testToUpperCase(void) {
+	
+	char* str = (char *) malloc(sizeof(char) * 6);
+	if(!str) {
+		printf("Soucis lors du malloc.\n");
+		return -1;
+	}
+	
+	str[0] = 'T';
+	str[1] = 'o';
+	str[2] = 't';
+	str[3] = '0';
+	str[4] = '!';
+	str[5] = '\0';
+	
+	toUpperCase(str);
+	
+	if(str[0] != 'T' || str[1] != 'O'|| str[2] != 'T' || str[3] != '0'
+		|| str[4] != '!' || str[5] != '\0') return -1;
+		
+	free(str);
+	
+	return 0;
+}
+
 int testEmbeddedStrcmp(void) {
 	
 	EmbeddedString str1, str2;
@@ -325,6 +375,16 @@ int main(void) {
 	
 	printf("\n\e[1;34mBatterie de test sur EmbeddedString:\e[0m\n\n");
 	
+	if(testToLowerCase())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction toLowerCase.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction toLowerCase réussi!\033[0m\n");
+		
+	if(testToUpperCase())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction toUpperCase.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction toUpperCase réussi!\033[0m\n");
+		
 	if(testEmbeddedStrcmp())
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction embeddedStrcmp.\033[0m\n");
 	else
