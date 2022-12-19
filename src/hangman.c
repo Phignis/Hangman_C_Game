@@ -67,6 +67,7 @@ int loadWords(char *pathToFile, char ***storingTab) {
 		}
 		
 		fclose(data);
+		
 		return logicalSize;
 	}
 	return -2;
@@ -82,6 +83,7 @@ int hangman(void) {
 	if(nbWords == -2 || nbWords == -1) {
 		return -1;
 	}
+	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
   
 	srand(time(NULL));
 	rdm = rand() % nbWords; // dépend taille tabMots
@@ -112,7 +114,7 @@ int hangman(void) {
 
 	
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
-		
+				
 		printf("\n\n\x1B[36m");
 		printEmbeddedStr(hasardMot);
 		printf("\033[0m");
