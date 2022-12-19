@@ -220,10 +220,12 @@ int testUpdateFindEmbeddedStr(void) {
 	if(str1[0].isFinded != True || str1[2].isFinded != True || str1[1].isFinded != False
 		|| str1[3].isFinded != False) return -1;
 	
-	if(updateFindEmbeddedStr(str1, 'o') != 2) return -1;
+	if(updateFindEmbeddedStr(str1, 'O') != 2) return -1;
 	
 	if(str1[0].isFinded != True || str1[2].isFinded != True || str1[1].isFinded != True
 		|| str1[3].isFinded != True) return -1;
+		
+	
 	
 	free(str1);
 	return 0;
