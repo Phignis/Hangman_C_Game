@@ -16,13 +16,14 @@ void toLowerCase(char *toConvert) {
 			 * depuis le bit de poids faible à 1, et laisser les autres tels quels:
 			 * 0100 à 0110 et 0101 à 0111 -> on met le bit 2 à partir du poids faible à 1
 			 * 
-			 * le masque OR permet de forcer des bits à 1, ici le bit 2 : 0x20 = 0010 0000
+			 * 0x20 = 0010 0000, XOR inverse et met donc à 1 le bit 2 du second quarter pour une maj
+			 * multiplier la condition permet de mettre le masque à 0 (et donc éviter d'effectuer le changement), si
+			 * la condition est fausse et que le charactère n'est pas une majuscule
 			*/
-			*current = (*current > 0x40 && *current < 0x5b) ? *current | 0x20 : *current;
+			*current ^= 0x20 * ('A' <= *current && 'Z'>= *current);
 			/*
-			 * le ternaire fonctionne comme suit: si la condition avant le '?' est vraie au sens C,
-			 * effectue l'opération avant les ':'. Sinon, effectue celle après.
-			 * Ici cela ne permet de mettre le bit 2 du second quartet à 1 que si c'est une majuscule.
+			 * preférer en premier le terme constant plutot que la variable permet de générer
+			 * une erreur au compilo si on fait "=" à la place de "==" par exemple
 			 */
 		}
 	}
@@ -31,10 +32,7 @@ void toLowerCase(char *toConvert) {
 void toUpperCase(char *toConvert) {
 	if(toConvert) {
 		for(char *current = toConvert; *current; ++current) {
-			
-			// le masque AND permet de forcer des bits à 0 là où le masque vaut 0, ici le bit 2: 0xDF -> 1101 1111
-			// le masque AND appliqué est le récirpoque du masque OR ox20
-			*current = (*current > 0x60 && *current < 0x7b) ? *current & 0xDF : *current;
+			*current ^= 0x20 * ('a' <= *current && 'z'>= *current);
 		}
 	}
 }
