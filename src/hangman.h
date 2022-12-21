@@ -62,6 +62,44 @@ void destroyWordsArr(char **toDestroy, int logicalSize);
 int loadWords(char *pathToFile, char ***storingTab);
 
 /**
+ * \fn int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize);
+ * \brief permet d'écrire une liste de mots dans un flux
+ * 
+ * Ecrira les chaînes de charactères présents dans storingTab à partir de l'endroit
+ * indiqué par le flux. 
+ * ATTENTION! donnez un flux possédant des droits d'écritures et sans mode binaire<br>
+ * ATTENTION! le flux de donné n'est ni ouvert ni fermé dans la fonction. Charge à la
+ * fonction appelante de gérer ouverture et fermuture.<br>
+ * ATTENTION! le nombre de mots écrits rééllement est renvoyé. Si au cours de l'écriture, une erreur survient,
+ * il se peut que seulement une partie des mots soient écrits.
+ * 
+ * 
+ * \param placeToSave flux de données où stocker les mots de wordsToWrite
+ * \param wordsToWrite tableau de chaine de caractères
+ * \param logicalSize nombre de chaine de caractères présents dans wordsToWrite
+ * \return **-1** si placeToSave vaut NULL<br>
+ * 			le nombre de mots écrits rééllement sinon
+ */
+int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize);
+
+/**
+ * \fn char** addWords(char *pathToFile, char **wordsToAdd, int logicalSize);
+ * \brief ajoute des mots à la fin d'un fichier, et renvoit le contenu du fichier modifié
+ * 
+ * ATTENTION! Peut ne pas insérer tout les mots présents dans wordsToAdd
+ * n'ajoutes dans le fichier que les mots pas encore présents, afin de garentir l'unicité
+ * 
+ * 
+ * \param pathToFile chemin vers le fichier dont il faut récupérer les données
+ * \param wordsToAdd tableau de chaine de caractère a ajouter au fichier
+ * \param logicalSizeToAdd nombre de chaine de caractères présents dans wordsToAdd
+ * \param logicalSizeUpdatedWords stockera le nombre de chaine dans le tableau retourné
+ * \return **NULL** si l'ouverture de fichier n'a pu se faire, ou que pathToFile ou wordsToAdd valent NULL
+ * 			un tableau contenant tout les mots présent après insertions réussies dans le fichier
+ */
+char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords);
+
+/**
  * \fn int hangman(void);
  * \brief Fonction permettant de lancer un jeu du pendu
  * 
