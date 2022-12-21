@@ -9,6 +9,9 @@
  * \date 12 décembre 2022
  * \version 1.0
  */
+ 
+#ifndef HANGMAN_H_TF
+#define HANGMAN_H_TF
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +19,7 @@
 
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"
+#include "dictionnary/dictionnary.h"
 
 
 /**
@@ -32,34 +36,18 @@
  */
 int emptyStream(FILE* stream, int nbCharDumped);
 
-
 /**
- * \fn void destroyWordsArr(char **toDestroy, int logicalSize);
- * \brief désalloue tout les tableaux alloués dynamiquement pour ToDestroy
+ * \fn Dictionnary* loadWords(char *pathToFile);
+ * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné
  * 
- * toDestroy représente un tableau de chaine de caractère, chaque éléments ayant été alloué dynamiquement.
- * Afin de désallouer proprement un tableau généré par loadWords, veuillez utiliser cette méthode.
- * Désalloue non seulement le tableau toDestroy lui même, mais aussi les tableaux chaînes de char qu'il contient.
- * 
- * \param toDestroy tableau de string à désallouer
- * \param logicalSize nombre de string contenu dans toDestroy, et donc à désallouer
- */
-void destroyWordsArr(char **toDestroy, int logicalSize);
-
-/**
- * \fn int loadWords(char *pathToFile, char ***storingTab);
- * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans myTab
- * 
- * Stocke dans storingTab les chaînes de caractères se trouvant dans le fichier indiqué par pathToFile<br>
+ * Stocke dans le dictionnaire retourné les chaînes de caractères se trouvant dans le fichier indiqué par pathToFile<br>
  * ATTENTION! le chemin du fichier est relatif à la position de l'utilisateur, et non de l'executable lui même
  * 
  * \param pathToFile chemin vers le fichier dont il faut récupérer les données
- * \param storingTab stocke l'adresse du tableau de string créé (passage par adresse)
- * \return -2 si le fichier n'a pu etre ouvert en mode lecture ou mal lu<br>
- * 			-1 si une allocation dynamique n'a pu etre effectur<br>
- * 			sinon, retourne le nombre de chaine de caractère récupérés 
+ * \return NULL si le fichier n'a pu etre ouvert en mode lecture ou mal lu<br>
+ * 			l'adresse du dictionnaire de mot récupéré sinon (à vider avec destroyDictionnary
  */
-int loadWords(char *pathToFile, char ***storingTab);
+Dictionnary* loadWords(char *pathToFile);
 
 /**
  * \fn int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize);
@@ -94,7 +82,7 @@ int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize);
  * \param wordsToAdd tableau de chaine de caractère a ajouter au fichier
  * \param logicalSizeToAdd nombre de chaine de caractères présents dans wordsToAdd
  * \param logicalSizeUpdatedWords stockera le nombre de chaine dans le tableau retourné
- * \return **NULL** si l'ouverture de fichier n'a pu se faire, ou que pathToFile ou wordsToAdd valent NULL
+ * \return **NULL** si l'ouverture de fichier n'a pu se faire, ou que pathToFile, wordsToAdd ou logicalSizeUpdatedWords valent NULL
  * 			un tableau contenant tout les mots présent après insertions réussies dans le fichier
  */
 char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords);
@@ -110,3 +98,5 @@ char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *
  * 			1 si le mot a été deviné
  */
 int hangman(void);
+
+#endif // HANGMAN_H_TF

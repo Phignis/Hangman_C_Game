@@ -14,136 +14,106 @@ int emptyStream(FILE* stream, int nbCharDumped) {
 	return -1;
 }
 
-void destroyWordsArr(char **toDestroy, int logicalSize) {
-	if(toDestroy) {
-		for(int i = 0; i < logicalSize; ++i) {
-			free(toDestroy[i]);
-		}
-	}
-	free(toDestroy);
-}
-
-int loadWords(char *pathToFile, char ***storingTab) {
+Dictionnary* loadWords(char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
-		int logicalSize = 0, physicalSize = 5;
-		char **myNewTab;
+		//~ int logicalSize = 0, physicalSize = 5;
+		//~ char **myNewTab;
 		
-		*storingTab = (char **) malloc(sizeof(char*) * physicalSize);
-		if(!(*storingTab)) return -1;
+		//~ *storingTab = (char **) malloc(sizeof(char*) * physicalSize);
+		//~ if(!(*storingTab)) return -1;
 		
-		printf("\n%s\n", pathToFile);
-		
+		//~ printf("\n%s\n", pathToFile);
+		Dictionnary *toReturn;
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {
-			free(*storingTab);
-			return -2;
+			return NULL;
 		}
     
-		while(!feof(data)) {
-			// verifier si on a la place pour stocker
-			if(logicalSize == physicalSize) {
-				// plus de place, il faut realloc
-				physicalSize += 5; // on rajoute 5 cases
-				myNewTab = (char **) realloc(*storingTab, sizeof(char*) * physicalSize);
-				if(!(myNewTab)) {
-					destroyWordsArr(*storingTab, logicalSize);
-					return -1;
-				} else {
-					*storingTab = myNewTab;
-				}
-			}
-			
-			// alloue la place pour la str contenue dans la ligne courante
-			(*storingTab)[logicalSize] = (char *) malloc(sizeof(char) * 11);
-			if(!(*storingTab)[logicalSize]) {
-				destroyWordsArr(*storingTab, logicalSize);
-				return -1;
-			}
-			
-			fscanf(data, "%7s\n", (*storingTab)[logicalSize]);
-			
-			++logicalSize;
-		}
+		toReturn = importWords(data);
 		
 		fclose(data);
 		
-		return logicalSize;
-	}
-	return -2;
-}
-
-int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize) {
-	if(placeToSave && wordsToWrite) {
-		for(int i = 0; i < logicalSize; ++i) {
-			if(!wordsToWrite[i]) {
-				--i; // we wrote 
-				continue;
-			}
-			if(fputs(wordsToWrite[i], placeToSave) == EOF) {
-				return i; // i vaudra le nombre d'éléments déjà écrits (sans prendre en compte celui qui est écrit dans l'itération)
-			}
-			if(fputc('\n', placeToSave) == EOF) { // fputs don't had newline char by itself like puts
-				return i; // TODO: renvoyer i ou i + 1? car on a déjà écrit le mot en soit, il manque juste le newline char pour valider la ligne
-			}
-		}
-		return logicalSize;
-	}
-	return -1;
-}
-
-char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords) {
-	if(pathToFile && wordsToAdd) {
-		FILE *file = fopen(pathToFile, "a+");
-		/* 
-		 * le mode a+ possède, outre le fait de pouvoir écrire et lire le flux, divers avantages:
-		 * - si le fichier n'existe pas, le créé (contrairement au mode r+)
-		 * - si le fichier existe, ne l'écrase pas (contrairement au mode w+)
-		 * - attention, il place le curseur à la fin du fichier
-		 */
-		 if(!file) return NULL;
-		 
-		 
-		 fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
-		 writeWords(file, wordsToAdd, logicalSizeToAdd);
-		 
-		 fclose(file);
+		return toReturn;
 	}
 	return NULL;
 }
 
+//~ int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize) {
+	//~ if(placeToSave && wordsToWrite) {
+		//~ for(int i = 0; i < logicalSize; ++i) {
+			//~ if(!wordsToWrite[i]) {
+				//~ --i; // we wrote 
+				//~ continue;
+			//~ }
+			//~ if(fputs(wordsToWrite[i], placeToSave) == EOF) {
+				//~ return i; // i vaudra le nombre d'éléments déjà écrits (sans prendre en compte celui qui est écrit dans l'itération)
+			//~ }
+			//~ if(fputc('\n', placeToSave) == EOF) { // fputs don't had newline char by itself like puts
+				//~ return i; // TODO: renvoyer i ou i + 1? car on a déjà écrit le mot en soit, il manque juste le newline char pour valider la ligne
+			//~ }
+		//~ }
+		//~ return logicalSize;
+	//~ }
+	//~ return -1;
+//~ }
+
+//~ char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords) {
+	//~ if(pathToFile && strlen(pathToFile) && wordsToAdd && logicalSizeUpdatedWords) {
+		//~ char **updatedListWords;
+		//~ FILE *file = fopen(pathToFile, "a+");
+		//~ /* 
+		 //~ * le mode a+ possède, outre le fait de pouvoir écrire et lire le flux, divers avantages:
+		 //~ * - si le fichier n'existe pas, le créé (contrairement au mode r+)
+		 //~ * - si le fichier existe, ne l'écrase pas (contrairement au mode w+)
+		 //~ * - attention, il place le curseur à la fin du fichier
+		 //~ */
+		 //~ if(!file) return NULL;
+		 
+		 //~ fseek(file, 0, SEEK_START); // mise au début pour récupérer les anciens mots
+		 
+		 
+		 //~ fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
+		 //~ writeWords(file, wordsToAdd, logicalSizeToAdd);
+		 
+		 //~ fclose(file);
+	//~ }
+	//~ return NULL;
+//~ }
+
 
 
 int hangman(void) {
-	char **tabMots, choixLettre, *hasardMotStr;
-	int rdm, tentatives = 11, nbWords, nbLettersFinded, typeChar;
+	char choixLettre, *hasardMotStr;
+	int rdm, tentatives = 11, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
+	Dictionnary *tabMots;
 	
-	nbWords = loadWords("./ressources/dictionnary.don", &tabMots);
-	if(nbWords == -2 || nbWords == -1) {
+	tabMots = loadWords("./ressources/dictionnary.don");
+	if(!tabMots) {
 		return -1;
 	}
 	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
   
 	srand(time(NULL));
-	rdm = rand() % nbWords; // dépend taille tabMots
-	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots[rdm]) + 1));
+	rdm = rand() % tabMots->logicalSize; // dépend taille tabMots
+	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots->wordsArray[rdm]) + 1));
 	if(!hasardMot) {
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		return -1;
 	}
 	
 	
-	if(!transformInEmbeddedStr(hasardMot, tabMots[rdm])) {
+	if(!transformInEmbeddedStr(hasardMot, tabMots->wordsArray[rdm])) {
 		free(hasardMot);
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		return -1;
 	}
 	
@@ -152,8 +122,7 @@ int hangman(void) {
 	 *  and e [2J adds a space to the top of all existing screen characters."
 	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/ 
 	 */
-
-	
+	 
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
 				
 		printf("\n\n\x1B[36m");
@@ -191,7 +160,7 @@ int hangman(void) {
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
 					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
-					destroyWordsArr(tabMots, nbWords);
+					destroyDictionnary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					return -1;
@@ -199,7 +168,7 @@ int hangman(void) {
 					hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
 					if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
 						destroyAlphabet(alphabet);
-						destroyWordsArr(tabMots, nbWords);
+						destroyDictionnary(tabMots);
 						free(hasardMot);
 						printf("Erreur lors de l'affichage du mot trouvé.\n");
 						return -1;
@@ -207,7 +176,7 @@ int hangman(void) {
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
-					destroyWordsArr(tabMots, nbWords);
+					destroyDictionnary(tabMots);
 					free(hasardMotStr);
 					free(hasardMot);
 					
@@ -228,7 +197,7 @@ int hangman(void) {
 			switch(nbLettersFinded - 2) {
 				case -3:
 					printf("null pointer for hasardMot\n"); // pas atteignable normalement
-					destroyWordsArr(tabMots, nbWords);
+					destroyDictionnary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					return -1;
@@ -259,7 +228,7 @@ int hangman(void) {
 	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
 	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
 		destroyAlphabet(alphabet);
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		free(hasardMot);
 		printf("Erreur lors de l'affichage du mot trouvé.\n");
 		return -1;
@@ -269,7 +238,7 @@ int hangman(void) {
 		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 		destroyAlphabet(alphabet);
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 		
@@ -279,7 +248,7 @@ int hangman(void) {
 		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
 
 		destroyAlphabet(alphabet);
-		destroyWordsArr(tabMots, nbWords);
+		destroyDictionnary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 
