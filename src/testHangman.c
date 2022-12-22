@@ -10,6 +10,8 @@
 int main(void) {
 	//useAddWords();
 	hangman();
+	//~ clearConsole();
+	//~ printHangman(5, 80, 30);
 	
 	return 0;
 }

@@ -21,6 +21,7 @@
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"
 #include "dictionary/dictionary.h"
+#include "utils/print/print.h"
 
 
 /**

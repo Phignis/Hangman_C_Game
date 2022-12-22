@@ -76,7 +76,10 @@ int hangman(void) {
 	 */
 	 
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
-				
+		
+		printHangman(11 - tentatives, 100, 2);
+		consoleGotoCoords(1, 1);
+		
 		printf("\n\n\x1B[36m");
 		printEmbeddedStr(hasardMot);
 		printf("\033[0m");
