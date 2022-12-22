@@ -41,16 +41,13 @@ Boolean isWordsIn(const Dictionnary searchingContext, const char* wordSearched) 
 	return False;
 }
 
-Boolean deleteWord(Dictionnary containing, int indexWordToDelete) {
-	if(indexWordToDelete > -1 && indexWordToDelete < containing.logicalSize
-			&& containing.wordsArray) {
-		printf("\n%s\n", containing.wordsArray[indexWordToDelete]);
-		printf("\n%s\n", containing.wordsArray[2]);
-		//~ free(containing.wordsArray[indexWordToDelete]);
-		//~ for(int i = indexWordToDelete; i < containing.logicalSize - 1; ++i) {
-			//~ containing.wordsArray[i] = containing.wordsArray[i + 1];
-		//~ }
-		--containing.logicalSize;
+Boolean deleteWord(Dictionnary* containing, const int indexWordToDelete) {
+	if(indexWordToDelete > -1 && containing && indexWordToDelete < containing->logicalSize
+			&& containing->wordsArray) {
+		free(containing->wordsArray[indexWordToDelete]);
+		
+		containing->wordsArray[indexWordToDelete] = containing->wordsArray[containing->logicalSize - 1];
+		--(containing->logicalSize);
 		return True;
 	}
 	return False;
@@ -116,7 +113,7 @@ int writeWords(FILE *placeToSave, const Dictionnary wordsToWrite) {
 	return -1;
 }
 
-Dictionnary* addWords(const char *pathToFile, const Dictionnary wordsToAdd) {
+Dictionnary* addWords(const char *pathToFile, Dictionnary wordsToAdd) { // a constifier, copier wordsToAdd
 	if(pathToFile && strlen(pathToFile) && wordsToAdd.wordsArray) {
 		Dictionnary *updatedListWords;
 		FILE *file = fopen(pathToFile, "a+");
@@ -140,7 +137,7 @@ Dictionnary* addWords(const char *pathToFile, const Dictionnary wordsToAdd) {
 		 
 		 for(int i = 0; i < wordsToAdd.logicalSize; ++i) {
 			 if(isWordsIn(*updatedListWords, wordsToAdd.wordsArray[i])) { // TODO: si des char autre que lettre, a enlever aussi
-				 deleteWord(wordsToAdd, i);
+				 deleteWord(&wordsToAdd, i);
 			 } else {
 				// toLowerCase(wordsToAdd.wordsArray[i]);
 			 }

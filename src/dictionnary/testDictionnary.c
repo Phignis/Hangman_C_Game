@@ -82,10 +82,13 @@ int testDeleteWord(void) {
 	
 	dict->logicalSize = 3;
 	
-	if(deleteWord(*dict, -1) || deleteWord(*dict, 3) || !deleteWord(*dict, 1)) {
+	if(deleteWord(dict, -1) || deleteWord(dict, 3) || !deleteWord(dict, 1)) {
 		destroyDictionnary(dict);
 		return -1;
 	}
+	
+	if(dict->logicalSize != 2 || strcmp(dict->wordsArray[0], "ToTo") || strcmp(dict->wordsArray[1], "ENSIM"))
+		return -1;
 	
 	destroyDictionnary(dict);
 	return 0;

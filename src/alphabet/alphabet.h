@@ -32,8 +32,8 @@
  * valeur autre que 0.
  */
 typedef enum {
-	False,
-	True 
+	False = 0,
+	True
 } Boolean;
 #endif
 

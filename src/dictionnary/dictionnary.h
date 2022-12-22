@@ -35,7 +35,7 @@
  * valeur autre que 0.
  */
 typedef enum {
-	False,
+	False = 0,
 	True 
 } Boolean;
 #endif
@@ -109,7 +109,7 @@ Boolean isWordsIn(const Dictionnary searchingContext, const char* wordSearched);
  * 			False si wordsArray de containing vaut NULL, ou bien que indexWordToDelete n'est pas un indexPossible
  * 			(strictement positif et strictement inférieur à la taille logique)
  */
-Boolean deleteWord(Dictionnary containing, int indexWordToDelete);
+Boolean deleteWord(Dictionnary *containing, const int indexWordToDelete);
 
 /**
  * \fn Dictionnary* importWords(FILE *source);

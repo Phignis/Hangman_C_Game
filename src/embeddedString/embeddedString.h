@@ -34,7 +34,7 @@
  * valeur autre que 0.
  */
 typedef enum {
-	False, /**< étiquette pour la valeur 0 */
+	False = 0, /**< étiquette pour la valeur 0 */
 	True /**< étiquette pour la valeur 1 */
 } Boolean;
 #endif
