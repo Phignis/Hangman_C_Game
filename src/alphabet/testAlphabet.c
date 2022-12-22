@@ -1,7 +1,5 @@
 #include "alphabet.h"
 
-#include <stdio.h>
-
 int testCreateAlphabet(void) {
 	Alphabet *myAlphabet;
 	

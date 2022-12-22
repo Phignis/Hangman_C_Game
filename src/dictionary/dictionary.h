@@ -97,6 +97,21 @@ void destroyDictionary(Dictionary *toDestroy);
 Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched);
 
 /**
+ * \fn Boolean isStrAWord(const char *string);
+ * \brief Permet de savoir si une chaine de char est un mot
+ * 
+ * Une str est un mot si:
+ * * il possède au moins un caractère
+ * * il ne contient que des lettres
+ * * aucuns chiffres ou caractères spéciaux
+ * 
+ * \param string chaine de char a tester
+ * \return False si string n'est pas un mot<br>
+ * 			True sinon
+ */
+Boolean isStrAWord(char *string);
+
+/**
  * \fn Boolean deleteWord(Dictionary *containing, int indexWordToDelete);
  * \brief supprime un mot d'un dictionnaire à l'index spécifié
  * 
@@ -152,6 +167,7 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite);
  * 
  * ATTENTION! Peut ne pas insérer tout les mots présents dans wordsToAdd
  * n'ajoutes dans le fichier que les mots pas encore présents, afin de garentir l'unicité
+ * n'ajoutes que les mots ne contenant que des lettres
  * 
  * 
  * \param pathToFile chemin vers le fichier dont il faut récupérer les données

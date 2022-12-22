@@ -18,6 +18,8 @@
  */
 #define ALPHABET_H_TF
 
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi
 #define BOOLEAN_TF

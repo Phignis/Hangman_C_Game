@@ -56,6 +56,15 @@ int testIsWordsIn(void) {
 	return 0;
 }
 
+int testIsStrAWord(void) {
+	
+	if(isStrAWord(NULL) || isStrAWord("") || isStrAWord("Toto!") || !isStrAWord("ToTo")
+		|| isStrAWord("&Toto") || !isStrAWord("ENSIM"))
+		return -1;
+	
+	return 0;
+}
+
 int testDeleteWord(void) {
 	Dictionary* dict = createDictionary(3);
 	
@@ -121,6 +130,14 @@ int testImportWords(void) {
 	return 0;
 }
 
+int testAddWords(void) {
+	Dictionary *toAdd = createDictionary(3);
+	
+	
+	destroyDictionary(toAdd);
+	return 0;
+}
+
 int main(void) {
 	printf("\n\e[1;34mBatterie de test sur Dictionary:\e[0m\n\n");
 	
@@ -133,6 +150,11 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction isWordsIn.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction isWordsIn réussi!\033[0m\n");
+	
+	if(testIsStrAWord())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction isStrAWord.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction isStrAWord réussi!\033[0m\n");
 		
 	if(testDeleteWord())
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction deleteWord.\033[0m\n");
@@ -143,6 +165,11 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction importWords.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction importWords réussi!\033[0m\n");
+		
+	if(testAddWords())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction addWords.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction addWords réussi!\033[0m\n");
 		
 	return 0;
 }

@@ -19,8 +19,9 @@
 
 
 
-#include <stddef.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean

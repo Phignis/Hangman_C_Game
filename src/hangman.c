@@ -17,13 +17,6 @@ int emptyStream(FILE* stream, const int nbCharDumped) {
 Dictionary* loadWords(const char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
-		//~ int logicalSize = 0, physicalSize = 5;
-		//~ char **myNewTab;
-		
-		//~ *storingTab = (char **) malloc(sizeof(char*) * physicalSize);
-		//~ if(!(*storingTab)) return -1;
-		
-		//~ printf("\n%s\n", pathToFile);
 		Dictionary *toReturn;
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {

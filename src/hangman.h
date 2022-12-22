@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"

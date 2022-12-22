@@ -41,6 +41,19 @@ Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched) {
 	return False;
 }
 
+Boolean isStrAWord(char *string) {
+	if(string && strlen(string)) {
+		for(char *current = string; *current; ++current) {
+			if((*current < 'a' || *current > 'z') && (*current < 'A' || *current > 'Z')) {
+				return False;
+			}
+		}
+		
+		return True;
+	}
+	return False;
+}
+
 Boolean deleteWord(Dictionary *containing, const int indexWordToDelete) {
 	if(indexWordToDelete > -1 && containing && indexWordToDelete < containing->logicalSize
 			&& containing->wordsArray) {
@@ -131,15 +144,17 @@ Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a const
 		 fseek(file, 0, SEEK_SET); // mise au début pour récupérer les anciens mots
 		 updatedListWords = importWords(file);
 		 if(!updatedListWords) {
+			 destroyDictionary(updatedListWords);
 			 fclose(file);
 			 return NULL;
 		 }
 		 
 		 for(int i = 0; i < wordsToAdd.logicalSize; ++i) {
-			 if(isWordsIn(*updatedListWords, wordsToAdd.wordsArray[i])) { // TODO: si des char autre que lettre, a enlever aussi
+			 if(isWordsIn(*updatedListWords, wordsToAdd.wordsArray[i])
+					|| !isStrAWord(wordsToAdd.wordsArray[i])) { // TODO: si des char autre que lettre, a enlever aussi
 				 deleteWord(&wordsToAdd, i);
 			 } else {
-				// toLowerCase(wordsToAdd.wordsArray[i]);
+				toLowerCase(wordsToAdd.wordsArray[i]);
 			 }
 		 }
 		 
@@ -154,24 +169,27 @@ Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a const
 		 fclose(file);
 		 
 		 // d'abord faire de la place pour les pointeurs de char ajoutés précédemment
-		 updatedListWords->physicalSize += nbWordsPushed;
-		 reallocatedTab = (char **) realloc(updatedListWords->wordsArray, sizeof(char*) * updatedListWords->physicalSize);
-		 if(!reallocatedTab) {
-			 destroyDictionary(updatedListWords);
-			 return NULL;
-		 } else {
-			 updatedListWords->wordsArray = reallocatedTab;
-		 }
-		 
-		 for(int i = 0; i < nbWordsPushed; ++i) { // ajouter a updatedListWords chaque nouveau mot du fichier
-			 updatedListWords->wordsArray[updatedListWords->logicalSize] = (char *) malloc(sizeof(char) * 8);
-			 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] &&
-					!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd.wordsArray[i])) {
+		 if(nbWordsPushed) {
+			 updatedListWords->physicalSize += nbWordsPushed;
+			 reallocatedTab = (char **) realloc(updatedListWords->wordsArray, sizeof(char*) * updatedListWords->physicalSize);
+			 if(!reallocatedTab) {
 				 destroyDictionary(updatedListWords);
 				 return NULL;
+			 } else {
+				 updatedListWords->wordsArray = reallocatedTab;
 			 }
 			 
-			 ++(updatedListWords->logicalSize);
+			 for(int i = 0; i < nbWordsPushed; ++i) { // ajouter a updatedListWords chaque nouveau mot du fichier
+				 updatedListWords->wordsArray[updatedListWords->logicalSize] = (char *) malloc(sizeof(char) * 8);
+				 
+				 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] &&
+						!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd.wordsArray[i])) {
+					 destroyDictionary(updatedListWords);
+					 return NULL;
+				 }
+				 
+				 ++(updatedListWords->logicalSize);
+			 }
 		 }
 		 
 		 return updatedListWords;
