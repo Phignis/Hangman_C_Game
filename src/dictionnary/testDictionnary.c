@@ -1,6 +1,5 @@
 #include "dictionnary.h"
 
-#include <string.h>
 
 int testCreateDictionnary(void) {
 	Dictionnary *myDictionnary = createDictionnary(6);
@@ -18,6 +17,77 @@ int testCreateDictionnary(void) {
 	}
 	
 	destroyDictionnary(myDictionnary);
+	return 0;
+}
+
+int testIsWordsIn(void) {
+	Dictionnary* dict = createDictionnary(3);
+	
+	dict->wordsArray[0] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[0]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[0], "ToTo");
+	
+	dict->wordsArray[1] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[1]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[1], "papier");
+	
+	dict->wordsArray[2] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[2]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[2], "ENSIM");
+	
+	dict->logicalSize = 3;
+	
+	if(isWordsIn(*dict, "toto") || !isWordsIn(*dict, "ToTo") || !isWordsIn(*dict, "ENSIM")
+		|| isWordsIn(*dict, "ensim") || !isWordsIn(*dict, "papier")) {
+		destroyDictionnary(dict);
+		return -1;
+	}
+	
+	destroyDictionnary(dict);
+	return 0;
+}
+
+int testDeleteWord(void) {
+	Dictionnary* dict = createDictionnary(3);
+	
+	dict->wordsArray[0] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[0]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[0], "ToTo");
+	
+	dict->wordsArray[1] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[1]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[1], "papier");
+	
+	dict->wordsArray[2] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[2]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[2], "ENSIM");
+	
+	dict->logicalSize = 3;
+	
+	if(deleteWord(*dict, -1) || deleteWord(*dict, 3) || !deleteWord(*dict, 1)) {
+		destroyDictionnary(dict);
+		return -1;
+	}
+	
+	destroyDictionnary(dict);
 	return 0;
 }
 
@@ -55,6 +125,16 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction createDictionnary.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction createDictionnary réussi!\033[0m\n");
+		
+	if(testIsWordsIn())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction isWordsIn.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction isWordsIn réussi!\033[0m\n");
+		
+	if(testDeleteWord())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction deleteWord.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction deleteWord réussi!\033[0m\n");
 		
 	if(testImportWords())
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction importWords.\033[0m\n");

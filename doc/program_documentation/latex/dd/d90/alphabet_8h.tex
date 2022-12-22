@@ -28,7 +28,7 @@ void \mbox{\hyperlink{alphabet_8h_a72ad49290140dfc68895ee64dbf8f051}{destroy\+Al
 \begin{DoxyCompactList}\small\item\em permet de détruire un alphabet \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{alphabet_8h_a7cb414ae9a698f85d5ee5ae880b5a122}{print\+Alphabet}} (const \mbox{\hyperlink{struct_alphabet}{Alphabet}} to\+Print)
 \begin{DoxyCompactList}\small\item\em Affiche pour un jeu du pendu l\textquotesingle{}alphabet. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a3de376c264aba126365547e528abffb8}{is\+Proposed\+Letter\+Valid}} (const \mbox{\hyperlink{struct_alphabet}{Alphabet}} alphabet, char submitted\+Char)
+int \mbox{\hyperlink{alphabet_8h_a3de376c264aba126365547e528abffb8}{is\+Proposed\+Letter\+Valid}} (const \mbox{\hyperlink{struct_alphabet}{Alphabet}} alphabet, char submitted\+Char)
 \begin{DoxyCompactList}\small\item\em Permet de savoir si une lettre proposée est valide, donc non utilisée. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{alphabet_8h_a16640b0c2c4aab6ebc9af88bca8fe49e}{update\+Alphabet}} (\mbox{\hyperlink{struct_alphabet}{Alphabet}} to\+Update, char submitted\+Char)
 \begin{DoxyCompactList}\small\item\em Permet de mettre à jour les lettres d\textquotesingle{}un alphabet. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -132,7 +132,7 @@ Recherche dans l\textquotesingle{}alphabet si le caractère est déjà utilisé,
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-True si le char est valide (une lettre, non déjà utilisé) False si\+: ~\newline
+{\bfseries{2}} si le char est \textquotesingle{}!\textquotesingle{} {\bfseries{1}} si le char est valide (une lettre, non déjà utilisé) {\bfseries{0}} si\+: ~\newline
 
 \begin{DoxyItemize}
 \item ce n\textquotesingle{}est pas une lettre

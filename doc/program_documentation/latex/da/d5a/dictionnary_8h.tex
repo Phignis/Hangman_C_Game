@@ -1,0 +1,130 @@
+\hypertarget{dictionnary_8h}{}\doxysection{Référence du fichier dictionnary/dictionnary.h}
+\label{dictionnary_8h}\index{dictionnary/dictionnary.h@{dictionnary/dictionnary.h}}
+
+
+Définit la structure \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} est un wrapper de tableau de chaine de char. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ \mbox{\hyperlink{dictionnary_8h_aac9ccc6213a6b4ff6ad0fa5a141beaa4}{create\+Dictionnary}} (int physical\+Size)
+\begin{DoxyCompactList}\small\item\em créé un dictionnaire de la taille demandé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dictionnary_8h_ae0cc3dee1bdf192842cb99453aab1412}{destroy\+Dictionnary}} (\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$to\+Destroy)
+\begin{DoxyCompactList}\small\item\em permet de détruire un \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ \mbox{\hyperlink{dictionnary_8h_a693cd083358e1414a17f80e9df75313d}{import\+Words}} (FILE $\ast$source)
+\begin{DoxyCompactList}\small\item\em importe dans un dictionnaire des mots présents dans un fichier source \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dictionnary_8h_afaa4ee5421b02715f0dd6f55fda035bd}{write\+Words}} (FILE $\ast$place\+To\+Save, \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} words\+To\+Write)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}écrire une liste de mots dans un flux \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit la structure \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}. 
+
+\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} et son comportement sont définis. \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} est un tableau de chaine de char, avec sa taille logique et physique
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{dictionnary_8h_aac9ccc6213a6b4ff6ad0fa5a141beaa4}\label{dictionnary_8h_aac9ccc6213a6b4ff6ad0fa5a141beaa4}} 
+\index{dictionnary.h@{dictionnary.h}!createDictionnary@{createDictionnary}}
+\index{createDictionnary@{createDictionnary}!dictionnary.h@{dictionnary.h}}
+\doxysubsubsection{\texorpdfstring{createDictionnary()}{createDictionnary()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ create\+Dictionnary (\begin{DoxyParamCaption}\item[{int}]{physical\+Size }\end{DoxyParamCaption})}
+
+
+
+créé un dictionnaire de la taille demandé 
+
+créé un dictionnaire permettant de contenir le nombre de str indiqué par physical\+Size ATTENTION! ne créé la place que pour contenir les pointeurs sur char ATTENTION! pour libérer proprement la mémoire dynamiquement alloué, se référer à la fonction destroy\+Dictionnary
+
+
+\begin{DoxyParams}{Paramètres}
+{\em physical\+Size} & nombre de str contenable dans le \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL si physical\+Size est négatif ou que quelque chose s\textquotesingle{}est mal passé~\newline
+ l\textquotesingle{}adresse où se trouve le \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} créée sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionnary_8h_ae0cc3dee1bdf192842cb99453aab1412}\label{dictionnary_8h_ae0cc3dee1bdf192842cb99453aab1412}} 
+\index{dictionnary.h@{dictionnary.h}!destroyDictionnary@{destroyDictionnary}}
+\index{destroyDictionnary@{destroyDictionnary}!dictionnary.h@{dictionnary.h}}
+\doxysubsubsection{\texorpdfstring{destroyDictionnary()}{destroyDictionnary()}}
+{\footnotesize\ttfamily void destroy\+Dictionnary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$}]{to\+Destroy }\end{DoxyParamCaption})}
+
+
+
+permet de détruire un \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} 
+
+permet de détruire de manière propre un dictionnaire créé via la fonction create\+Dictionnary libère aussi la mémoire des chaînes présentes dans le dictionnaire
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Destroy} & adresse du \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} à détruire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{dictionnary_8h_a693cd083358e1414a17f80e9df75313d}\label{dictionnary_8h_a693cd083358e1414a17f80e9df75313d}} 
+\index{dictionnary.h@{dictionnary.h}!importWords@{importWords}}
+\index{importWords@{importWords}!dictionnary.h@{dictionnary.h}}
+\doxysubsubsection{\texorpdfstring{importWords()}{importWords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ import\+Words (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{source }\end{DoxyParamCaption})}
+
+
+
+importe dans un dictionnaire des mots présents dans un fichier source 
+
+Le fichier source est attendu comme contenant par ligne un seul mot de 7 charactères max~\newline
+ ATTENTION! il est attendu que le flux passé en paramètre possède des droits de lecture ATTENTION! le flux de données n\textquotesingle{}est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.~\newline
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em source} & flux de données utilisés pour remplir le dictionnaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL si source est NULL ou que la lecture s\textquotesingle{}est mal passé~\newline
+ adresse du dictionnaire créé sinon. Se référer à destroy\+Dictionnary pour libérer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionnary_8h_afaa4ee5421b02715f0dd6f55fda035bd}\label{dictionnary_8h_afaa4ee5421b02715f0dd6f55fda035bd}} 
+\index{dictionnary.h@{dictionnary.h}!writeWords@{writeWords}}
+\index{writeWords@{writeWords}!dictionnary.h@{dictionnary.h}}
+\doxysubsubsection{\texorpdfstring{writeWords()}{writeWords()}}
+{\footnotesize\ttfamily int write\+Words (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{place\+To\+Save,  }\item[{\mbox{\hyperlink{struct_dictionnary}{Dictionnary}}}]{words\+To\+Write }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}écrire une liste de mots dans un flux 
+
+Ecrira les chaînes de charactères présents dans words\+To\+Write à partir de l\textquotesingle{}endroit indiqué par le flux. ATTENTION! donnez un flux possédant des droits d\textquotesingle{}écritures et sans mode binaire~\newline
+ ATTENTION! le flux de données n\textquotesingle{}est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.~\newline
+ ATTENTION! le nombre de mots écrits rééllement est renvoyé. Si au cours de l\textquotesingle{}écriture, une erreur survient, il se peut que seulement une partie des mots soient écrits.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em place\+To\+Save} & flux de données où stocker les mots de words\+To\+Write \\
+\hline
+{\em words\+To\+Write} & dictionnaire dont il faut écrire les mots dans le flux donné \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{-\/1}} si place\+To\+Save ou words\+Array présent dans words\+To\+Write vaut NULL~\newline
+ le nombre de mots écrits rééllement sinon 
+\end{DoxyReturn}

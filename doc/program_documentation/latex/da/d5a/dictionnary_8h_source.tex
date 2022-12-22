@@ -1,0 +1,32 @@
+\hypertarget{dictionnary_8h_source}{}\doxysection{dictionnary.\+h}
+\label{dictionnary_8h_source}\index{dictionnary/dictionnary.h@{dictionnary/dictionnary.h}}
+\mbox{\hyperlink{dictionnary_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef DICTIONNARY\_H\_TF}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define DICTIONNARY\_H\_TF}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{29     \textcolor{keywordtype}{char} **\mbox{\hyperlink{struct_dictionnary_a8085d73f4789d60984d8a4ebb9e3fa65}{wordsArray}}; }
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_dictionnary_adb6cf82586541c26465631337fd75537}{logicalSize}}; }
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_dictionnary_a45faad06526a51e320a7cb9792b60069}{physicalSize}}; }
+\DoxyCodeLine{32 \} \mbox{\hyperlink{struct_dictionnary}{Dictionnary}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{49 \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}* \mbox{\hyperlink{dictionnary_8h_aac9ccc6213a6b4ff6ad0fa5a141beaa4}{createDictionnary}}(\textcolor{keywordtype}{int} physicalSize);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} \mbox{\hyperlink{dictionnary_8h_ae0cc3dee1bdf192842cb99453aab1412}{destroyDictionnary}}(\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} *toDestroy);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{75 \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}* \mbox{\hyperlink{dictionnary_8h_a693cd083358e1414a17f80e9df75313d}{importWords}}(FILE *source);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{int} \mbox{\hyperlink{dictionnary_8h_afaa4ee5421b02715f0dd6f55fda035bd}{writeWords}}(FILE *placeToSave, \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} wordsToWrite);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICTIONNARY\_H\_TF}}
+
+\end{DoxyCode}

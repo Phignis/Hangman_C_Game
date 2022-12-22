@@ -28,12 +28,18 @@ enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Bool
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}{to\+Lower\+Case}} (char $\ast$to\+Convert)
+\begin{DoxyCompactList}\small\item\em transform capitals letters in lowercase letters \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}{to\+Upper\+Case}} (char $\ast$to\+Convert)
+\begin{DoxyCompactList}\small\item\em transform lowercase letters in uppercase letters \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}{print\+Embedded\+Str}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Print)
 \begin{DoxyCompactList}\small\item\em Affiche la chaine de char contenu dans to\+Print, si trouvé \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embedded\+Strlen}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Count)
 \begin{DoxyCompactList}\small\item\em renvoit le nombre de char de la string \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embedded\+Strcmp}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str1, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str2)
 \begin{DoxyCompactList}\small\item\em compare les chaînes de char lexicographiquement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{embedded_string_8h_aa0cde7a11cdfbb0a107b275a4e646574}{mixed\+Strcmp}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} str1, const char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em compare les chaînes, une embedded\+Char et une str C lexicographiquement. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}{embedded\+Strcpy}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} src)
 \begin{DoxyCompactList}\small\item\em copie une chaine source dans une chaine destination \end{DoxyCompactList}\item 
 \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} \mbox{\hyperlink{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}{transform\+In\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} dest, const char $\ast$src)
@@ -193,6 +199,32 @@ Cela permet donc de savoir si tout les \mbox{\hyperlink{struct_embedded_char}{Em
 True si la chaîne a été trouvée entièrement~\newline
  False sinon 
 \end{DoxyReturn}
+\mbox{\Hypertarget{embedded_string_8h_aa0cde7a11cdfbb0a107b275a4e646574}\label{embedded_string_8h_aa0cde7a11cdfbb0a107b275a4e646574}} 
+\index{embeddedString.h@{embeddedString.h}!mixedStrcmp@{mixedStrcmp}}
+\index{mixedStrcmp@{mixedStrcmp}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{mixedStrcmp()}{mixedStrcmp()}}
+{\footnotesize\ttfamily int mixed\+Strcmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{str1,  }\item[{const char $\ast$}]{str2 }\end{DoxyParamCaption})}
+
+
+
+compare les chaînes, une embedded\+Char et une str C lexicographiquement. 
+
+ATTENTION! Si les string ne se finissent pas par \textquotesingle{}\textbackslash{}0\textquotesingle{}, comportement indéfini~\newline
+ Compare le champ value de \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} avec les char de char$\ast$
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str1} & première chaîne servant à la comparaison \\
+\hline
+{\em str2} & seconde chaîne servant à la comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/2 si un des paramètres vaut {\bfseries{NULL}}~\newline
+ 0 si les chaînes sont {\bfseries{identiques}}~\newline
+ 1 si la chaîne 1 est {\bfseries{supérieure lexicographiquement}} à la chaîne 2~\newline
+ -\/1 si la chaîne 1 est {\bfseries{inférieure lexicographiquement}} à la chaîne 2 
+\end{DoxyReturn}
 \mbox{\Hypertarget{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}\label{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}} 
 \index{embeddedString.h@{embeddedString.h}!printEmbeddedStr@{printEmbeddedStr}}
 \index{printEmbeddedStr@{printEmbeddedStr}!embeddedString.h@{embeddedString.h}}
@@ -208,6 +240,40 @@ Si le champ is\+Finded est à false, affiche un \char`\"{}\+\_\+\char`\"{}, sino
 
 \begin{DoxyParams}{Paramètres}
 {\em to\+Print} & chaine à afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}\label{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}} 
+\index{embeddedString.h@{embeddedString.h}!toLowerCase@{toLowerCase}}
+\index{toLowerCase@{toLowerCase}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{toLowerCase()}{toLowerCase()}}
+{\footnotesize\ttfamily void to\+Lower\+Case (\begin{DoxyParamCaption}\item[{char $\ast$}]{to\+Convert }\end{DoxyParamCaption})}
+
+
+
+transform capitals letters in lowercase letters 
+
+capitals letters match with regex \mbox{[}A-\/Z\mbox{]}, transform to their equivalent in \mbox{[}a-\/z\mbox{]} ATTENTION! if to\+Convert is not a valid C str finishing by \textquotesingle{}\textbackslash{}0\textquotesingle{}, undefined behaviour is expected
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Convert} & string to convert in lower\+Case \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}\label{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}} 
+\index{embeddedString.h@{embeddedString.h}!toUpperCase@{toUpperCase}}
+\index{toUpperCase@{toUpperCase}!embeddedString.h@{embeddedString.h}}
+\doxysubsubsection{\texorpdfstring{toUpperCase()}{toUpperCase()}}
+{\footnotesize\ttfamily void to\+Upper\+Case (\begin{DoxyParamCaption}\item[{char $\ast$}]{to\+Convert }\end{DoxyParamCaption})}
+
+
+
+transform lowercase letters in uppercase letters 
+
+capitals letters match with regex \mbox{[}a-\/z\mbox{]}, transform to their equivalent in \mbox{[}A-\/Z\mbox{]} ATTENTION! if to\+Convert is not a valid C str finishing by \textquotesingle{}\textbackslash{}0\textquotesingle{}, undefined behaviour is expected
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Convert} & string to convert in upper\+Case \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}\label{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}} 

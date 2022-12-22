@@ -137,7 +137,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a7cb414ae9a698f85d5ee5ae880b5a122"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d90/alphabet_8h.html#a7cb414ae9a698f85d5ee5ae880b5a122">printAlphabet</a> (const <a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> toPrint)</td></tr>
 <tr class="memdesc:a7cb414ae9a698f85d5ee5ae880b5a122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche pour un jeu du pendu l'alphabet.  <a href="../../dd/d90/alphabet_8h.html#a7cb414ae9a698f85d5ee5ae880b5a122">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7cb414ae9a698f85d5ee5ae880b5a122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3de376c264aba126365547e528abffb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d90/alphabet_8h.html#a3de376c264aba126365547e528abffb8">isProposedLetterValid</a> (const <a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> alphabet, char submittedChar)</td></tr>
+<tr class="memitem:a3de376c264aba126365547e528abffb8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d90/alphabet_8h.html#a3de376c264aba126365547e528abffb8">isProposedLetterValid</a> (const <a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> alphabet, char submittedChar)</td></tr>
 <tr class="memdesc:a3de376c264aba126365547e528abffb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de savoir si une lettre proposée est valide, donc non utilisée.  <a href="../../dd/d90/alphabet_8h.html#a3de376c264aba126365547e528abffb8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3de376c264aba126365547e528abffb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16640b0c2c4aab6ebc9af88bca8fe49e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d90/alphabet_8h.html#a16640b0c2c4aab6ebc9af88bca8fe49e">updateAlphabet</a> (<a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> toUpdate, char submittedChar)</td></tr>
@@ -266,7 +266,7 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>True si le char est valide (une lettre, non déjà utilisé) False si: <br  />
+<dl class="section return"><dt>Renvoie</dt><dd><b>2</b> si le char est '!' <b>1</b> si le char est valide (une lettre, non déjà utilisé) <b>0</b> si: <br  />
 <ul>
 <li>ce n'est pas une lettre</li>
 <li>le tableau de l'alphabet n'existe pas (NULL)</li>

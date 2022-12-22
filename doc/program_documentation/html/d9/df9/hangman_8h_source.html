@@ -100,28 +100,34 @@ $(document).ready(function(){initNavTree('d9/df9/hangman_8h_source.html','../../
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/df9/hangman_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/db3/embedded_string_8h.html">embeddedString/embeddedString.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d90/alphabet_8h.html">alphabet/alphabet.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef HANGMAN_H_TF</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define HANGMAN_H_TF</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">   33</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">emptyStream</a>(FILE* stream, <span class="keywordtype">int</span> nbCharDumped);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#aa2d810faa6baa30bb16b07ebc0f60031">   47</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#aa2d810faa6baa30bb16b07ebc0f60031">destroyWordsArr</a>(<span class="keywordtype">char</span> **toDestroy, <span class="keywordtype">int</span> logicalSize);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#a38de075747e9fd1070eae23955aaadd8">   62</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#a38de075747e9fd1070eae23955aaadd8">loadWords</a>(<span class="keywordtype">char</span> *pathToFile, <span class="keywordtype">char</span> ***storingTab);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">   74</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">hangman</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/db3/embedded_string_8h.html">embeddedString/embeddedString.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d90/alphabet_8h.html">alphabet/alphabet.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d5a/dictionnary_8h.html">dictionnary/dictionnary.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">   37</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">emptyStream</a>(FILE* stream, <span class="keywordtype">int</span> nbCharDumped);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#add7e24cb393310fd6b12ba69672e85f6">   50</a></span><a class="code hl_struct" href="../../d3/d5a/struct_dictionnary.html">Dictionnary</a>* <a class="code hl_function" href="../../d9/df9/hangman_8h.html#add7e24cb393310fd6b12ba69672e85f6">loadWords</a>(<span class="keywordtype">char</span> *pathToFile);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">char</span>** addWords(<span class="keywordtype">char</span> *pathToFile, <span class="keywordtype">char</span> **wordsToAdd, <span class="keywordtype">int</span> logicalSizeToAdd, <span class="keywordtype">int</span> *logicalSizeUpdatedWords);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">   79</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">hangman</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif </span><span class="comment">// HANGMAN_H_TF</span></div>
 <div class="ttc" id="aalphabet_8h_html"><div class="ttname"><a href="../../dd/d90/alphabet_8h.html">alphabet.h</a></div><div class="ttdoc">Définit la structure Alphabet, ainsi que le type enum Boolean.</div></div>
+<div class="ttc" id="adictionnary_8h_html"><div class="ttname"><a href="../../da/d5a/dictionnary_8h.html">dictionnary.h</a></div><div class="ttdoc">Définit la structure Dictionnary.</div></div>
 <div class="ttc" id="aembedded_string_8h_html"><div class="ttname"><a href="../../da/db3/embedded_string_8h.html">embeddedString.h</a></div><div class="ttdoc">Définit la structure EmbeddedString, ainsi que le type enum Boolean.</div></div>
 <div class="ttc" id="ahangman_8h_html_a00229d15ec677f6ee0e70c8fb2fd9d3d"><div class="ttname"><a href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">hangman</a></div><div class="ttdeci">int hangman(void)</div><div class="ttdoc">Fonction permettant de lancer un jeu du pendu.</div></div>
-<div class="ttc" id="ahangman_8h_html_a38de075747e9fd1070eae23955aaadd8"><div class="ttname"><a href="../../d9/df9/hangman_8h.html#a38de075747e9fd1070eae23955aaadd8">loadWords</a></div><div class="ttdeci">int loadWords(char *pathToFile, char ***storingTab)</div><div class="ttdoc">Récupère d'un fichier au formatage particulier des mots, et les stockes dans myTab.</div></div>
-<div class="ttc" id="ahangman_8h_html_aa2d810faa6baa30bb16b07ebc0f60031"><div class="ttname"><a href="../../d9/df9/hangman_8h.html#aa2d810faa6baa30bb16b07ebc0f60031">destroyWordsArr</a></div><div class="ttdeci">void destroyWordsArr(char **toDestroy, int logicalSize)</div><div class="ttdoc">désalloue tout les tableaux alloués dynamiquement pour ToDestroy</div></div>
 <div class="ttc" id="ahangman_8h_html_ab47a738a3eada35524d6c6f2f2dce784"><div class="ttname"><a href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">emptyStream</a></div><div class="ttdeci">int emptyStream(FILE *stream, int nbCharDumped)</div><div class="ttdoc">vide un flux d'un certain nombre de charactère</div></div>
+<div class="ttc" id="ahangman_8h_html_add7e24cb393310fd6b12ba69672e85f6"><div class="ttname"><a href="../../d9/df9/hangman_8h.html#add7e24cb393310fd6b12ba69672e85f6">loadWords</a></div><div class="ttdeci">Dictionnary * loadWords(char *pathToFile)</div><div class="ttdoc">Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné</div></div>
+<div class="ttc" id="astruct_dictionnary_html"><div class="ttname"><a href="../../d3/d5a/struct_dictionnary.html">Dictionnary</a></div><div class="ttdoc">Dictionnary est un wrapper de tableau de chaine de char.</div><div class="ttdef"><b>Definition:</b> dictionnary.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

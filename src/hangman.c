@@ -1,6 +1,6 @@
 #include "hangman.h"
 
-int emptyStream(FILE* stream, int nbCharDumped) {
+int emptyStream(FILE* stream, const int nbCharDumped) {
 	if(stream) {
 		char c;
 		int i = 0;
@@ -14,7 +14,7 @@ int emptyStream(FILE* stream, int nbCharDumped) {
 	return -1;
 }
 
-Dictionnary* loadWords(char *pathToFile) {
+Dictionnary* loadWords(const char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
 		//~ int logicalSize = 0, physicalSize = 5;
@@ -36,50 +36,9 @@ Dictionnary* loadWords(char *pathToFile) {
 		
 		return toReturn;
 	}
+	
 	return NULL;
 }
-
-//~ int writeWords(FILE *placeToSave, char **wordsToWrite, int logicalSize) {
-	//~ if(placeToSave && wordsToWrite) {
-		//~ for(int i = 0; i < logicalSize; ++i) {
-			//~ if(!wordsToWrite[i]) {
-				//~ --i; // we wrote 
-				//~ continue;
-			//~ }
-			//~ if(fputs(wordsToWrite[i], placeToSave) == EOF) {
-				//~ return i; // i vaudra le nombre d'éléments déjà écrits (sans prendre en compte celui qui est écrit dans l'itération)
-			//~ }
-			//~ if(fputc('\n', placeToSave) == EOF) { // fputs don't had newline char by itself like puts
-				//~ return i; // TODO: renvoyer i ou i + 1? car on a déjà écrit le mot en soit, il manque juste le newline char pour valider la ligne
-			//~ }
-		//~ }
-		//~ return logicalSize;
-	//~ }
-	//~ return -1;
-//~ }
-
-//~ char** addWords(char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords) {
-	//~ if(pathToFile && strlen(pathToFile) && wordsToAdd && logicalSizeUpdatedWords) {
-		//~ char **updatedListWords;
-		//~ FILE *file = fopen(pathToFile, "a+");
-		//~ /* 
-		 //~ * le mode a+ possède, outre le fait de pouvoir écrire et lire le flux, divers avantages:
-		 //~ * - si le fichier n'existe pas, le créé (contrairement au mode r+)
-		 //~ * - si le fichier existe, ne l'écrase pas (contrairement au mode w+)
-		 //~ * - attention, il place le curseur à la fin du fichier
-		 //~ */
-		 //~ if(!file) return NULL;
-		 
-		 //~ fseek(file, 0, SEEK_START); // mise au début pour récupérer les anciens mots
-		 
-		 
-		 //~ fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
-		 //~ writeWords(file, wordsToAdd, logicalSizeToAdd);
-		 
-		 //~ fclose(file);
-	//~ }
-	//~ return NULL;
-//~ }
 
 
 

@@ -1,6 +1,6 @@
 #include "dictionnary.h"
 
-Dictionnary* createDictionnary(int physicalSize) {
+Dictionnary* createDictionnary(const int physicalSize) {
 	if(physicalSize > -1) {
 		Dictionnary* toReturn = (Dictionnary *) malloc(sizeof(Dictionnary));
 		if(!toReturn) return NULL;
@@ -30,6 +30,30 @@ void destroyDictionnary(Dictionnary *toDestroy) {
 		free(toDestroy->wordsArray);
 	}
 	free(toDestroy);
+}
+
+Boolean isWordsIn(const Dictionnary searchingContext, const char* wordSearched) {
+	if(searchingContext.wordsArray && wordSearched) {
+		for(int i = 0; i < searchingContext.logicalSize; ++i) {
+			if(!strcmp(searchingContext.wordsArray[i], wordSearched)) return True;
+		}
+	}
+	return False;
+}
+
+Boolean deleteWord(Dictionnary containing, int indexWordToDelete) {
+	if(indexWordToDelete > -1 && indexWordToDelete < containing.logicalSize
+			&& containing.wordsArray) {
+		printf("\n%s\n", containing.wordsArray[indexWordToDelete]);
+		printf("\n%s\n", containing.wordsArray[2]);
+		//~ free(containing.wordsArray[indexWordToDelete]);
+		//~ for(int i = indexWordToDelete; i < containing.logicalSize - 1; ++i) {
+			//~ containing.wordsArray[i] = containing.wordsArray[i + 1];
+		//~ }
+		--containing.logicalSize;
+		return True;
+	}
+	return False;
 }
 
 Dictionnary* importWords(FILE *source) {
@@ -66,6 +90,94 @@ Dictionnary* importWords(FILE *source) {
 		}
 		
 		return toReturn;
+	}
+	return NULL;
+}
+
+int writeWords(FILE *placeToSave, const Dictionnary wordsToWrite) {
+	if(placeToSave && wordsToWrite.wordsArray) {
+		int nbWordsPushed = 0;
+		
+		for(int i = 0; i < wordsToWrite.logicalSize; ++i) {
+			if(!wordsToWrite.wordsArray[i] || !strlen(wordsToWrite.wordsArray[i])) {
+				continue;
+			}
+			if(fputs(wordsToWrite.wordsArray[i], placeToSave) == EOF) {
+				return nbWordsPushed;
+			}
+			if(fputc('\n', placeToSave) == EOF) { // fputs don't had newline char by itself like puts
+				return nbWordsPushed;
+				// TODO: renvoyer nbWordsPushed ou nbWordsPushed + 1? car on a déjà écrit le mot en soit, il manque juste le newline char pour valider la ligne
+			}
+			++nbWordsPushed;
+		}
+		return nbWordsPushed;
+	}
+	return -1;
+}
+
+Dictionnary* addWords(const char *pathToFile, const Dictionnary wordsToAdd) {
+	if(pathToFile && strlen(pathToFile) && wordsToAdd.wordsArray) {
+		Dictionnary *updatedListWords;
+		FILE *file = fopen(pathToFile, "a+");
+		int nbWordsPushed;
+		char **reallocatedTab;
+		
+		/* 
+		 * le mode a+ possède, outre le fait de pouvoir écrire et lire le flux, divers avantages:
+		 * - si le fichier n'existe pas, le créé (contrairement au mode r+)
+		 * - si le fichier existe, ne l'écrase pas (contrairement au mode w+)
+		 * - attention, il place le curseur à la fin du fichier
+		 */
+		 if(!file) return NULL;
+		 
+		 fseek(file, 0, SEEK_SET); // mise au début pour récupérer les anciens mots
+		 updatedListWords = importWords(file);
+		 if(!updatedListWords) {
+			 fclose(file);
+			 return NULL;
+		 }
+		 
+		 for(int i = 0; i < wordsToAdd.logicalSize; ++i) {
+			 if(isWordsIn(*updatedListWords, wordsToAdd.wordsArray[i])) { // TODO: si des char autre que lettre, a enlever aussi
+				 deleteWord(wordsToAdd, i);
+			 } else {
+				// toLowerCase(wordsToAdd.wordsArray[i]);
+			 }
+		 }
+		 
+		 fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
+		 nbWordsPushed = writeWords(file, wordsToAdd);
+		 if(nbWordsPushed == -1) {
+			 destroyDictionnary(updatedListWords);
+			 fclose(file);
+			 return NULL;
+		 }
+		 
+		 fclose(file);
+		 
+		 // d'abord faire de la place pour les pointeurs de char ajoutés précédemment
+		 updatedListWords->physicalSize += nbWordsPushed;
+		 reallocatedTab = (char **) realloc(updatedListWords->wordsArray, sizeof(char*) * updatedListWords->physicalSize);
+		 if(!reallocatedTab) {
+			 destroyDictionnary(updatedListWords);
+			 return NULL;
+		 } else {
+			 updatedListWords->wordsArray = reallocatedTab;
+		 }
+		 
+		 for(int i = 0; i < nbWordsPushed; ++i) { // ajouter a updatedListWords chaque nouveau mot du fichier
+			 updatedListWords->wordsArray[updatedListWords->logicalSize] = (char *) malloc(sizeof(char) * 8);
+			 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] &&
+					!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd.wordsArray[i])) {
+				 destroyDictionnary(updatedListWords);
+				 return NULL;
+			 }
+			 
+			 ++(updatedListWords->logicalSize);
+		 }
+		 
+		 return updatedListWords;
 	}
 	return NULL;
 }
