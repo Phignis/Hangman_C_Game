@@ -69,11 +69,7 @@ int hangman(void) {
 		return -1;
 	}
 	
-	printf( "\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
-	/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.
-	 *  and e [2J adds a space to the top of all existing screen characters."
-	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/ 
-	 */
+	clearConsole();
 	 
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
 		
@@ -146,7 +142,7 @@ int hangman(void) {
 		
 			nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
 			
-			printf( "\e[1;1H\e[2J");
+			clearConsole();
 			printf("\n\n");
 		
 			switch(nbLettersFinded - 2) {

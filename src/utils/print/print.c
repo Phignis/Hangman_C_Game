@@ -13,20 +13,20 @@ void consoleGotoCoords(const int x, const int y) {
 }
 
 void printDelimitedLine(int nbEmptyChar) {
-	fputc(222, stdout);
+	fputc(219, stdout);
 	for(nbEmptyChar; nbEmptyChar > 0; --nbEmptyChar) {
 		fputc(' ', stdout);
 	}
-	fputc(222, stdout);
+	fputc(219, stdout);
 }
 
-void printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin) {
+Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin) {
 	if(xAxisOrigin > 0 && yAxisOrigin > 0) {
 		FILE *image;
 		int indexError;
 		
 		image = fopen("./ressources/hangman.don", "r");
-		if(!image) return;
+		if(!image) return False;
 		
 		consoleGotoCoords(xAxisOrigin, yAxisOrigin);
 		fputs("|  ", stdout);
@@ -38,7 +38,7 @@ void printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin) {
 			switch(indexError) {
 				case -87: // \n
 					fputc('\n', stdout);
-					++yAxisOrigin;
+					++yAxisOrigin; // on écrit sur une ligne en dessous
 					consoleGotoCoords(xAxisOrigin, yAxisOrigin);
 					fputs("|  ", stdout);
 					break;
@@ -56,16 +56,17 @@ void printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin) {
 				case 9:
 				case 10:
 				case 11:
-					if(indexError > nbErrors) {
+					if(indexError > nbErrors) // si l'index est supérieur au nbErrors, on doit pas afficher le char
 						fputc(' ', stdout);
-					} else {
+					else
 						fputc(219, stdout);
-					}
 					
 					break;
 			}
 		}
 		
 		fclose(image);
+		return True;
 	}
+	return False;
 }
