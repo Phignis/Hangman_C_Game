@@ -1,8 +1,8 @@
-#include "dictionnary.h"
+#include "dictionary.h"
 
-Dictionnary* createDictionnary(const int physicalSize) {
+Dictionary* createDictionary(const int physicalSize) {
 	if(physicalSize > -1) {
-		Dictionnary* toReturn = (Dictionnary *) malloc(sizeof(Dictionnary));
+		Dictionary* toReturn = (Dictionary *) malloc(sizeof(Dictionary));
 		if(!toReturn) return NULL;
 		
 		toReturn->logicalSize = 0;
@@ -18,7 +18,7 @@ Dictionnary* createDictionnary(const int physicalSize) {
 	return NULL;
 }
 
-void destroyDictionnary(Dictionnary *toDestroy) {
+void destroyDictionary(Dictionary *toDestroy) {
 	if(toDestroy) {
 		// libérer les strings
 		if(toDestroy->wordsArray) {
@@ -32,7 +32,7 @@ void destroyDictionnary(Dictionnary *toDestroy) {
 	free(toDestroy);
 }
 
-Boolean isWordsIn(const Dictionnary searchingContext, const char* wordSearched) {
+Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched) {
 	if(searchingContext.wordsArray && wordSearched) {
 		for(int i = 0; i < searchingContext.logicalSize; ++i) {
 			if(!strcmp(searchingContext.wordsArray[i], wordSearched)) return True;
@@ -41,7 +41,7 @@ Boolean isWordsIn(const Dictionnary searchingContext, const char* wordSearched) 
 	return False;
 }
 
-Boolean deleteWord(Dictionnary* containing, const int indexWordToDelete) {
+Boolean deleteWord(Dictionary *containing, const int indexWordToDelete) {
 	if(indexWordToDelete > -1 && containing && indexWordToDelete < containing->logicalSize
 			&& containing->wordsArray) {
 		free(containing->wordsArray[indexWordToDelete]);
@@ -53,9 +53,9 @@ Boolean deleteWord(Dictionnary* containing, const int indexWordToDelete) {
 	return False;
 }
 
-Dictionnary* importWords(FILE *source) {
+Dictionary* importWords(FILE *source) {
 	if(source) {
-		Dictionnary *toReturn = createDictionnary(5);
+		Dictionary *toReturn = createDictionary(5);
 		char **reallocatedTab;
 		
 		if(!toReturn) return NULL;
@@ -67,7 +67,7 @@ Dictionnary* importWords(FILE *source) {
 				toReturn->physicalSize += 5; // on rajoute 5 cases
 				reallocatedTab = (char **) realloc(toReturn->wordsArray, sizeof(char*) * toReturn->physicalSize);
 				if(!(reallocatedTab)) {
-					destroyDictionnary(toReturn);
+					destroyDictionary(toReturn);
 					return NULL;
 				} else {
 					toReturn->wordsArray = reallocatedTab;
@@ -77,7 +77,7 @@ Dictionnary* importWords(FILE *source) {
 			// alloue la place pour la str contenue dans la ligne courante
 			toReturn->wordsArray[toReturn->logicalSize] = (char *) malloc(sizeof(char) * 11);
 			if(!toReturn->wordsArray[toReturn->logicalSize]) {
-				destroyDictionnary(toReturn);
+				destroyDictionary(toReturn);
 				return NULL;
 			}
 			
@@ -91,7 +91,7 @@ Dictionnary* importWords(FILE *source) {
 	return NULL;
 }
 
-int writeWords(FILE *placeToSave, const Dictionnary wordsToWrite) {
+int writeWords(FILE *placeToSave, const Dictionary wordsToWrite) {
 	if(placeToSave && wordsToWrite.wordsArray) {
 		int nbWordsPushed = 0;
 		
@@ -113,9 +113,9 @@ int writeWords(FILE *placeToSave, const Dictionnary wordsToWrite) {
 	return -1;
 }
 
-Dictionnary* addWords(const char *pathToFile, Dictionnary wordsToAdd) { // a constifier, copier wordsToAdd
+Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a constifier, copier wordsToAdd
 	if(pathToFile && strlen(pathToFile) && wordsToAdd.wordsArray) {
-		Dictionnary *updatedListWords;
+		Dictionary *updatedListWords;
 		FILE *file = fopen(pathToFile, "a+");
 		int nbWordsPushed;
 		char **reallocatedTab;
@@ -146,7 +146,7 @@ Dictionnary* addWords(const char *pathToFile, Dictionnary wordsToAdd) { // a con
 		 fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
 		 nbWordsPushed = writeWords(file, wordsToAdd);
 		 if(nbWordsPushed == -1) {
-			 destroyDictionnary(updatedListWords);
+			 destroyDictionary(updatedListWords);
 			 fclose(file);
 			 return NULL;
 		 }
@@ -157,7 +157,7 @@ Dictionnary* addWords(const char *pathToFile, Dictionnary wordsToAdd) { // a con
 		 updatedListWords->physicalSize += nbWordsPushed;
 		 reallocatedTab = (char **) realloc(updatedListWords->wordsArray, sizeof(char*) * updatedListWords->physicalSize);
 		 if(!reallocatedTab) {
-			 destroyDictionnary(updatedListWords);
+			 destroyDictionary(updatedListWords);
 			 return NULL;
 		 } else {
 			 updatedListWords->wordsArray = reallocatedTab;
@@ -167,7 +167,7 @@ Dictionnary* addWords(const char *pathToFile, Dictionnary wordsToAdd) { // a con
 			 updatedListWords->wordsArray[updatedListWords->logicalSize] = (char *) malloc(sizeof(char) * 8);
 			 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] &&
 					!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd.wordsArray[i])) {
-				 destroyDictionnary(updatedListWords);
+				 destroyDictionary(updatedListWords);
 				 return NULL;
 			 }
 			 

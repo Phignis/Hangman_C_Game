@@ -14,7 +14,7 @@ int emptyStream(FILE* stream, const int nbCharDumped) {
 	return -1;
 }
 
-Dictionnary* loadWords(const char *pathToFile) {
+Dictionary* loadWords(const char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
 		//~ int logicalSize = 0, physicalSize = 5;
@@ -24,7 +24,7 @@ Dictionnary* loadWords(const char *pathToFile) {
 		//~ if(!(*storingTab)) return -1;
 		
 		//~ printf("\n%s\n", pathToFile);
-		Dictionnary *toReturn;
+		Dictionary *toReturn;
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {
 			return NULL;
@@ -47,9 +47,9 @@ int hangman(void) {
 	int rdm, tentatives = 11, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
-	Dictionnary *tabMots;
+	Dictionary *tabMots;
 	
-	tabMots = loadWords("./ressources/dictionnary.don");
+	tabMots = loadWords("./ressources/dictionary.don");
 	if(!tabMots) {
 		return -1;
 	}
@@ -59,20 +59,20 @@ int hangman(void) {
 	rdm = rand() % tabMots->logicalSize; // dépend taille tabMots
 	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots->wordsArray[rdm]) + 1));
 	if(!hasardMot) {
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	
 	if(!transformInEmbeddedStr(hasardMot, tabMots->wordsArray[rdm])) {
 		free(hasardMot);
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		return -1;
 	}
 	
@@ -119,7 +119,7 @@ int hangman(void) {
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
 					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
-					destroyDictionnary(tabMots);
+					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					return -1;
@@ -127,7 +127,7 @@ int hangman(void) {
 					hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
 					if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
 						destroyAlphabet(alphabet);
-						destroyDictionnary(tabMots);
+						destroyDictionary(tabMots);
 						free(hasardMot);
 						printf("Erreur lors de l'affichage du mot trouvé.\n");
 						return -1;
@@ -135,7 +135,7 @@ int hangman(void) {
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
-					destroyDictionnary(tabMots);
+					destroyDictionary(tabMots);
 					free(hasardMotStr);
 					free(hasardMot);
 					
@@ -156,7 +156,7 @@ int hangman(void) {
 			switch(nbLettersFinded - 2) {
 				case -3:
 					printf("null pointer for hasardMot\n"); // pas atteignable normalement
-					destroyDictionnary(tabMots);
+					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					return -1;
@@ -187,7 +187,7 @@ int hangman(void) {
 	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
 	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
 		destroyAlphabet(alphabet);
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		free(hasardMot);
 		printf("Erreur lors de l'affichage du mot trouvé.\n");
 		return -1;
@@ -197,7 +197,7 @@ int hangman(void) {
 		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 		destroyAlphabet(alphabet);
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 		
@@ -207,7 +207,7 @@ int hangman(void) {
 		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
 
 		destroyAlphabet(alphabet);
-		destroyDictionnary(tabMots);
+		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 

@@ -19,7 +19,7 @@
 
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"
-#include "dictionnary/dictionnary.h"
+#include "dictionary/dictionary.h"
 
 
 /**
@@ -37,7 +37,7 @@
 int emptyStream(FILE* stream, const int nbCharDumped);
 
 /**
- * \fn Dictionnary* loadWords(char *pathToFile);
+ * \fn Dictionary* loadWords(char *pathToFile);
  * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné
  * 
  * Stocke dans le dictionnaire retourné les chaînes de caractères se trouvant dans le fichier indiqué par pathToFile<br>
@@ -45,9 +45,9 @@ int emptyStream(FILE* stream, const int nbCharDumped);
  * 
  * \param pathToFile chemin vers le fichier dont il faut récupérer les données
  * \return NULL si le fichier n'a pu etre ouvert en mode lecture, si pathToFile est NULL ou vide, ou si le fichier a été mal lu<br>
- * 			l'adresse du dictionnaire de mot récupéré sinon (à vider avec destroyDictionnary
+ * 			l'adresse du dictionnaire de mot récupéré sinon (à vider avec destroyDictionary
  */
-Dictionnary* loadWords(const char *pathToFile);
+Dictionary* loadWords(const char *pathToFile);
 
 /**
  * \fn int hangman(void);
