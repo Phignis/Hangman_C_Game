@@ -60,6 +60,25 @@ int addWord(Dictionary *container, char* toAdd) {
 	return -1;
 }
 
+void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine) {
+	if(toPrint && toPrint->wordsArray && nbWordsOnLine > 0) {
+		int j = 0;
+		for(int i = 0; i < toPrint->logicalSize; ++i) {
+			
+			fputs(toPrint->wordsArray[i], stdout);
+			fputs("\t|\t", stdout);
+			
+			
+			++j;
+			if(j == nbWordsOnLine) {
+				fputc('\n', stdout);
+				j = 0;
+			}
+		}
+		fputc('\n', stdout);
+	}
+}
+
 char* getRdmStr(const Dictionary *dict) {
 	if(dict && dict->wordsArray && dict->logicalSize) {
 		char *toReturn;

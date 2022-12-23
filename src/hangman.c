@@ -20,7 +20,7 @@ Dictionary* loadWords(const char *pathToFile) {
 		Dictionary *toReturn;
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {
-			return NULL;
+			return createDictionary(0);
 		}
     
 		toReturn = importWords(data);
@@ -46,13 +46,13 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 		}
 		
 		do {
-			printf("Saisir un nouveau mot (max 7 char):");
+			printf("Saisir un nouveau mot (max 7 char): (stop pour arreter)\n");
 			scanf("%7s", proposition);
 			toLowerCase(proposition); // pour simplifier le test de boucle
 			
 			while(!isStrAWord(proposition) || isWordsIn(*actualWords, proposition)
 				|| isWordsIn(*toAdd, proposition)) {
-				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres. Ressaisissez (max 7 char):");
+				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres. Ressaisissez (max 7 char): (stop pour arreter)\n");
 				scanf("%7s", proposition);
 				toLowerCase(proposition); // pour simplifier le test de boucle
 			}
@@ -237,12 +237,16 @@ int hangman(void) {
 
 void menu(void) {
 	char choix;
+	Dictionary *wordsAvailable = NULL;
+	
 	printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
 	do {
-		puts("\nMenu hangman\n\n");
-		puts("a - Jouer au jeu du pendu\n");
-		puts("b - Insérer de nouveau mots à ceux possibles\n\n");
-		puts("q - quitter le menu\n\n\n");
+		
+		puts("\nMenu hangman\n");
+		puts("a - Afficher les mots possibles lors du pendu");
+		puts("b - Jouer au jeu du pendu");
+		puts("c - Insérer de nouveau mots à ceux possibles\n");
+		puts("q - quitter le menu\n\n");
 		puts("Veuillez saisir une option:");
 		choix = fgetc(stdin);
 		emptyStream(stdin, -1); // on vide le buffer
@@ -252,17 +256,68 @@ void menu(void) {
 				break;
 			case 'a':
 				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
-				hangman();
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				puts("Mots possibles lors des jeux:");
+				printDictInLine(wordsAvailable, 4);
+				puts("\n");
+				
 				puts("Appuyez sur ENTER pour retourner au menu...");
 				getc(stdin);
 				emptyStream(stdin, -1);
 				printf( "\e[1;1H\e[2J");
 				break;
 			case 'b':
+			
 				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				hangman();
+				
+				puts("Appuyez sur ENTER pour retourner au menu...");
+				getc(stdin);
+				emptyStream(stdin, -1);
+				printf( "\e[1;1H\e[2J");
+				break;
+			case 'c':
+			
+				Dictionary *newerTab;
+			
+				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				newerTab = putWordsToFile("./ressources/dictionary.don", wordsAvailable);
+				
+				if(!newerTab) {
+					puts("Soucis lors du put");
+					puts("cela peut etre du a un soucis lors d'allocations dynamiques");
+				}
+				else if(newerTab->logicalSize < wordsAvailable->logicalSize) {
+					puts("Soucis probable tant qu'à la sauvegarde des nouveaux fichiers!");
+					puts("Les nouvelles données sont moins nombreuses que les anciennes, ce qui est illogique");
+				}
 				
 				puts("Appuyez sur ENTER pour retourner au menu");
 				getc(stdin);
+				destroyDictionary(newerTab);
 				emptyStream(stdin, -1);
 				printf( "\e[1;1H\e[2J");
 				break;
@@ -271,4 +326,6 @@ void menu(void) {
 				puts("Le choix n'a pas été reconnu. Veuillez saisir une option affichée");
 		}
 	} while(choix != 'q' && choix != 'Q');
+	
+	free(wordsAvailable);
 }

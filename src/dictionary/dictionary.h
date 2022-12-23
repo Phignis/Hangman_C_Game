@@ -97,6 +97,18 @@ void destroyDictionary(Dictionary *toDestroy);
  */
 int addWord(Dictionary *container, char* toAdd);
 
+
+/**
+ * \fn void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine);
+ * \brief affiche les mots du dictionnaire, avec le nombre spécifié de mot par ligne
+ * 
+ * les mots seront séparés par deux tabluations, avec entre un symbole de pipe
+ * 
+ * \param toPrint dictionnaire a afficher
+ * \param nbWordsOnLine nombre de mots sur une seule ligne
+ */
+void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine); 
+
 /**
  * \fn int getRdmIndex(const Dictionary *toPick);
  * \brief return a random word from dict
