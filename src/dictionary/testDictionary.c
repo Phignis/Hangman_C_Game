@@ -59,7 +59,7 @@ int testIsWordsIn(void) {
 int testIsStrAWord(void) {
 	
 	if(isStrAWord(NULL) || isStrAWord("") || isStrAWord("Toto!") || !isStrAWord("ToTo")
-		|| isStrAWord("&Toto") || !isStrAWord("ENSIM"))
+		|| isStrAWord("&Toto") || !isStrAWord("ENSIM") || isStrAWord("!ENSIM"))
 		return -1;
 	
 	return 0;
@@ -131,10 +131,44 @@ int testImportWords(void) {
 }
 
 int testAddWords(void) {
-	Dictionary *toAdd = createDictionary(3);
+	Dictionary *dict = createDictionary(5), *updated;
 	
+	dict->wordsArray[0] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[0]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[0], "ToTo");
 	
-	destroyDictionary(toAdd);
+	dict->wordsArray[1] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[1]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[1], "souris");
+	
+	dict->wordsArray[2] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[2]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[2], "ENSIM");
+	
+	dict->wordsArray[3] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[3]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[3], "!Hey");
+	
+	dict->logicalSize = 4;
+	
+	updated = addWords("test.don", dict);
+	
+	if(updated->logicalSize != 5) return 1;
+	
+	destroyDictionary(dict);
+	destroyDictionary(updated);
 	return 0;
 }
 

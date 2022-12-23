@@ -126,8 +126,8 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite) {
 	return -1;
 }
 
-Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a constifier, copier wordsToAdd
-	if(pathToFile && strlen(pathToFile) && wordsToAdd.wordsArray) {
+Dictionary* addWords(const char *pathToFile, Dictionary* wordsToAdd) {
+	if(pathToFile && strlen(pathToFile) && wordsToAdd->wordsArray) {
 		Dictionary *updatedListWords;
 		FILE *file = fopen(pathToFile, "a+");
 		int nbWordsPushed;
@@ -149,17 +149,18 @@ Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a const
 			 return NULL;
 		 }
 		 
-		 for(int i = 0; i < wordsToAdd.logicalSize; ++i) {
-			 if(isWordsIn(*updatedListWords, wordsToAdd.wordsArray[i])
-					|| !isStrAWord(wordsToAdd.wordsArray[i])) { // TODO: si des char autre que lettre, a enlever aussi
-				 deleteWord(&wordsToAdd, i);
+		 for(int i = 0; i < wordsToAdd->logicalSize; ++i) {
+			 if(isWordsIn(*updatedListWords, wordsToAdd->wordsArray[i])
+					|| !isStrAWord(wordsToAdd->wordsArray[i])) {
+				 deleteWord(wordsToAdd, i);
+				 --i; // on teste a la prochaine itération le str switched
 			 } else {
-				toLowerCase(wordsToAdd.wordsArray[i]);
+				toLowerCase(wordsToAdd->wordsArray[i]);
 			 }
 		 }
 		 
 		 fseek(file, 0, SEEK_END); // pour être sûr d'être à la toute fin du fichier
-		 nbWordsPushed = writeWords(file, wordsToAdd);
+		 nbWordsPushed = writeWords(file, *wordsToAdd);
 		 if(nbWordsPushed == -1) {
 			 destroyDictionary(updatedListWords);
 			 fclose(file);
@@ -182,8 +183,8 @@ Dictionary* addWords(const char *pathToFile, Dictionary wordsToAdd) { // a const
 			 for(int i = 0; i < nbWordsPushed; ++i) { // ajouter a updatedListWords chaque nouveau mot du fichier
 				 updatedListWords->wordsArray[updatedListWords->logicalSize] = (char *) malloc(sizeof(char) * 8);
 				 
-				 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] &&
-						!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd.wordsArray[i])) {
+				 if(!updatedListWords->wordsArray[updatedListWords->logicalSize] ||
+						!strcpy(updatedListWords->wordsArray[updatedListWords->logicalSize], wordsToAdd->wordsArray[i])) {
 					 destroyDictionary(updatedListWords);
 					 return NULL;
 				 }

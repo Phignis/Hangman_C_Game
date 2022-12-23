@@ -171,10 +171,10 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite);
  * 
  * 
  * \param pathToFile chemin vers le fichier dont il faut récupérer les données
- * \param wordsToAdd dictionnaire contenant les mots a ajouter au fichier
+ * \param wordsToAdd dictionnaire contenant les mots a ajouter au fichier. a la fin, seuls ceux rééllement enlevés restent
  * \return **NULL** si l'ouverture de fichier n'a pu se faire, que l'ancien contenu n'a pû être lu, ou que pathToFile ou wordsArray de wordsToAdd valent NULL
  * 			un Dictionary contenant tout les mots présent après insertions réussies dans le fichier
  */
-Dictionary* addWords(const char *pathToFile, const Dictionary wordsToAdd);
+Dictionary* addWords(const char *pathToFile, Dictionary* wordsToAdd);
 
 #endif // DICTIONARY_H_TF
