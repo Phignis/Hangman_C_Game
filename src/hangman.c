@@ -32,7 +32,7 @@ void printMenuOptions(void) {
 	consoleGotoCoords(12, 5);
 	puts("a - Afficher la liste de mots possibles lors du pendu\n");
 	
-	printImage("./ressources/play.don", 1, 9);
+	printImage("./ressources/play.don", 3, 9);
 	consoleGotoCoords(12, 11);
 	puts("b - Jouer au jeu du pendu\n");
 	
