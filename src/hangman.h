@@ -61,11 +61,13 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
  * 
  * Utiliser cette fonction permet d'avoir tout le comportement du pendu
  * 
+ * \param tabMots les mots possibles pour le jeu du hangman
+ * 
  * \return -1 si la récupération d'un mot pour le jeu c'est mal passé, ou que l'alphabet n'a pu etre alloué<br>
  * 			0 si le jeu a été perdu, donc que le mot n'a pu etre deviné
  * 			1 si le mot a été deviné
  */
-int hangman(void);
+int hangman(const Dictionary* tabMots);
 
 /**
  * \fn void menu(void);

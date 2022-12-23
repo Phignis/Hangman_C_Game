@@ -72,42 +72,33 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 
 
 
-int hangman(void) {
+int hangman(const Dictionary* tabMots) {
 	char choixLettre, *hasardMotStr;
 	int tentatives = 11, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
-	Dictionary *tabMots;
 	
-	tabMots = loadWords("./ressources/dictionary.don");
-	if(!tabMots) {
-		return -1;
-	}
 	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
   
 	hasardMotStr = getRdmStr(tabMots);
 	if(!hasardMotStr) {
-		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(hasardMotStr) + 1));
 	if(!hasardMot) {
-		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	if(!transformInEmbeddedStr(hasardMot, hasardMotStr)) {
 		free(hasardMot);
 		free(hasardMotStr);
-		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
 		free(hasardMotStr);
-		destroyDictionary(tabMots);
 		return -1;
 	}
 	
@@ -154,7 +145,6 @@ int hangman(void) {
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
 					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
-					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					free(hasardMotStr);
@@ -163,7 +153,6 @@ int hangman(void) {
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
-					destroyDictionary(tabMots);
 					free(hasardMotStr);
 					free(hasardMot);
 					
@@ -184,7 +173,6 @@ int hangman(void) {
 			switch(nbLettersFinded - 2) {
 				case -3:
 					printf("null pointer for hasardMot\n"); // pas atteignable normalement
-					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					free(hasardMotStr);
@@ -217,7 +205,6 @@ int hangman(void) {
 		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 		
@@ -227,7 +214,6 @@ int hangman(void) {
 		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
 
 		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 
@@ -284,7 +270,7 @@ void menu(void) {
 					return;
 				}
 				
-				hangman();
+				hangman(wordsAvailable);
 				
 				puts("Appuyez sur ENTER pour retourner au menu...");
 				getc(stdin);
