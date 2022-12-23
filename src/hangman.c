@@ -32,7 +32,7 @@ Dictionary* loadWords(const char *pathToFile) {
 		Dictionary *toReturn;
 		FILE *data = fopen(pathToFile, "r");
 		if(!data) {
-			return NULL;
+			return createDictionary(0);
 		}
     
 		toReturn = importWords(data);
@@ -45,39 +45,72 @@ Dictionary* loadWords(const char *pathToFile) {
 	return NULL;
 }
 
+Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords) {
+	if(pathToFile && strlen(pathToFile)) {
+		Dictionary *toAdd = createDictionary(5), *toReturn;
+		char *proposition;
+		if(!toAdd)
+			return NULL;
+			
+		proposition = (char*) malloc(sizeof(char) * 8);
+		if(!proposition) {
+			return NULL;
+		}
+		
+		do {
+			printf("Saisir un nouveau mot (max 7 char): (stop pour arreter)\n");
+			scanf("%7s", proposition);
+			toLowerCase(proposition); // pour simplifier le test de boucle
+			
+			while(!isStrAWord(proposition) || isWordsIn(*actualWords, proposition)
+				|| isWordsIn(*toAdd, proposition)) {
+				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres. Ressaisissez (max 7 char): (stop pour arreter)\n");
+				scanf("%7s", proposition);
+				toLowerCase(proposition); // pour simplifier le test de boucle
+			}
+			
+			if(strcmp(proposition, "stop")) { // on ajoute pas stop au dictionnaire
+				addWord(toAdd, proposition);
+			}
+			
+		} while(strcmp(proposition, "stop"));
+		
+		toReturn = addWordsToFile(pathToFile, toAdd);
+		destroyDictionary(toAdd);
+		return toReturn;
+	}
+	return NULL;
+}
 
 
-int hangman(void) {
+
+int hangman(const Dictionary* tabMots) {
 	char choixLettre, *hasardMotStr;
-	int rdm, tentatives = 11, nbLettersFinded, typeChar;
+	int tentatives = 11, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
-	Dictionary *tabMots;
 	
-	tabMots = loadWords("./ressources/dictionary.don");
-	if(!tabMots) {
-		return -1;
-	}
 	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
   
-	srand(time(NULL));
-	rdm = rand() % tabMots->logicalSize; // dépend taille tabMots
-	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots->wordsArray[rdm]) + 1));
-	if(!hasardMot) {
-		destroyDictionary(tabMots);
+	hasardMotStr = getRdmStr(tabMots);
+	if(!hasardMotStr) {
 		return -1;
 	}
 	
+	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(hasardMotStr) + 1));
+	if(!hasardMot) {
+		return -1;
+	}
 	
-	if(!transformInEmbeddedStr(hasardMot, tabMots->wordsArray[rdm])) {
+	if(!transformInEmbeddedStr(hasardMot, hasardMotStr)) {
 		free(hasardMot);
-		destroyDictionary(tabMots);
+		free(hasardMotStr);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
-		destroyDictionary(tabMots);
+		free(hasardMotStr);
 		return -1;
 	}
 	
@@ -98,10 +131,12 @@ int hangman(void) {
 		
 		while(!typeChar) {
 			consoleGotoCoords(1, 12);
-			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
-			printf("                           ");
+			puts("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :");
+			puts("                           ");
+			puts("                           ");
+			
 			consoleGotoCoords(1, 13);
-			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
+			scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
 			emptyStream(stdin, -1);
 			typeChar = isProposedLetterValid(*alphabet, choixLettre);
 		}
@@ -113,33 +148,21 @@ int hangman(void) {
 			scanf("%7s", suggestedStr);
 			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
 			
-			printf( "\e[1;1H\e[2J");
+			clearConsole();
 			printf("\n\n");
 			
 			toLowerCase(suggestedStr);
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
 					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
-					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
+					free(hasardMotStr);
 					return -1;
 				case 0:
-					hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
-					if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
-						destroyAlphabet(alphabet);
-						destroyDictionary(tabMots);
-						free(hasardMot);
-						printf("Erreur lors de l'affichage du mot trouvé.\n");
-						return -1;
-					}
-					printUserInterface(11 - tentatives, &hasardMot, alphabet);
-		
-					consoleGotoCoords(1, 10);
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
-					destroyDictionary(tabMots);
 					free(hasardMotStr);
 					free(hasardMot);
 					
@@ -161,9 +184,9 @@ int hangman(void) {
 			switch(nbLettersFinded - 2) {
 				case -3:
 					printf("null pointer for hasardMot\n"); // pas atteignable normalement
-					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
+					free(hasardMotStr);
 					return -1;
 			
 				case -2:
@@ -190,24 +213,14 @@ int hangman(void) {
 		}
 	}
 	
-	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
-	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
-		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
-		free(hasardMot);
-		printf("Erreur lors de l'affichage du mot trouvé.\n");
-		return -1;
-	}
-	
 	printUserInterface(11 - tentatives, &hasardMot, alphabet);
 		
 	consoleGotoCoords(1, 10);
-	
+  
 	if(tentatives) {
 		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 		
@@ -217,10 +230,104 @@ int hangman(void) {
 		printf("Dommage, vous avez perdu! Le mot était \"%s\"\n", hasardMotStr);
 
 		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
 		free(hasardMotStr);
 		free(hasardMot);
 
 		return 0;
 	}
+}
+
+void menu(void) {
+	char choix;
+	Dictionary *wordsAvailable = NULL;
+	
+	clearConsole(); // TODO: replace by function when merged
+	do {
+		
+		puts("\nMenu hangman\n");
+		puts("a - Afficher les mots possibles lors du pendu");
+		puts("b - Jouer au jeu du pendu");
+		puts("c - Insérer de nouveau mots à ceux possibles\n");
+		puts("q - quitter le menu\n\n");
+		puts("Veuillez saisir une option:");
+		choix = fgetc(stdin);
+		emptyStream(stdin, -1); // on vide le buffer
+		switch(choix) {
+			case 'q':
+			case 'Q':
+				break;
+			case 'a':
+				clearConsole();
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				puts("Mots possibles lors des jeux:");
+				printDictInLine(wordsAvailable, 4);
+				puts("\n");
+				
+				puts("Appuyez sur ENTER pour retourner au menu...");
+				getc(stdin);
+				emptyStream(stdin, -1);
+				clearConsole();
+				break;
+			case 'b':
+			
+				clearConsole();
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				hangman(wordsAvailable);
+				
+				puts("Appuyez sur ENTER pour retourner au menu...");
+				getc(stdin);
+				emptyStream(stdin, -1);
+				clearConsole();
+				break;
+			case 'c':
+			
+				Dictionary *newerTab;
+			
+				clearConsole();
+				
+				wordsAvailable = loadWords("./ressources/dictionary.don");
+				if(!wordsAvailable) {
+					puts("Erreur fatale lors du chargement des mots\n");
+					puts("Cela peut etre du a une erreur d'allocation dynamique");
+					return;
+				}
+				
+				newerTab = putWordsToFile("./ressources/dictionary.don", wordsAvailable);
+				
+				if(!newerTab) {
+					puts("Soucis lors du put");
+					puts("cela peut etre du a un soucis lors d'allocations dynamiques");
+				}
+				else if(newerTab->logicalSize < wordsAvailable->logicalSize) {
+					puts("Soucis probable tant qu'à la sauvegarde des nouveaux fichiers!");
+					puts("Les nouvelles données sont moins nombreuses que les anciennes, ce qui est illogique");
+				}
+				
+				puts("Appuyez sur ENTER pour retourner au menu");
+				getc(stdin);
+				destroyDictionary(newerTab);
+				emptyStream(stdin, -1);
+				clearConsole();
+				break;
+			default:
+				clearConsole();
+				puts("Le choix n'a pas été reconnu. Veuillez saisir une option affichée");
+		}
+	} while(choix != 'q' && choix != 'Q');
+	
+	free(wordsAvailable);
 }

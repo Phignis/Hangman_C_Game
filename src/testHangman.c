@@ -2,8 +2,7 @@
 
 
 int main(void) {
-	initConsole();
-	hangman();
+	menu();
 	
 	return 0;
 }

@@ -20,6 +20,29 @@ int testCreateDictionary(void) {
 	return 0;
 }
 
+int testAddWord(void) {
+	Dictionary *myDictionary = createDictionary(1);
+	if(!myDictionary) {
+		printf("soucis de malloc");
+		return -1;
+	}
+	
+	if(addWord(myDictionary, "Hey")) return -1;
+	
+	if(myDictionary->physicalSize != 1 || myDictionary->logicalSize != 1
+		 || strcmp(myDictionary->wordsArray[0], "Hey")) return -1;
+		 
+	if(addWord(myDictionary, "Ho")) return -1;
+	
+	if(myDictionary->physicalSize != 6 || myDictionary->logicalSize != 2
+		 || strcmp(myDictionary->wordsArray[0], "Hey")
+		 || strcmp(myDictionary->wordsArray[1], "Ho")) return -1;
+	
+	destroyDictionary(myDictionary);
+	
+	return 0;
+}
+
 int testIsWordsIn(void) {
 	Dictionary* dict = createDictionary(3);
 	
@@ -59,7 +82,7 @@ int testIsWordsIn(void) {
 int testIsStrAWord(void) {
 	
 	if(isStrAWord(NULL) || isStrAWord("") || isStrAWord("Toto!") || !isStrAWord("ToTo")
-		|| isStrAWord("&Toto") || !isStrAWord("ENSIM"))
+		|| isStrAWord("&Toto") || !isStrAWord("ENSIM") || isStrAWord("!ENSIM"))
 		return -1;
 	
 	return 0;
@@ -130,11 +153,45 @@ int testImportWords(void) {
 	return 0;
 }
 
-int testAddWords(void) {
-	Dictionary *toAdd = createDictionary(3);
+int testAddWordsToFile(void) {
+	Dictionary *dict = createDictionary(5), *updated;
 	
+	dict->wordsArray[0] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[0]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[0], "ToTo");
 	
-	destroyDictionary(toAdd);
+	dict->wordsArray[1] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[1]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[1], "souris");
+	
+	dict->wordsArray[2] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[2]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[2], "ENSIM");
+	
+	dict->wordsArray[3] = (char*) malloc(sizeof(char) * 8);
+	if(!dict->wordsArray[3]) {
+		printf("soucis de malloc\n");
+		return -1;
+	}
+	strcpy(dict->wordsArray[3], "!Hey");
+	
+	dict->logicalSize = 4;
+	
+	updated = addWordsToFile("test.don", dict);
+	
+	if(updated->logicalSize != 5) return 1;
+	
+	destroyDictionary(dict);
+	destroyDictionary(updated);
 	return 0;
 }
 
@@ -145,6 +202,11 @@ int main(void) {
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction createDictionary.\033[0m\n");
 	else
 		printf("\033[0;32mTest de la fonction createDictionary réussi!\033[0m\n");
+		
+	if(testAddWord())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction addWord.\033[0m\n");
+	else
+		printf("\033[0;32mTest de la fonction addWord réussi!\033[0m\n");
 		
 	if(testIsWordsIn())
 		printf("\033[0;31mProblème dans le fonctionnement de la fonction isWordsIn.\033[0m\n");
@@ -166,10 +228,10 @@ int main(void) {
 	else
 		printf("\033[0;32mTest de la fonction importWords réussi!\033[0m\n");
 		
-	if(testAddWords())
-		printf("\033[0;31mProblème dans le fonctionnement de la fonction addWords.\033[0m\n");
+	if(testAddWordsToFile())
+		printf("\033[0;31mProblème dans le fonctionnement de la fonction addWordsToFile.\033[0m\n");
 	else
-		printf("\033[0;32mTest de la fonction addWords réussi!\033[0m\n");
+		printf("\033[0;32mTest de la fonction addWordsToFile réussi!\033[0m\n");
 		
 	return 0;
 }
