@@ -195,8 +195,7 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite) {
 				return nbWordsPushed;
 			}
 			if(fputc('\n', placeToSave) == EOF) { // fputs don't had newline char by itself like puts
-				return nbWordsPushed;
-				// TODO: renvoyer nbWordsPushed ou nbWordsPushed + 1? car on a déjà écrit le mot en soit, il manque juste le newline char pour valider la ligne
+				return nbWordsPushed + 1;
 			}
 			++nbWordsPushed;
 		}

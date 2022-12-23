@@ -82,7 +82,6 @@ int embeddedStrcmp(const EmbeddedString str1, const EmbeddedString str2) {
 		int i = 0;
 		
 		while(str1[i].value && str2[i].value) {
-			// TODO: mettre en place une arithmétique des char si possible
 			
 			if(str1[i].value > str2[i].value)
 				return 1;
@@ -106,7 +105,6 @@ int mixedStrcmp(const EmbeddedString str1, const char *str2) {
 		int i = 0;
 		
 		while(str1[i].value && str2[i]) {
-			// TODO: mettre en place une arithmétique des char si possible
 			
 			if(str1[i].value > str2[i])
 				return 1;
