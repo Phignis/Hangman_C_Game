@@ -275,6 +275,7 @@ int hangman(const Dictionary* tabMots) {
 		return 0;
 	}
 }
+
 void menu(void) {
 	char choix;
 	Dictionary *wordsAvailable = NULL;

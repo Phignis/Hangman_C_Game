@@ -4,7 +4,6 @@ int initConsole(void) {
 	// tiré de https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
 	#ifdef _WIN32 // on fait le code seulement pour setup pour windows les escapes codes, utile dans le programme
 	// Set output mode to handle virtual terminal sequences
-	printf("hello");
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hOut == INVALID_HANDLE_VALUE)
     { // on n'a pu récupéré un handler
