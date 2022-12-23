@@ -1,5 +1,59 @@
 #include "print.h"
 
+int initConsole(void) {
+	// tiré de https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+	#ifdef _WIN32 // on fait le code seulement pour setup pour windows les escapes codes, utile dans le programme
+	// Set output mode to handle virtual terminal sequences
+	printf("hello");
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hOut == INVALID_HANDLE_VALUE)
+    { // on n'a pu récupéré un handler
+        return -2;
+    }
+    HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
+    if (hIn == INVALID_HANDLE_VALUE)
+    {
+        return -2;
+    }
+
+    DWORD dwOriginalOutMode = 0;
+    DWORD dwOriginalInMode = 0;
+    if (!GetConsoleMode(hOut, &dwOriginalOutMode))
+    { // on n'a pu récupéré le mode de la console depuis son handler dans dwOriginalOutMode
+        return -2;
+    }
+    if (!GetConsoleMode(hIn, &dwOriginalInMode))
+    {
+        return -2;
+    }
+    
+	// on veut activer le bit et de virtual term, et de disable newline auto return
+    DWORD dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
+    DWORD dwRequestedInModes = ENABLE_VIRTUAL_TERMINAL_INPUT;
+
+	// on conserve les anciens modes, et on ajoute via le masque OR les demandés
+    DWORD dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
+    if (!SetConsoleMode(hOut, dwOutMode))
+    {
+        // we failed to set both modes, try to step down mode gracefully.
+        dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+        
+        dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
+        if (!SetConsoleMode(hOut, dwOutMode)) { // out mode n'a pu etre setup
+            return -1;
+        }
+    }
+    
+	// on conserve les anciens modes, et on ajoute via le masque OR les demandés
+    DWORD dwInMode = dwOriginalInMode | dwRequestedInModes;
+	if (!SetConsoleMode(hIn, dwInMode)) { // in mode n'a pu etre setup
+		return -1;
+    }
+	#endif
+	
+	return 0; // on retourne dans tout les cas 0, si c'est Windows, on arrive que si tout s'est bien passé
+}
+
 void clearConsole(void) {
 	printf("\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
 	/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.

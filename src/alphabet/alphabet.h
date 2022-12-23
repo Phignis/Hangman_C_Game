@@ -56,9 +56,6 @@ typedef struct {
 	int physicalSize; /**< nombre d'éléments maximum contenable dans array */
 } Alphabet;
 
-
-
-
 /**
  * \fn Boolean createAlphabet(Alphabet **toCreate);
  * \brief permet de créer un alphabet

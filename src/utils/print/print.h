@@ -14,6 +14,12 @@
 
 #include <stdio.h>
 
+
+#ifdef _WIN32 // utile pour initConsole
+#include <wchar.h>
+#include <windows.h>
+#endif
+
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi
 #define BOOLEAN_TF
 
@@ -32,6 +38,18 @@ typedef enum {
 } Boolean;
 #endif
 
+/**
+ * \fn int initConsole(void);
+ * \brief permet de setup la console pour l'application
+ * 
+ * setup nottamment pour windows le support des escapes sequences, utilisé
+ * pour positionner le curseur entre autre
+ * 
+ * \return **-2** si le mode actuel de la console en in ou out n'a pu être récupéré
+ * 			**-1** si le changement de mode n'a pu être effectué
+ * 			**0** si l'init a fonctionné
+ */
+int initConsole(void);
 
 /**
  * \fn void clearConsole(void);
