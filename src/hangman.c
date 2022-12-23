@@ -131,10 +131,12 @@ int hangman(const Dictionary* tabMots) {
 		
 		while(!typeChar) {
 			consoleGotoCoords(1, 12);
-			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
-			printf("                           ");
+			puts("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :");
+			puts("                           ");
+			puts("                           ");
+			
 			consoleGotoCoords(1, 13);
-			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
+			scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
 			emptyStream(stdin, -1);
 			typeChar = isProposedLetterValid(*alphabet, choixLettre);
 		}
@@ -146,7 +148,7 @@ int hangman(const Dictionary* tabMots) {
 			scanf("%7s", suggestedStr);
 			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
 			
-			printf( "\e[1;1H\e[2J");
+			clearConsole();
 			printf("\n\n");
 			
 			toLowerCase(suggestedStr);
@@ -239,7 +241,7 @@ void menu(void) {
 	char choix;
 	Dictionary *wordsAvailable = NULL;
 	
-	printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+	clearConsole(); // TODO: replace by function when merged
 	do {
 		
 		puts("\nMenu hangman\n");
@@ -255,7 +257,7 @@ void menu(void) {
 			case 'Q':
 				break;
 			case 'a':
-				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				clearConsole();
 				
 				wordsAvailable = loadWords("./ressources/dictionary.don");
 				if(!wordsAvailable) {
@@ -271,11 +273,11 @@ void menu(void) {
 				puts("Appuyez sur ENTER pour retourner au menu...");
 				getc(stdin);
 				emptyStream(stdin, -1);
-				printf( "\e[1;1H\e[2J");
+				clearConsole();
 				break;
 			case 'b':
 			
-				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				clearConsole();
 				
 				wordsAvailable = loadWords("./ressources/dictionary.don");
 				if(!wordsAvailable) {
@@ -289,13 +291,13 @@ void menu(void) {
 				puts("Appuyez sur ENTER pour retourner au menu...");
 				getc(stdin);
 				emptyStream(stdin, -1);
-				printf( "\e[1;1H\e[2J");
+				clearConsole();
 				break;
 			case 'c':
 			
 				Dictionary *newerTab;
 			
-				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				clearConsole();
 				
 				wordsAvailable = loadWords("./ressources/dictionary.don");
 				if(!wordsAvailable) {
@@ -319,10 +321,10 @@ void menu(void) {
 				getc(stdin);
 				destroyDictionary(newerTab);
 				emptyStream(stdin, -1);
-				printf( "\e[1;1H\e[2J");
+				clearConsole();
 				break;
 			default:
-				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				clearConsole();
 				puts("Le choix n'a pas été reconnu. Veuillez saisir une option affichée");
 		}
 	} while(choix != 'q' && choix != 'Q');
