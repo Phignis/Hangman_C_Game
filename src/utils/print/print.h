@@ -13,6 +13,7 @@
 #define PRINT_H_TF
 
 #include <stdio.h>
+#include <string.h>
 
 
 #ifdef _WIN32 // utile pour initConsole
@@ -111,6 +112,21 @@ void printFilledLine(int length);
  * 			False si xAxisOrigin ou yAxisOrigin ne sont pas strictement supérieur à 0, ou que le fichier src/ressources/hangman.don n'a pu être ouvert
  */
 Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin);
+
+/**
+ * \fn Boolean printImage(const char* pathToImage, const int xAxisOrigin, int yAxisOrigin);
+ * \brief affiche une image
+ * 
+ * affiche l'image dont le chemin est donné en paramtère
+ * xAxisOrigin et yAxisOrigin donne l'origine du premier char composant l'image en haut a gauche
+ * 
+ * \param pathToImage chemin vers l'image a afficher
+ * \param xAxisOrigin abscisse de début du dessin
+ * \param yAxisOrigin ordonnée de début du dessin
+ * \return True si l'image a été affiché au moins en partit<br>
+ * 			False si xAxisOrigin ou yAxisOrigin ne sont pas strictement supérieur à 0, ou que le fichier dont le chemin est donné n'a pu être ouvert
+ */
+Boolean printImage(const char* pathToImage, const int xAxisOrigin, int yAxisOrigin);
 
 
 #endif // PRINT_H_TF

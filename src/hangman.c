@@ -26,6 +26,25 @@ void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, c
 	printAlphabet(*alphabetToPrint);
 }
 
+void printMenuOptions(void) {
+	puts("\nMenu hangman\n");
+	printImage("./ressources/print.don", 1, 3);
+	consoleGotoCoords(12, 5);
+	puts("a - Afficher les mots possibles lors du pendu\n");
+	
+	printImage("./ressources/play.don", 1, 9);
+	consoleGotoCoords(12, 11);
+	puts("b - Jouer au jeu du pendu\n");
+	
+	printImage("./ressources/save.don", 1, 15);
+	consoleGotoCoords(12, 17);
+	puts("c - Insérer de nouveau mots à ceux possibles\n\n");
+	
+	consoleGotoCoords(1, 22);
+	puts("q - quitter le menu\n\n");
+}
+
+
 Dictionary* loadWords(const char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
@@ -236,19 +255,16 @@ int hangman(const Dictionary* tabMots) {
 		return 0;
 	}
 }
-
 void menu(void) {
 	char choix;
 	Dictionary *wordsAvailable = NULL;
 	
-	clearConsole(); // TODO: replace by function when merged
+	initConsole(); // pour rendre les terminaux windows compatible avec les ansi escape statement
+	clearConsole();
 	do {
+		printMenuOptions();
 		
-		puts("\nMenu hangman\n");
-		puts("a - Afficher les mots possibles lors du pendu");
-		puts("b - Jouer au jeu du pendu");
-		puts("c - Insérer de nouveau mots à ceux possibles\n");
-		puts("q - quitter le menu\n\n");
+		consoleGotoCoords(1, 24);
 		puts("Veuillez saisir une option:");
 		choix = fgetc(stdin);
 		emptyStream(stdin, -1); // on vide le buffer
@@ -325,9 +341,12 @@ void menu(void) {
 				break;
 			default:
 				clearConsole();
+				consoleGotoCoords(17, 2);
 				puts("Le choix n'a pas été reconnu. Veuillez saisir une option affichée");
+				consoleGotoCoords(1, 1);
 		}
 	} while(choix != 'q' && choix != 'Q');
 	
 	free(wordsAvailable);
+	clearConsole();
 }

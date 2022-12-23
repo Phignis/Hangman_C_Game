@@ -137,3 +137,45 @@ Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin)
 	}
 	return False;
 }
+
+Boolean printImage(const char* pathToImage, const int xAxisOrigin, int yAxisOrigin) {
+	if(xAxisOrigin > 0 && yAxisOrigin > 0 && pathToImage && strlen(pathToImage)) {
+		FILE *image;
+		char current, previous = ' ';
+		
+		image = fopen(pathToImage, "r");
+		if(!image) return False;
+		
+		consoleGotoCoords(xAxisOrigin, yAxisOrigin);
+		
+		while(!feof(image)) {
+			
+			current = fgetc(image);
+			
+			switch(current) {
+				case'\r':
+				case '\n': // \n
+					if(previous != '\n' && previous != '\r') {
+						fputc('\n', stdout);
+						++yAxisOrigin; // on écrit sur une ligne en dessous
+						consoleGotoCoords(xAxisOrigin, yAxisOrigin);
+					}
+					break;
+				case ' ':
+				case EOF:
+					break;
+				case 'a': // a
+					fputc(' ', stdout);
+					break;
+				default:
+					fputc(219, stdout);
+			}
+			
+			previous = current; // pour savoir si le précedent était déjà un newLine char, en Windows conv est CRLF -> \r\n
+		}
+		
+		fclose(image);
+		return True;
+	}
+	return False;
+}

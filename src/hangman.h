@@ -51,6 +51,12 @@ int emptyStream(FILE* stream, const int nbCharDumped);
 void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, const Alphabet* alphabetToPrint);
 
 /**
+ * \fn void printMenuOptions(void);
+ * \brief affichage des options du menu, avec leurs icones
+ */
+void printMenuOptions(void);
+
+/**
  * \fn Dictionary* loadWords(char *pathToFile);
  * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné
  * 
