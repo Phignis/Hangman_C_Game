@@ -1,19 +1,21 @@
-.PHONY: help buildTest buildTestAlphabet buildTestDictionary buildTestEmbeddedString buildTest build test
+.PHONY: help ressources emptyTestData buildTestAlphabet buildTestDictionary buildTestEmbeddedString buildTest build test run
 .DEFAULT_GOAL = help
 
 help:
-	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-13s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
+	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%7s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 #########################
 ## Prerequis
 #########################
 src/ressources/:
-	mkdir -p $@
-
+	@mkdir -p $@
 # $@ est une var automatique redonnant le nom de la target de la règle, ici src/ressources/
+
+emptyTestData: ## remet le fichier src/dictionary/test.don à son état d'origine
+	@printf 'souris\npapier\ntitus\n' > ./src/dictionary/test.don
+# utilisation de printf plutot que echo -e car le code de echo est trop dépendant de la distrib 
 	
 ressources: src/ressources/ ## permet de créer le fichier src/ressources si non existant
-
 
 #########################
 ## Build des tests
@@ -52,3 +54,10 @@ build: src/hangman.exe ## compile tout le programme et le ressort dans src/hangm
 ## Run
 #########################
 
+test: emptyTestData buildTest ## lance tout les tests unitaires disponibles, et les compiles si besoin il y a
+	@./src/alphabet/testAlphabet.exe # mettre @ devant évite d'afficher la commande
+	@./src/dictionary/testDictionary.exe
+	@./src/embeddedString/testEmbeddedString.exe
+
+run: build ressources ## execute le jeu du pendu, et le compile au préalable si besoin il y a 
+	@./src/hangman.exe
