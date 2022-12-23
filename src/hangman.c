@@ -30,7 +30,7 @@ void printMenuOptions(void) {
 	puts("\nMenu hangman\n");
 	printImage("./ressources/print.don", 1, 3);
 	consoleGotoCoords(12, 5);
-	puts("a - Afficher les mots possibles lors du pendu\n");
+	puts("a - Afficher la liste de mots possibles lors du pendu\n");
 	
 	printImage("./ressources/play.don", 1, 9);
 	consoleGotoCoords(12, 11);
@@ -38,7 +38,7 @@ void printMenuOptions(void) {
 	
 	printImage("./ressources/save.don", 1, 15);
 	consoleGotoCoords(12, 17);
-	puts("c - Insérer de nouveau mots à ceux possibles\n\n");
+	puts("c - Insérer des mots possibles supplémentaires\n\n");
 	
 	consoleGotoCoords(1, 22);
 	puts("q - quitter le menu\n\n");
@@ -123,7 +123,11 @@ int hangman(const Dictionary* tabMots) {
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
 	
-	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
+	if(tabMots->logicalSize == 0) {
+		puts("Il n'y a actuellement pas de mots diponibles. Veuillez en saisir:");
+		tabMots = putWordsToFile("./ressources/dictionary.don", tabMots);
+		emptyStream(stdin, -1);
+	}
   
 	hasardMotStr = getRdmStr(tabMots);
 	if(!hasardMotStr) {
@@ -177,12 +181,13 @@ int hangman(const Dictionary* tabMots) {
 		if(typeChar == 2) { // on cherche a deviner le mot
 			char suggestedStr[8];
 			consoleGotoCoords(1, 20);
-			puts("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères)");
+			puts("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 caractères)");
 			scanf("%7s", suggestedStr);
 			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
 			
 			clearConsole();
-			puts("\n");
+			printUserInterface(11 - tentatives, &hasardMot, alphabet);
+			consoleGotoCoords(1, 17);
 			
 			toLowerCase(suggestedStr);
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
@@ -193,6 +198,7 @@ int hangman(const Dictionary* tabMots) {
 					free(hasardMotStr);
 					return -1;
 				case 0:
+					
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
@@ -230,7 +236,7 @@ int hangman(const Dictionary* tabMots) {
 					break;
 			
 				case -1:
-					printf("Bravo, vous avez trouvé %d lettres.\n", nbLettersFinded);
+					printf("Bravo, vous avez trouvé %d lettre.\n", nbLettersFinded);
 					
 					break;
 			
