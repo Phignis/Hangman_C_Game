@@ -123,7 +123,7 @@ int hangman(const Dictionary* tabMots) {
 		consoleGotoCoords(1, 10);
 		printf("Il vous reste %d tentatives.\n\n", tentatives);
 		
-		printf("Veuillez proposer une lettre :\n");
+		puts("Veuillez proposer une lettre :\n(! pour proposer un mot)");
 		scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
 		emptyStream(stdin, -1);
 		
@@ -131,11 +131,11 @@ int hangman(const Dictionary* tabMots) {
 		
 		while(!typeChar) {
 			consoleGotoCoords(1, 12);
-			puts("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :");
+			puts("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n(! pour proposer un mot)");
 			puts("                           ");
 			puts("                           ");
 			
-			consoleGotoCoords(1, 13);
+			consoleGotoCoords(1, 14);
 			scanf("%c", &choixLettre); // /* permet de vider la donnée correspondant au format
 			emptyStream(stdin, -1);
 			typeChar = isProposedLetterValid(*alphabet, choixLettre);
