@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"
@@ -51,6 +50,12 @@ int emptyStream(FILE* stream, const int nbCharDumped);
 Dictionary* loadWords(const char *pathToFile);
 
 /**
+ * \fn Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords);
+ * \brief 
+ */
+Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords);
+
+/**
  * \fn int hangman(void);
  * \brief Fonction permettant de lancer un jeu du pendu
  * 
@@ -61,5 +66,14 @@ Dictionary* loadWords(const char *pathToFile);
  * 			1 si le mot a été deviné
  */
 int hangman(void);
+
+/**
+ * \fn void menu(void);
+ * \brief point d'entrée du programme global
+ * 
+ * affiche un menu permettant d'accéder aux fonctions principales, dont 
+ * hangman et putWordsToFile
+ */
+void menu(void);
 
 #endif // HANGMAN_H_TF

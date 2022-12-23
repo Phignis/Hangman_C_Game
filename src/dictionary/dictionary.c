@@ -32,6 +32,52 @@ void destroyDictionary(Dictionary *toDestroy) {
 	free(toDestroy);
 }
 
+int addWord(Dictionary *container, char* toAdd) {
+	if(container && container->wordsArray && toAdd && strlen(toAdd)) {
+		
+		char **reallocatedTab;
+		
+		if(container->logicalSize == container->physicalSize) {
+			container->physicalSize += 5;
+			reallocatedTab = (char **) realloc(container->wordsArray, sizeof(char*) * container->physicalSize);
+			
+			if(!reallocatedTab)
+				return -2;
+			else
+				container->wordsArray = reallocatedTab;
+		}
+		
+		container->wordsArray[container->logicalSize] = (char *) malloc(sizeof(char) * strlen(toAdd));
+		
+		if(!container->wordsArray[container->logicalSize] ||
+			!strcpy(container->wordsArray[container->logicalSize], toAdd))
+				return -2;
+		
+		++(container->logicalSize);
+		return 0;
+	}
+	
+	return -1;
+}
+
+char* getRdmStr(const Dictionary *dict) {
+	if(dict && dict->wordsArray && dict->logicalSize) {
+		char *toReturn;
+		int rdm;
+		
+		srand(time(NULL));
+		rdm = rand() % dict->logicalSize; // on veut un nombre entre 0 (inclu) et logicalSize (exclu)
+		
+		toReturn = (char *) malloc(sizeof(char) * (strlen(dict->wordsArray[rdm]) + 1));
+		if(toReturn && strcpy(toReturn, dict->wordsArray[rdm])) {
+			return toReturn;
+		}
+		free(toReturn); /* si ceci est atteind, soit malloc a fail, dans ce cas on free de null,
+		soit c'est strcpy qui a fait, auquel cas on doit libérer la mémoire avant*/
+	}
+	return NULL;
+}
+
 Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched) {
 	if(searchingContext.wordsArray && wordSearched) {
 		for(int i = 0; i < searchingContext.logicalSize; ++i) {
@@ -126,7 +172,7 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite) {
 	return -1;
 }
 
-Dictionary* addWords(const char *pathToFile, Dictionary* wordsToAdd) {
+Dictionary* addWordsToFile(const char *pathToFile, Dictionary* wordsToAdd) {
 	if(pathToFile && strlen(pathToFile) && wordsToAdd->wordsArray) {
 		Dictionary *updatedListWords;
 		FILE *file = fopen(pathToFile, "a+");

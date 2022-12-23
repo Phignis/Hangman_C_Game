@@ -33,11 +33,48 @@ Dictionary* loadWords(const char *pathToFile) {
 	return NULL;
 }
 
+Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords) {
+	if(pathToFile && strlen(pathToFile)) {
+		Dictionary *toAdd = createDictionary(5), *toReturn;
+		char *proposition;
+		if(!toAdd)
+			return NULL;
+			
+		proposition = (char*) malloc(sizeof(char) * 8);
+		if(!proposition) {
+			return NULL;
+		}
+		
+		do {
+			printf("Saisir un nouveau mot (max 7 char):");
+			scanf("%7s", proposition);
+			toLowerCase(proposition); // pour simplifier le test de boucle
+			
+			while(!isStrAWord(proposition) || isWordsIn(*actualWords, proposition)
+				|| isWordsIn(*toAdd, proposition)) {
+				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres. Ressaisissez (max 7 char):");
+				scanf("%7s", proposition);
+				toLowerCase(proposition); // pour simplifier le test de boucle
+			}
+			
+			if(strcmp(proposition, "stop")) { // on ajoute pas stop au dictionnaire
+				addWord(toAdd, proposition);
+			}
+			
+		} while(strcmp(proposition, "stop"));
+		
+		toReturn = addWordsToFile(pathToFile, toAdd);
+		destroyDictionary(toAdd);
+		return toReturn;
+	}
+	return NULL;
+}
+
 
 
 int hangman(void) {
 	char choixLettre, *hasardMotStr;
-	int rdm, tentatives = 11, nbLettersFinded, typeChar;
+	int tentatives = 11, nbLettersFinded, typeChar;
 	EmbeddedString hasardMot;
 	Alphabet *alphabet;
 	Dictionary *tabMots;
@@ -48,23 +85,28 @@ int hangman(void) {
 	}
 	// TODO: si 0 mots, proposez de saisir un mot, actuellement vous avez automatiquement gagné
   
-	srand(time(NULL));
-	rdm = rand() % tabMots->logicalSize; // dépend taille tabMots
-	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(tabMots->wordsArray[rdm]) + 1));
+	hasardMotStr = getRdmStr(tabMots);
+	if(!hasardMotStr) {
+		destroyDictionary(tabMots);
+		return -1;
+	}
+	
+	hasardMot = (EmbeddedString) malloc(sizeof(EmbeddedChar) * (strlen(hasardMotStr) + 1));
 	if(!hasardMot) {
 		destroyDictionary(tabMots);
 		return -1;
 	}
 	
-	
-	if(!transformInEmbeddedStr(hasardMot, tabMots->wordsArray[rdm])) {
+	if(!transformInEmbeddedStr(hasardMot, hasardMotStr)) {
 		free(hasardMot);
+		free(hasardMotStr);
 		destroyDictionary(tabMots);
 		return -1;
 	}
 	
 	if(!createAlphabet(&alphabet)) {
 		free(hasardMot);
+		free(hasardMotStr);
 		destroyDictionary(tabMots);
 		return -1;
 	}
@@ -115,16 +157,9 @@ int hangman(void) {
 					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
+					free(hasardMotStr);
 					return -1;
 				case 0:
-					hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
-					if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
-						destroyAlphabet(alphabet);
-						destroyDictionary(tabMots);
-						free(hasardMot);
-						printf("Erreur lors de l'affichage du mot trouvé.\n");
-						return -1;
-					}
 					printf("INCROYABLE! le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		
 					destroyAlphabet(alphabet);
@@ -152,6 +187,7 @@ int hangman(void) {
 					destroyDictionary(tabMots);
 					destroyAlphabet(alphabet);
 					free(hasardMot);
+					free(hasardMotStr);
 					return -1;
 			
 				case -2:
@@ -175,15 +211,6 @@ int hangman(void) {
 			
 			}
 		}
-	}
-	
-	hasardMotStr = (char *) malloc(sizeof(char) * (embeddedStrlen(hasardMot) + 1));
-	if(!hasardMotStr || !transformInStr(hasardMotStr, hasardMot)) {
-		destroyAlphabet(alphabet);
-		destroyDictionary(tabMots);
-		free(hasardMot);
-		printf("Erreur lors de l'affichage du mot trouvé.\n");
-		return -1;
 	}
 	
 	if(tentatives) {

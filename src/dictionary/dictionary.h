@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../embeddedString/embeddedString.h"
 
 
@@ -80,6 +81,33 @@ Dictionary* createDictionary(const int physicalSize);
  * \param toDestroy adresse du Dictionary à détruire
  */
 void destroyDictionary(Dictionary *toDestroy);
+
+/**
+ * \fn int addWord(Dictionary *container, char* toAdd);
+ * \brief ajoute un mot en fin de dictionnaire
+ * 
+ * Copie la valeur de toAdd a la fin du dictionnaire, incrémente la taille logique.
+ * Effectue le redimensionnement du tableau si nécessaire
+ * 
+ * \param container dictionnaire recevant le mot
+ * \param toAdd le mot à ajouter
+ * \return **-2** si l'insertion si l'allocation dynamique a échoué ou que la copie en elle même échoue
+ * 			**-1** si un des paramètre est vaut NULL, ou wordsArray de container. Si toAdd est une chaine vide, retourne cette valeur
+ * 			**0** si tout s'est bien passé
+ */
+int addWord(Dictionary *container, char* toAdd);
+
+/**
+ * \fn int getRdmIndex(const Dictionary *toPick);
+ * \brief return a random word from dict
+ * 
+ * Str is copied, and don't point to char in dictionnary.
+ * 
+ * \param dict dictionnary where index is taken from
+ * \return NULL if malloc failed
+ * 			adress to first char of str if everything worked
+ */
+char* getRdmStr(const Dictionary *dict);
 
 /**
  * \fn Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched);
@@ -162,7 +190,7 @@ Dictionary* importWords(FILE *source);
 int writeWords(FILE *placeToSave, const Dictionary wordsToWrite);
 
 /**
- * \fn Dictionary* addWords(const char *pathToFile, const Dictionary wordsToAdd);
+ * \fn Dictionary* addWordsToFile(const char *pathToFile, const Dictionary wordsToAdd);
  * \brief ajoute des mots à la fin d'un fichier, et renvoit le contenu du fichier modifié
  * 
  * ATTENTION! Peut ne pas insérer tout les mots présents dans wordsToAdd
@@ -175,6 +203,6 @@ int writeWords(FILE *placeToSave, const Dictionary wordsToWrite);
  * \return **NULL** si l'ouverture de fichier n'a pu se faire, que l'ancien contenu n'a pû être lu, ou que pathToFile ou wordsArray de wordsToAdd valent NULL
  * 			un Dictionary contenant tout les mots présent après insertions réussies dans le fichier
  */
-Dictionary* addWords(const char *pathToFile, Dictionary* wordsToAdd);
+Dictionary* addWordsToFile(const char *pathToFile, Dictionary* wordsToAdd);
 
 #endif // DICTIONARY_H_TF
