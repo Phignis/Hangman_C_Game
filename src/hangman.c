@@ -234,3 +234,41 @@ int hangman(void) {
 		return 0;
 	}
 }
+
+void menu(void) {
+	char choix;
+	printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+	do {
+		puts("\nMenu hangman\n\n");
+		puts("a - Jouer au jeu du pendu\n");
+		puts("b - Insérer de nouveau mots à ceux possibles\n\n");
+		puts("q - quitter le menu\n\n\n");
+		puts("Veuillez saisir une option:");
+		choix = fgetc(stdin);
+		emptyStream(stdin, -1); // on vide le buffer
+		switch(choix) {
+			case 'q':
+			case 'Q':
+				break;
+			case 'a':
+				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				hangman();
+				puts("Appuyez sur ENTER pour retourner au menu...");
+				getc(stdin);
+				emptyStream(stdin, -1);
+				printf( "\e[1;1H\e[2J");
+				break;
+			case 'b':
+				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				
+				puts("Appuyez sur ENTER pour retourner au menu");
+				getc(stdin);
+				emptyStream(stdin, -1);
+				printf( "\e[1;1H\e[2J");
+				break;
+			default:
+				printf( "\e[1;1H\e[2J"); // TODO: replace by function when merged
+				puts("Le choix n'a pas été reconnu. Veuillez saisir une option affichée");
+		}
+	} while(choix != 'q' && choix != 'Q');
+}

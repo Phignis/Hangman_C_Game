@@ -72,7 +72,7 @@ int hangman(void);
  * \brief point d'entrée du programme global
  * 
  * affiche un menu permettant d'accéder aux fonctions principales, dont 
- * hangman et putWordsToFile
+ * hangman et putWordsToFile. Déclare un dictionnaire 
  */
 void menu(void);
 

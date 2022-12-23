@@ -9,7 +9,8 @@
 
 int main(void) {
 	//useAddWords();
-	hangman();
+	//~ hangman();
+	menu();
 	
 	return 0;
 }
