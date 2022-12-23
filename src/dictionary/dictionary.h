@@ -107,7 +107,19 @@ int addWord(Dictionary *container, char* toAdd);
  * \param toPrint dictionnaire a afficher
  * \param nbWordsOnLine nombre de mots sur une seule ligne
  */
-void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine); 
+void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine);
+
+/**
+ * \fn void printDictInColumn(const Dictionary *toPrint, const int xAbscissa, int yOrdinate);
+ * \brief affiche les mots du dictionnaire en colonne
+ * 
+ * chaque mot seront affichés alignés verticalement, sur une ligne chacun
+ * 
+ * \param toPrint dictionnaire a afficher
+ * \param xAbscissa abscisse où placer le premier mot du dictionnaire
+ * \param yOrdinate ordonnée où placer le premier mot du dictionnaire
+ */
+void printDictInColumn(const Dictionary *toPrint, const int xAbscissa, int yOrdinate);
 
 /**
  * \fn int getRdmIndex(const Dictionary *toPick);

@@ -77,13 +77,27 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 		}
 		
 		do {
-			printf("Saisir un nouveau mot (max 7 char): (stop pour arreter)\n");
+			
+			consoleGotoCoords(100, 2);
+			fputs("| ", stdout);
+			puts("Mots déjà présents dans le fichier:");
+			printDictInColumn(actualWords, 100, 5);
+			
+			consoleGotoCoords(1, 4);
+			puts("Saisir un nouveau mot (max 7 char): (stop pour arreter)                                         ");
+			puts("                                                         ");
+			puts("                                                         ");
+			consoleGotoCoords(1, 5);
 			scanf("%7s", proposition);
 			toLowerCase(proposition); // pour simplifier le test de boucle
 			
 			while(!isStrAWord(proposition) || isWordsIn(*actualWords, proposition)
 				|| isWordsIn(*toAdd, proposition)) {
-				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres. Ressaisissez (max 7 char): (stop pour arreter)\n");
+				consoleGotoCoords(1, 4);
+				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres.\nRessaisissez (max 7 char): (stop pour arreter)\n");
+				puts("                      ");
+				consoleGotoCoords(1, 6);
+				emptyStream(stdin, -1);
 				scanf("%7s", proposition);
 				toLowerCase(proposition); // pour simplifier le test de boucle
 			}

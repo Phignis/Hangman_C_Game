@@ -79,6 +79,20 @@ void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine) {
 	}
 }
 
+void printDictInColumn(const Dictionary *toPrint, const int xAbscissa, int yOrdinate) {
+	if(toPrint && toPrint->wordsArray) {
+		for(int i = 0; i < toPrint->logicalSize; ++i) {
+			
+			consoleGotoCoords(xAbscissa, yOrdinate);
+			fputs("| ", stdout);
+			fputs(toPrint->wordsArray[i], stdout);
+			fputc('\n', stdout);
+			
+			++yOrdinate;
+		}
+	}
+}
+
 char* getRdmStr(const Dictionary *dict) {
 	if(dict && dict->wordsArray && dict->logicalSize) {
 		char *toReturn;
