@@ -144,17 +144,17 @@ int hangman(const Dictionary* tabMots) {
 		if(typeChar == 2) { // on cherche a deviner le mot
 			char suggestedStr[8];
 			consoleGotoCoords(1, 20);
-			printf("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères)\n");
+			puts("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères)");
 			scanf("%7s", suggestedStr);
 			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
 			
 			clearConsole();
-			printf("\n\n");
+			puts("\n");
 			
 			toLowerCase(suggestedStr);
 			switch(mixedStrcmp(hasardMot, suggestedStr)) {
 				case -2:
-					printf("null pointer for hasardMot or suggestedStr\n"); // pas atteignable normalement
+					puts("null pointer for hasardMot or suggestedStr"); // pas atteignable normalement
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					free(hasardMotStr);
@@ -169,7 +169,7 @@ int hangman(const Dictionary* tabMots) {
 					return 1;
 				default:
 					consoleGotoCoords(20, 5);
-					printf("Dommage, ce n'était pas le bon mot! Vous perdez une tentative!\n");
+					puts("Dommage, ce n'était pas le bon mot! Vous perdez une tentative!");
 					--tentatives;
 			}
 			
@@ -183,7 +183,7 @@ int hangman(const Dictionary* tabMots) {
 		
 			switch(nbLettersFinded - 2) {
 				case -3:
-					printf("null pointer for hasardMot\n"); // pas atteignable normalement
+					puts("null pointer for hasardMot"); // pas atteignable normalement
 					destroyAlphabet(alphabet);
 					free(hasardMot);
 					free(hasardMotStr);
