@@ -53,15 +53,31 @@ void clearConsole(void);
 void consoleGotoCoords(const int x, const int y);
 
 /**
- * \fn void printDelimitedLine(int nbEmptyChar);
- * \brief permet d'afficher une ligne vide délimitée de barres
+ * \fn void printBlankPart(int length);
+ * \brief permet d'afficher un certain nombre d'espace blanc
  * 
- * affiche d'abord une barre verticale, puis le nombre de char vide donné, puis 
+ * \param length nombre d'espace blanc
+ */
+void printBlankPart(int length);
+
+/**
+ * \fn void printDelimitedLine(int length);
+ * \brief permet d'afficher une ligne vide délimitée par des barres (comprise dans length)
+ * 
+ * affiche d'abord une barre verticale, puis le nombre de char vide (length - 2), puis 
  * une autre barre verticale. Revient à la ligne après
  * 
- * \param nbEmptyChar nombre d'emplacement à remplir de vide
+ * \param length taille de la ligne
  */
-void printDelimitedLine(int nbEmptyChar);
+void printDelimitedLine(int length);
+
+/**
+ * \fn void printFilledLine(int length);
+ * \brief permet d'afficher une ligne pleine de carrés (char 219)
+ * 
+ * \param length taille de la ligne
+ */
+void printFilledLine(int length);
 
 /**
  * \fn Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin);

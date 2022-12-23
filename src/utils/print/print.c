@@ -12,12 +12,25 @@ void consoleGotoCoords(const int x, const int y) {
 	printf("\033[%d;%dH", y, x);
 }
 
-void printDelimitedLine(int nbEmptyChar) {
+void printBlankPart(int length) {
+	for(; length > 0; --length)
+		fputc(' ', stdout);
+}
+
+void printDelimitedLine(int length) {
 	fputc(219, stdout);
-	for(nbEmptyChar; nbEmptyChar > 0; --nbEmptyChar) {
+	for(; length > 2; --length) {
 		fputc(' ', stdout);
 	}
 	fputc(219, stdout);
+	fputc('\n', stdout);
+}
+
+void printFilledLine(int length) {
+	for(; length > 0; --length) {
+		fputc(219, stdout);
+	}
+	fputc('\n', stdout);
 }
 
 Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin) {

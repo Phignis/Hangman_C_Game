@@ -37,25 +37,15 @@ void toUpperCase(char *toConvert) {
 	}
 }
 
-void printEmbeddedStr(const EmbeddedString toPrint) {
-	// TODO: factoriser l'affichage des lignes vides 
-	if(toPrint) {
+void printEmbeddedStr(EmbeddedString toPrint) {
+	if(toPrint && embeddedStrlen(toPrint)) {
 		int i = 0;
-		fputc(222, stdout);
-		for(int j = 0; j < embeddedStrlen(toPrint) * 2 + 1; ++j) {
-			fputc(220, stdout);
-		}
-		fputc(222, stdout);
-		fputc('\n', stdout);
-		fputc(222, stdout);
-		for(int j = 0; j < embeddedStrlen(toPrint) * 2 + 1; ++j) {
-			fputc(' ', stdout);
-		}
-		fputc(222, stdout);
 		
-		fputc('\n', stdout);
-		fputc(222, stdout);
-		fputc(' ', stdout);
+		printFilledLine(embeddedStrlen(toPrint) * 2 + 3);
+		printDelimitedLine(embeddedStrlen(toPrint) * 2 + 3);
+		
+		putc(219, stdout);
+		putc(' ', stdout);
 		while(toPrint[i].value) {
 			if(toPrint[i].isFinded == 1)
 				printf("%c ", toPrint[i].value);
@@ -63,21 +53,11 @@ void printEmbeddedStr(const EmbeddedString toPrint) {
 				printf("_ ");
 			++i;
 		}
-		fputc(222, stdout);
-		fputc('\n', stdout);
-		fputc(222, stdout);
-		for(int j = 0; j < embeddedStrlen(toPrint) * 2 + 1; ++j) {
-			fputc(' ', stdout);
-		}
-		fputc(222, stdout);
-		fputc('\n', stdout);
-		fputc(222, stdout);
-		for(int j = 0; j < embeddedStrlen(toPrint) * 2 + 1; ++j) {
-			fputc(220, stdout);
-		}
-		fputc(222, stdout);
-		fputc('\n', stdout);
+		putc(219, stdout);
+		putc('\n', stdout);
 		
+		printDelimitedLine(embeddedStrlen(toPrint) * 2 + 3);
+		printFilledLine(embeddedStrlen(toPrint) * 2 + 3);
 	}
 }
 

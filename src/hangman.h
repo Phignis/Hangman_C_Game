@@ -38,6 +38,8 @@
  */
 int emptyStream(FILE* stream, const int nbCharDumped);
 
+void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, const Alphabet* alphabetToPrint);
+
 /**
  * \fn Dictionary* loadWords(char *pathToFile);
  * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné
