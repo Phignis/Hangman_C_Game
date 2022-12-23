@@ -14,6 +14,18 @@ int emptyStream(FILE* stream, const int nbCharDumped) {
 	return -1;
 }
 
+void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, const Alphabet* alphabetToPrint) {
+	printHangman(nbErrors, 94, 5);
+	consoleGotoCoords(1, 1);
+	
+	printf("\n\n\x1B[36m");
+	printEmbeddedStr(*wordToPrint);
+	printf("\033[0m");
+	
+	consoleGotoCoords(1, 25);
+	printAlphabet(*alphabetToPrint);
+}
+
 Dictionary* loadWords(const char *pathToFile) {
 	if(pathToFile && strlen(pathToFile)) {
 		
@@ -102,21 +114,13 @@ int hangman(const Dictionary* tabMots) {
 		return -1;
 	}
 	
-	printf( "\e[1;1H\e[2J"); // permet de clear le prompt, tout OS confondu
-	/* "\e provides an escape. and e [1;1H] place your cursor in the upper right corner of the console screen.
-	 *  and e [2J adds a space to the top of all existing screen characters."
-	 * GeeksForGeeks : https://www.geeksforgeeks.org/clear-console-c-language/ 
-	 */
+	clearConsole();
 	 
 	while(tentatives && !isEmbeddedStrFinded(hasardMot)) { // on saisit une lettre tant qu'il reste des tentatives et que le mot n'est pas trouvé
-				
-		printf("\n\n\x1B[36m");
-		printEmbeddedStr(hasardMot);
-		printf("\033[0m");
 		
-		printf("\n\nVoici les lettres possibles:\n");
-		printAlphabet(*alphabet);
+		printUserInterface(11 - tentatives, &hasardMot, alphabet);
 		
+		consoleGotoCoords(1, 10);
 		printf("Il vous reste %d tentatives.\n\n", tentatives);
 		
 		printf("Veuillez proposer une lettre :\n");
@@ -126,7 +130,10 @@ int hangman(const Dictionary* tabMots) {
 		typeChar = isProposedLetterValid(*alphabet, choixLettre);
 		
 		while(!typeChar) {
+			consoleGotoCoords(1, 12);
 			printf("La lettre a déjà été soumise ou n'est pas valide. Veuillez rentrer une nouvelle lettre :\n");
+			printf("                           ");
+			consoleGotoCoords(1, 13);
 			scanf("%c%*c", &choixLettre); // /* permet de vider la donnée correspondant au format
 			emptyStream(stdin, -1);
 			typeChar = isProposedLetterValid(*alphabet, choixLettre);
@@ -134,7 +141,8 @@ int hangman(const Dictionary* tabMots) {
 		
 		if(typeChar == 2) { // on cherche a deviner le mot
 			char suggestedStr[8];
-			printf("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères\n");
+			consoleGotoCoords(1, 20);
+			printf("Vous pensez avoir trouvé le mot?! Allez-y: (max 7 charactères)\n");
 			scanf("%7s", suggestedStr);
 			emptyStream(stdin, -1); // si il a mis plus de 7 charactères
 			
@@ -158,6 +166,7 @@ int hangman(const Dictionary* tabMots) {
 					
 					return 1;
 				default:
+					consoleGotoCoords(20, 5);
 					printf("Dommage, ce n'était pas le bon mot! Vous perdez une tentative!\n");
 					--tentatives;
 			}
@@ -167,8 +176,8 @@ int hangman(const Dictionary* tabMots) {
 		
 			nbLettersFinded = updateFindEmbeddedStr(hasardMot, choixLettre);
 			
-			printf( "\e[1;1H\e[2J");
-			printf("\n\n");
+			clearConsole();
+			consoleGotoCoords(20, 5);
 		
 			switch(nbLettersFinded - 2) {
 				case -3:
@@ -179,6 +188,7 @@ int hangman(const Dictionary* tabMots) {
 					return -1;
 			
 				case -2:
+					
 					printf("La lettre '%c' n'est pas présente dans le mot à deviner.\n", choixLettre);
 					--tentatives;
 					
@@ -201,6 +211,10 @@ int hangman(const Dictionary* tabMots) {
 		}
 	}
 	
+	printUserInterface(11 - tentatives, &hasardMot, alphabet);
+		
+	consoleGotoCoords(1, 10);
+  
 	if(tentatives) {
 		printf("Bravo, le mot était bien \"%s\".\nVous l'avez trouvé en vous trompant %d fois.\n", hasardMotStr, 11 - tentatives);
 		

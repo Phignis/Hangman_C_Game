@@ -20,6 +20,7 @@
 #include "embeddedString/embeddedString.h"
 #include "alphabet/alphabet.h"
 #include "dictionary/dictionary.h"
+#include "utils/print/print.h"
 
 
 /**
@@ -35,6 +36,19 @@
  * 			valeur non nulle si quelque chose s'est mal passé (se référer au code de retour de ferror()) ou si stream est NULL
  */
 int emptyStream(FILE* stream, const int nbCharDumped);
+
+/**
+ * \fn void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, const Alphabet* alphabetToPrint);
+ * \brief affiche les éléments statiques de l'interface du hangman
+ * 
+ * affiche a des coordonnées précises les différents éléments principaux
+ * ATTENTION! pensez à replacer le curseur à l'aide de consoleGotoCoords pour savoir où se trouve votre curseur
+ * 
+ * \param nbErrors nombre d'erreurs influançant sur l'affichage du pendu
+ * \param wordToPrint mot à deviner lors du jeu
+ * \param alphabetToPrint lettres dont il faut afficher celles utilisables
+ */
+void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, const Alphabet* alphabetToPrint);
 
 /**
  * \fn Dictionary* loadWords(char *pathToFile);

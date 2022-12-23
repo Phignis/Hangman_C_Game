@@ -37,10 +37,15 @@ void toUpperCase(char *toConvert) {
 	}
 }
 
-void printEmbeddedStr(const EmbeddedString toPrint) {
-	if(toPrint) {
+void printEmbeddedStr(EmbeddedString toPrint) {
+	if(toPrint && embeddedStrlen(toPrint)) {
 		int i = 0;
 		
+		printFilledLine(embeddedStrlen(toPrint) * 2 + 3);
+		printDelimitedLine(embeddedStrlen(toPrint) * 2 + 3);
+		
+		putc(219, stdout);
+		putc(' ', stdout);
 		while(toPrint[i].value) {
 			if(toPrint[i].isFinded == 1)
 				printf("%c ", toPrint[i].value);
@@ -48,7 +53,11 @@ void printEmbeddedStr(const EmbeddedString toPrint) {
 				printf("_ ");
 			++i;
 		}
-		printf("\n\n");
+		putc(219, stdout);
+		putc('\n', stdout);
+		
+		printDelimitedLine(embeddedStrlen(toPrint) * 2 + 3);
+		printFilledLine(embeddedStrlen(toPrint) * 2 + 3);
 	}
 }
 

@@ -23,6 +23,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../utils/print/print.h"
+
 
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean
 #define BOOLEAN_TF
@@ -98,7 +100,7 @@ void toUpperCase(char *toConvert);
  * 
  * \param toPrint chaine à afficher
  */
-void printEmbeddedStr(const EmbeddedString toPrint);
+void printEmbeddedStr(EmbeddedString toPrint);
 
 /**
  * \fn int embeddedStrlen(EmbeddedString toCount);

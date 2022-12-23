@@ -32,13 +32,21 @@ void destroyAlphabet(Alphabet *toDestroy) {
 void printAlphabet(const Alphabet toPrint) {
 	if(toPrint.array) {
 		
-		printf("\nLettres disponibles:\n");
+		printFilledLine(toPrint.logicalSize * 2 + 3);
+		printDelimitedLine(toPrint.logicalSize * 2 + 3);
+		putc(219, stdout);
+		putc(' ', stdout);
 		for(int i = 0; i < toPrint.logicalSize; ++i) {
 			if(toPrint.array[i] == False) // on n'affiche la lettre que si non utilisée
 				printf("%c ", 'A' + i);
 			else printf("  ");
 		}
-		printf("\n\n");
+		putc(219, stdout);
+		putc('\n', stdout);
+		
+		printDelimitedLine(toPrint.logicalSize * 2 + 3);
+		printFilledLine(toPrint.logicalSize * 2 + 3);
+		
 	}
 }
 

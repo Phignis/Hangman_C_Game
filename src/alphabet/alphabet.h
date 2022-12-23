@@ -20,6 +20,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+#include "../utils/print/print.h"
 
 #ifndef BOOLEAN_TF // on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi
 #define BOOLEAN_TF
@@ -52,9 +55,6 @@ typedef struct {
 	int logicalSize; /**< nombre d'éléments rééllement présent dans array */
 	int physicalSize; /**< nombre d'éléments maximum contenable dans array */
 } Alphabet;
-
-
-
 
 /**
  * \fn Boolean createAlphabet(Alphabet **toCreate);
