@@ -100,7 +100,6 @@ $(document).ready(function(){initNavTree('da/db3/embedded_string_8h.html','../..
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Définitions de type</a> &#124;
-<a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier embeddedString.h</div></div>
 </div><!--header-->
@@ -108,7 +107,10 @@ $(document).ready(function(){initNavTree('da/db3/embedded_string_8h.html','../..
 
 <p>Définit la structure EmbeddedString, ainsi que le type enum Boolean.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d77/print_8h_source.html">../utils/print/print.h</a>&quot;</code><br />
 </div>
 <p><a href="../../da/db3/embedded_string_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -124,16 +126,6 @@ Définitions de type</h2></td></tr>
 <tr class="memdesc:a27f2c91a8f76b06f25c2f0ac2ed89766"><td class="mdescLeft">&#160;</td><td class="mdescRight">EmbeddedString est un pointeur sur un <a class="el" href="../../d2/d6c/struct_embedded_char.html" title="EmbeddedChar est un wrapper de char.">EmbeddedChar</a>.  <a href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a27f2c91a8f76b06f25c2f0ac2ed89766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Énumérations</h2></td></tr>
-<tr class="memitem:ae7d38601dfbd73adbe5c1b3ec34e0e13"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> { <b>False</b>
-, <b>True</b>
-, <a class="el" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24">False</a>
-, <a class="el" href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b">True</a>
- }</td></tr>
-<tr class="memdesc:ae7d38601dfbd73adbe5c1b3ec34e0e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum d'un type Boolean.  <a href="../../da/db3/embedded_string_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae7d38601dfbd73adbe5c1b3ec34e0e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a9df9ae476e452817255c6b7aa4c19be0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a9df9ae476e452817255c6b7aa4c19be0">toLowerCase</a> (char *toConvert)</td></tr>
@@ -142,9 +134,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a404d0a6893711f562fead3995f3e2fe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a404d0a6893711f562fead3995f3e2fe0">toUpperCase</a> (char *toConvert)</td></tr>
 <tr class="memdesc:a404d0a6893711f562fead3995f3e2fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">transform lowercase letters in uppercase letters  <a href="../../da/db3/embedded_string_8h.html#a404d0a6893711f562fead3995f3e2fe0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a404d0a6893711f562fead3995f3e2fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3dea05056847359eb3999f5ea62f4e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#aa3dea05056847359eb3999f5ea62f4e6">printEmbeddedStr</a> (const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> toPrint)</td></tr>
-<tr class="memdesc:aa3dea05056847359eb3999f5ea62f4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la chaine de char contenu dans toPrint, si trouvé  <a href="../../da/db3/embedded_string_8h.html#aa3dea05056847359eb3999f5ea62f4e6">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aa3dea05056847359eb3999f5ea62f4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9fb33c84bea5c83404f6d0835dc37a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#ac9fb33c84bea5c83404f6d0835dc37a8">printEmbeddedStr</a> (<a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> toPrint)</td></tr>
+<tr class="memdesc:ac9fb33c84bea5c83404f6d0835dc37a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la chaine de char contenu dans toPrint, si trouvé  <a href="../../da/db3/embedded_string_8h.html#ac9fb33c84bea5c83404f6d0835dc37a8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac9fb33c84bea5c83404f6d0835dc37a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a278caeeec171157dab343f53172a89"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">embeddedStrlen</a> (<a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> toCount)</td></tr>
 <tr class="memdesc:a4a278caeeec171157dab343f53172a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoit le nombre de char de la string  <a href="../../da/db3/embedded_string_8h.html#a4a278caeeec171157dab343f53172a89">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4a278caeeec171157dab343f53172a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,7 +158,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a61d20febc95f087ea9ceaacd42573f17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">updateFindEmbeddedStr</a> (<a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> toUpdate, char suggestedChar)</td></tr>
 <tr class="memdesc:a61d20febc95f087ea9ceaacd42573f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe en état trouvé les char du mot correspondant au char suggéré  <a href="../../da/db3/embedded_string_8h.html#a61d20febc95f087ea9ceaacd42573f17">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a61d20febc95f087ea9ceaacd42573f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6670841f10aefecc66f2dfa5784b2a68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">isEmbeddedStrFinded</a> (const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> word)</td></tr>
+<tr class="memitem:a6670841f10aefecc66f2dfa5784b2a68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">isEmbeddedStrFinded</a> (const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> word)</td></tr>
 <tr class="memdesc:a6670841f10aefecc66f2dfa5784b2a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de savoir si une chaîne est entièrement trouvée  <a href="../../da/db3/embedded_string_8h.html#a6670841f10aefecc66f2dfa5784b2a68">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6670841f10aefecc66f2dfa5784b2a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -194,31 +186,6 @@ Fonctions</h2></td></tr>
 <br  />
 </p>
 <p >Il se finit donc par conséquence par un <a class="el" href="../../d2/d6c/struct_embedded_char.html" title="EmbeddedChar est un wrapper de char.">EmbeddedChar</a> contenant en value '\0' pour être valide. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Documentation du type de l'énumération</h2>
-<a id="ae7d38601dfbd73adbe5c1b3ec34e0e13" name="ae7d38601dfbd73adbe5c1b3ec34e0e13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d38601dfbd73adbe5c1b3ec34e0e13">&#9670;&#160;</a></span>Boolean</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Enum d'un type Boolean. </p>
-<p >Attention! Etant donné que True est une étiquette pour 1, il n'est pas possible de vérifier qu'une sortie est vraie au sens booléen du terme.<br  />
- En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n'importe quelle valeur autre que 0. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24" name="ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24"></a>False&#160;</td><td class="fielddoc"><p >étiquette pour la valeur 0 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b" name="ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b"></a>True&#160;</td><td class="fielddoc"><p >étiquette pour la valeur 1 </p>
-</td></tr>
-</table>
 
 </div>
 </div>
@@ -340,7 +307,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/d90/alphabet_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> isEmbeddedStrFinded </td>
+          <td class="memname"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> isEmbeddedStrFinded </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>&#160;</td>
           <td class="paramname"><em>word</em></td><td>)</td>
@@ -405,8 +372,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa3dea05056847359eb3999f5ea62f4e6" name="aa3dea05056847359eb3999f5ea62f4e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3dea05056847359eb3999f5ea62f4e6">&#9670;&#160;</a></span>printEmbeddedStr()</h2>
+<a id="ac9fb33c84bea5c83404f6d0835dc37a8" name="ac9fb33c84bea5c83404f6d0835dc37a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fb33c84bea5c83404f6d0835dc37a8">&#9670;&#160;</a></span>printEmbeddedStr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -414,7 +381,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void printEmbeddedStr </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a>&#160;</td>
           <td class="paramname"><em>toPrint</em></td><td>)</td>
           <td></td>
         </tr>

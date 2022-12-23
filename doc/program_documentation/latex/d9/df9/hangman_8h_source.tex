@@ -11,17 +11,24 @@
 \DoxyCodeLine{19 }
 \DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{embedded_string_8h}{embeddedString/embeddedString.h}}"{}}}
 \DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{alphabet_8h}{alphabet/alphabet.h}}"{}}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dictionnary_8h}{dictionnary/dictionnary.h}}"{}}}
-\DoxyCodeLine{23 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dictionary_8h}{dictionary/dictionary.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{print_8h}{utils/print/print.h}}"{}}}
 \DoxyCodeLine{24 }
-\DoxyCodeLine{37 \textcolor{keywordtype}{int} \mbox{\hyperlink{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}{emptyStream}}(FILE* stream, \textcolor{keywordtype}{int} nbCharDumped);}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{50 \mbox{\hyperlink{struct_dictionnary}{Dictionnary}}* \mbox{\hyperlink{hangman_8h_add7e24cb393310fd6b12ba69672e85f6}{loadWords}}(\textcolor{keywordtype}{char} *pathToFile);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{67 \textcolor{keywordtype}{char}** addWords(\textcolor{keywordtype}{char} *pathToFile, \textcolor{keywordtype}{char} **wordsToAdd, \textcolor{keywordtype}{int} logicalSizeToAdd, \textcolor{keywordtype}{int} *logicalSizeUpdatedWords);}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{79 \textcolor{keywordtype}{int} \mbox{\hyperlink{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}{hangman}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HANGMAN\_H\_TF}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{38 \textcolor{keywordtype}{int} \mbox{\hyperlink{hangman_8h_aec603cbee3cb7c94bd65301e41d83a58}{emptyStream}}(FILE* stream, \textcolor{keyword}{const} \textcolor{keywordtype}{int} nbCharDumped);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} \mbox{\hyperlink{hangman_8h_adb064dbf8f81701af37c8453c1496432}{printUserInterface}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} nbErrors, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}}* wordToPrint, \textcolor{keyword}{const} \mbox{\hyperlink{struct_alphabet}{Alphabet}}* alphabetToPrint);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57 \textcolor{keywordtype}{void} \mbox{\hyperlink{hangman_8h_ab6de8b3ed7d436e988a58b2280b942e3}{printMenuOptions}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{70 \mbox{\hyperlink{struct_dictionary}{Dictionary}}* \mbox{\hyperlink{hangman_8h_a29ef1b9957ad4fad3e5267c0d62d34d5}{loadWords}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *pathToFile);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{81 \mbox{\hyperlink{struct_dictionary}{Dictionary}}* \mbox{\hyperlink{hangman_8h_afd4fc7acc94afdbd1860951ee592e641}{putWordsToFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *pathToFile, \textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} *actualWords);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{int} \mbox{\hyperlink{hangman_8h_a81e06db1fd765aede3b341319fdf155d}{hangman}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}}* tabMots);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{104 \textcolor{keywordtype}{void} \mbox{\hyperlink{hangman_8h_ad16e5e62f3579a7048e6b981b172885e}{menu}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HANGMAN\_H\_TF}}
 
 \end{DoxyCode}

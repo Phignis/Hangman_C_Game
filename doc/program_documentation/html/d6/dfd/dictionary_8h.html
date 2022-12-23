@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hangman Game: Référence du fichier dictionary/dictionary.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Hangman Game<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">Jeu du pendu en C</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d6/dfd/dictionary_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier dictionary.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définit la structure <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> et Boolean.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db3/embedded_string_8h_source.html">../embeddedString/embeddedString.h</a>&quot;</code><br />
+</div>
+<p><a href="../../d6/dfd/dictionary_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> est un wrapper de tableau de chaine de char.  <a href="../../d9/ddf/struct_dictionary.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae30590eb124133f447d1f1fc7675d12b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#ae30590eb124133f447d1f1fc7675d12b">createDictionary</a> (const int physicalSize)</td></tr>
+<tr class="memdesc:ae30590eb124133f447d1f1fc7675d12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">créé un dictionnaire de la taille demandé  <a href="../../d6/dfd/dictionary_8h.html#ae30590eb124133f447d1f1fc7675d12b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae30590eb124133f447d1f1fc7675d12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2b106edb756d0cd1dee34fb0576219"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#aca2b106edb756d0cd1dee34fb0576219">destroyDictionary</a> (<a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *toDestroy)</td></tr>
+<tr class="memdesc:aca2b106edb756d0cd1dee34fb0576219"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de détruire un <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a>  <a href="../../d6/dfd/dictionary_8h.html#aca2b106edb756d0cd1dee34fb0576219">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aca2b106edb756d0cd1dee34fb0576219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ee9e2b0533e69722d2e247cbec331b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a0ee9e2b0533e69722d2e247cbec331b7">addWord</a> (<a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *container, char *toAdd)</td></tr>
+<tr class="memdesc:a0ee9e2b0533e69722d2e247cbec331b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute un mot en fin de dictionnaire  <a href="../../d6/dfd/dictionary_8h.html#a0ee9e2b0533e69722d2e247cbec331b7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0ee9e2b0533e69722d2e247cbec331b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef20898f7382cbf97d30ea0c49ac053e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#aef20898f7382cbf97d30ea0c49ac053e">printDictInLine</a> (const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *toPrint, const int nbWordsOnLine)</td></tr>
+<tr class="memdesc:aef20898f7382cbf97d30ea0c49ac053e"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche les mots du dictionnaire, avec le nombre spécifié de mot par ligne  <a href="../../d6/dfd/dictionary_8h.html#aef20898f7382cbf97d30ea0c49ac053e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef20898f7382cbf97d30ea0c49ac053e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95049a69280eea404bac3636324b8757"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a95049a69280eea404bac3636324b8757">printDictInColumn</a> (const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *toPrint, const int xAbscissa, int yOrdinate)</td></tr>
+<tr class="memdesc:a95049a69280eea404bac3636324b8757"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche les mots du dictionnaire en colonne  <a href="../../d6/dfd/dictionary_8h.html#a95049a69280eea404bac3636324b8757">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a95049a69280eea404bac3636324b8757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f131a3ebb0d1c83f591df98fbd76422"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a7f131a3ebb0d1c83f591df98fbd76422">getRdmStr</a> (const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *dict)</td></tr>
+<tr class="memdesc:a7f131a3ebb0d1c83f591df98fbd76422"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne un mot au hasard du dictionnaire passé en paramètre  <a href="../../d6/dfd/dictionary_8h.html#a7f131a3ebb0d1c83f591df98fbd76422">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7f131a3ebb0d1c83f591df98fbd76422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe61bbca2e83833a7ce9c6472ea5283a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#afe61bbca2e83833a7ce9c6472ea5283a">isWordsIn</a> (const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> searchingContext, const char *wordSearched)</td></tr>
+<tr class="memdesc:afe61bbca2e83833a7ce9c6472ea5283a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de savoir si un mot est déjà présent dans un dictionnaire.  <a href="../../d6/dfd/dictionary_8h.html#afe61bbca2e83833a7ce9c6472ea5283a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afe61bbca2e83833a7ce9c6472ea5283a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10f099854b76be9d66bae8218ca3ebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#ab10f099854b76be9d66bae8218ca3ebd">isStrAWord</a> (char *string)</td></tr>
+<tr class="memdesc:ab10f099854b76be9d66bae8218ca3ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de savoir si une chaine de char est un mot.  <a href="../../d6/dfd/dictionary_8h.html#ab10f099854b76be9d66bae8218ca3ebd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab10f099854b76be9d66bae8218ca3ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc937596b8fb608d66e3adff4e36328"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a1dc937596b8fb608d66e3adff4e36328">deleteWord</a> (<a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *containing, const int indexWordToDelete)</td></tr>
+<tr class="memdesc:a1dc937596b8fb608d66e3adff4e36328"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprime un mot d'un dictionnaire à l'index spécifié  <a href="../../d6/dfd/dictionary_8h.html#a1dc937596b8fb608d66e3adff4e36328">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1dc937596b8fb608d66e3adff4e36328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af70ddf444d5e98931a4a78d166e94663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#af70ddf444d5e98931a4a78d166e94663">importWords</a> (FILE *source)</td></tr>
+<tr class="memdesc:af70ddf444d5e98931a4a78d166e94663"><td class="mdescLeft">&#160;</td><td class="mdescRight">importe dans un dictionnaire des mots présents dans un fichier source  <a href="../../d6/dfd/dictionary_8h.html#af70ddf444d5e98931a4a78d166e94663">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af70ddf444d5e98931a4a78d166e94663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7b2209b3c7c7f8d9ad00436f5b3a56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a7d7b2209b3c7c7f8d9ad00436f5b3a56">writeWords</a> (FILE *placeToSave, const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> wordsToWrite)</td></tr>
+<tr class="memdesc:a7d7b2209b3c7c7f8d9ad00436f5b3a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet d'écrire une liste de mots dans un flux  <a href="../../d6/dfd/dictionary_8h.html#a7d7b2209b3c7c7f8d9ad00436f5b3a56">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7d7b2209b3c7c7f8d9ad00436f5b3a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26552eac6c4feb80b20cead130aecc2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/dictionary_8h.html#a26552eac6c4feb80b20cead130aecc2e">addWordsToFile</a> (const char *pathToFile, <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *wordsToAdd)</td></tr>
+<tr class="memdesc:a26552eac6c4feb80b20cead130aecc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute des mots à la fin d'un fichier, et renvoit le contenu du fichier modifié  <a href="../../d6/dfd/dictionary_8h.html#a26552eac6c4feb80b20cead130aecc2e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a26552eac6c4feb80b20cead130aecc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Définit la structure <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> et Boolean. </p>
+<p ><a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a>, Boolean et leurs comportement sont définis. <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> est un tableau de chaine de char, avec sa taille logique et physique</p>
+<dl class="section author"><dt>Auteur</dt><dd>FOUCRAS Baptiste, TOURE Makalé </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>21 décembre 2022 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a0ee9e2b0533e69722d2e247cbec331b7" name="a0ee9e2b0533e69722d2e247cbec331b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ee9e2b0533e69722d2e247cbec331b7">&#9670;&#160;</a></span>addWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addWord </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>container</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>toAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute un mot en fin de dictionnaire </p>
+<p >Copie la valeur de toAdd a la fin du dictionnaire, incrémente la taille logique. Effectue le redimensionnement du tableau si nécessaire</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>dictionnaire recevant le mot </td></tr>
+    <tr><td class="paramname">toAdd</td><td>le mot à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>-2</b> si l'insertion si l'allocation dynamique a échoué ou que la copie en elle même échoue <b>-1</b> si un des paramètre est vaut NULL, ou wordsArray de container. Si toAdd est une chaine vide, retourne cette valeur <b>0</b> si tout s'est bien passé </dd></dl>
+
+</div>
+</div>
+<a id="a26552eac6c4feb80b20cead130aecc2e" name="a26552eac6c4feb80b20cead130aecc2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26552eac6c4feb80b20cead130aecc2e">&#9670;&#160;</a></span>addWordsToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> * addWordsToFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pathToFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>wordsToAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute des mots à la fin d'un fichier, et renvoit le contenu du fichier modifié </p>
+<p >ATTENTION! Peut ne pas insérer tout les mots présents dans wordsToAdd n'ajoutes dans le fichier que les mots pas encore présents, afin de garentir l'unicité n'ajoutes que les mots ne contenant que des lettres</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pathToFile</td><td>chemin vers le fichier dont il faut récupérer les données </td></tr>
+    <tr><td class="paramname">wordsToAdd</td><td>dictionnaire contenant les mots a ajouter au fichier. a la fin, seuls ceux rééllement enlevés restent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>NULL</b> si l'ouverture de fichier n'a pu se faire, que l'ancien contenu n'a pû être lu, ou que pathToFile ou wordsArray de wordsToAdd valent NULL un <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> contenant tout les mots présent après insertions réussies dans le fichier </dd></dl>
+
+</div>
+</div>
+<a id="ae30590eb124133f447d1f1fc7675d12b" name="ae30590eb124133f447d1f1fc7675d12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae30590eb124133f447d1f1fc7675d12b">&#9670;&#160;</a></span>createDictionary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> * createDictionary </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>physicalSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>créé un dictionnaire de la taille demandé </p>
+<p >créé un dictionnaire permettant de contenir le nombre de str indiqué par physicalSize ATTENTION! ne créé la place que pour contenir les pointeurs sur char ATTENTION! pour libérer proprement la mémoire dynamiquement alloué, se référer à la fonction destroyDictionary</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">physicalSize</td><td>nombre de str contenable dans le <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL si physicalSize est négatif ou que quelque chose s'est mal passé<br  />
+ l'adresse où se trouve le <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> créée sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a1dc937596b8fb608d66e3adff4e36328" name="a1dc937596b8fb608d66e3adff4e36328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc937596b8fb608d66e3adff4e36328">&#9670;&#160;</a></span>deleteWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> deleteWord </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>containing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>indexWordToDelete</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>supprime un mot d'un dictionnaire à l'index spécifié </p>
+<p >libère la mémoire dynamique du mot supprimé avant de le faire disparaitre en mettant le dernier mot du dictionnaire à sa place</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">containing</td><td>dictionnaire contenant le mot à supprimer </td></tr>
+    <tr><td class="paramname">indexWordToDelete</td><td>index du mot à supprimer. Un index commence à 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>True si la suppression a été effectuée<br  />
+ False si wordsArray de containing vaut NULL, ou bien que indexWordToDelete n'est pas un indexPossible (strictement positif et strictement inférieur à la taille logique) </dd></dl>
+
+</div>
+</div>
+<a id="aca2b106edb756d0cd1dee34fb0576219" name="aca2b106edb756d0cd1dee34fb0576219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2b106edb756d0cd1dee34fb0576219">&#9670;&#160;</a></span>destroyDictionary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyDictionary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>toDestroy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>permet de détruire un <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> </p>
+<p >permet de détruire de manière propre un dictionnaire créé via la fonction createDictionary libère aussi la mémoire des chaînes présentes dans le dictionnaire</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toDestroy</td><td>adresse du <a class="el" href="../../d9/ddf/struct_dictionary.html" title="Dictionary est un wrapper de tableau de chaine de char.">Dictionary</a> à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f131a3ebb0d1c83f591df98fbd76422" name="a7f131a3ebb0d1c83f591df98fbd76422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f131a3ebb0d1c83f591df98fbd76422">&#9670;&#160;</a></span>getRdmStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * getRdmStr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>dict</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retourne un mot au hasard du dictionnaire passé en paramètre </p>
+<p >le mot retourné est copié, il ne pointe pas sur celui du dictionnaire</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dict</td><td>dictionnaire d'où le mot est pris </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL si malloc rate adresse du premier char du mot tiré </dd></dl>
+
+</div>
+</div>
+<a id="af70ddf444d5e98931a4a78d166e94663" name="af70ddf444d5e98931a4a78d166e94663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af70ddf444d5e98931a4a78d166e94663">&#9670;&#160;</a></span>importWords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> * importWords </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>importe dans un dictionnaire des mots présents dans un fichier source </p>
+<p >Le fichier source est attendu comme contenant par ligne un seul mot de 7 charactères max<br  />
+ ATTENTION! il est attendu que le flux passé en paramètre possède des droits de lecture ATTENTION! le flux de données n'est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.<br  />
+</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>flux de données utilisés pour remplir le dictionnaire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL si source est NULL ou que la lecture s'est mal passé<br  />
+ adresse du dictionnaire créé sinon. Se référer à destroyDictionary pour libérer </dd></dl>
+
+</div>
+</div>
+<a id="ab10f099854b76be9d66bae8218ca3ebd" name="ab10f099854b76be9d66bae8218ca3ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10f099854b76be9d66bae8218ca3ebd">&#9670;&#160;</a></span>isStrAWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> isStrAWord </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de savoir si une chaine de char est un mot. </p>
+<p >Une str est un mot si:</p><ul>
+<li>il possède au moins un caractère</li>
+<li>il ne contient que des lettres</li>
+<li>aucuns chiffres ou caractères spéciaux</li>
+</ul>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>chaine de char a tester </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>False si string n'est pas un mot<br  />
+ True sinon </dd></dl>
+
+</div>
+</div>
+<a id="afe61bbca2e83833a7ce9c6472ea5283a" name="afe61bbca2e83833a7ce9c6472ea5283a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe61bbca2e83833a7ce9c6472ea5283a">&#9670;&#160;</a></span>isWordsIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d77/print_8h.html#ae7d38601dfbd73adbe5c1b3ec34e0e13">Boolean</a> isWordsIn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a>&#160;</td>
+          <td class="paramname"><em>searchingContext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>wordSearched</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de savoir si un mot est déjà présent dans un dictionnaire. </p>
+<p >Cherche si au moins une occurence de wordSearched est présente dans searchingContext ATTENTION! si wordSearched ou les str dans searchingConext ne sont pas des chaines de char valide, un comportement indéfini est prévu</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">searchingContext</td><td>le dictionnaire dans lequel le mot est cherché </td></tr>
+    <tr><td class="paramname">wordSearched</td><td>mot qui est cherché </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>True si le mot cherché est présent<br  />
+ False sinon </dd></dl>
+
+</div>
+</div>
+<a id="a95049a69280eea404bac3636324b8757" name="a95049a69280eea404bac3636324b8757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95049a69280eea404bac3636324b8757">&#9670;&#160;</a></span>printDictInColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printDictInColumn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>toPrint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>xAbscissa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>yOrdinate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche les mots du dictionnaire en colonne </p>
+<p >chaque mot seront affichés alignés verticalement, sur une ligne chacun</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toPrint</td><td>dictionnaire a afficher </td></tr>
+    <tr><td class="paramname">xAbscissa</td><td>abscisse où placer le premier mot du dictionnaire </td></tr>
+    <tr><td class="paramname">yOrdinate</td><td>ordonnée où placer le premier mot du dictionnaire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aef20898f7382cbf97d30ea0c49ac053e" name="aef20898f7382cbf97d30ea0c49ac053e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef20898f7382cbf97d30ea0c49ac053e">&#9670;&#160;</a></span>printDictInLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printDictInLine </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>toPrint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>nbWordsOnLine</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche les mots du dictionnaire, avec le nombre spécifié de mot par ligne </p>
+<p >les mots seront séparés par deux tabluations, avec entre un symbole de pipe</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toPrint</td><td>dictionnaire a afficher </td></tr>
+    <tr><td class="paramname">nbWordsOnLine</td><td>nombre de mots sur une seule ligne </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7d7b2209b3c7c7f8d9ad00436f5b3a56" name="a7d7b2209b3c7c7f8d9ad00436f5b3a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7b2209b3c7c7f8d9ad00436f5b3a56">&#9670;&#160;</a></span>writeWords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeWords </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>placeToSave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a>&#160;</td>
+          <td class="paramname"><em>wordsToWrite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>permet d'écrire une liste de mots dans un flux </p>
+<p >Ecrira les chaînes de charactères présents dans wordsToWrite à partir de l'endroit indiqué par le flux. ATTENTION! donnez un flux possédant des droits d'écritures et sans mode binaire<br  />
+ ATTENTION! le flux de données n'est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.<br  />
+ ATTENTION! le nombre de mots écrits rééllement est renvoyé. Si au cours de l'écriture, une erreur survient, il se peut que seulement une partie des mots soient écrits.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">placeToSave</td><td>flux de données où stocker les mots de wordsToWrite </td></tr>
+    <tr><td class="paramname">wordsToWrite</td><td>dictionnaire dont il faut écrire les mots dans le flux donné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>-1</b> si placeToSave ou wordsArray présent dans wordsToWrite vaut NULL<br  />
+ le nombre de mots écrits rééllement sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_5f254e9c0d332b535cd93f5a94fb3382.html">dictionary</a></li><li class="navelem"><a class="el" href="../../d6/dfd/dictionary_8h.html">dictionary.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
+</body>
+</html>

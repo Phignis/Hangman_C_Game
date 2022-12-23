@@ -10,19 +10,26 @@ Définit le comportement global du jeu du pendu.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}embedded\+String/embedded\+String.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}alphabet/alphabet.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}dictionnary/dictionnary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dictionary/dictionary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/print/print.\+h\char`\"{}}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}{empty\+Stream}} (FILE $\ast$stream, int nb\+Char\+Dumped)
+int \mbox{\hyperlink{hangman_8h_aec603cbee3cb7c94bd65301e41d83a58}{empty\+Stream}} (FILE $\ast$stream, const int nb\+Char\+Dumped)
 \begin{DoxyCompactList}\small\item\em vide un flux d\textquotesingle{}un certain nombre de charactère \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ \mbox{\hyperlink{hangman_8h_add7e24cb393310fd6b12ba69672e85f6}{load\+Words}} (char $\ast$path\+To\+File)
+void \mbox{\hyperlink{hangman_8h_adb064dbf8f81701af37c8453c1496432}{print\+User\+Interface}} (const int nb\+Errors, const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} $\ast$word\+To\+Print, const \mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$alphabet\+To\+Print)
+\begin{DoxyCompactList}\small\item\em affiche les éléments statiques de l\textquotesingle{}interface du hangman \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hangman_8h_ab6de8b3ed7d436e988a58b2280b942e3}\label{hangman_8h_ab6de8b3ed7d436e988a58b2280b942e3}} 
+void {\bfseries print\+Menu\+Options} (void)
+\begin{DoxyCompactList}\small\item\em affichage des options du menu, avec leurs icones \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ \mbox{\hyperlink{hangman_8h_a29ef1b9957ad4fad3e5267c0d62d34d5}{load\+Words}} (const char $\ast$path\+To\+File)
 \begin{DoxyCompactList}\small\item\em Récupère d\textquotesingle{}un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{hangman_8h_ae38baf2993b915f6797189e5379d7945}\label{hangman_8h_ae38baf2993b915f6797189e5379d7945}} 
-char $\ast$$\ast$ {\bfseries add\+Words} (char $\ast$path\+To\+File, char $\ast$$\ast$words\+To\+Add, int logical\+Size\+To\+Add, int $\ast$logical\+Size\+Updated\+Words)
-\item 
-int \mbox{\hyperlink{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}{hangman}} (void)
-\begin{DoxyCompactList}\small\item\em Fonction permettant de lancer un jeu du pendu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ \mbox{\hyperlink{hangman_8h_afd4fc7acc94afdbd1860951ee592e641}{put\+Words\+To\+File}} (const char $\ast$path\+To\+File, const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$actual\+Words)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}ajouter des mots dans un fichier \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hangman_8h_a81e06db1fd765aede3b341319fdf155d}{hangman}} (const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$tab\+Mots)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de lancer un jeu du pendu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hangman_8h_ad16e5e62f3579a7048e6b981b172885e}{menu}} (void)
+\begin{DoxyCompactList}\small\item\em point d\textquotesingle{}entrée du programme global \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -42,11 +49,11 @@ FOUCRAS Baptiste, TOURE Makalé
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}\label{hangman_8h_ab47a738a3eada35524d6c6f2f2dce784}} 
+\mbox{\Hypertarget{hangman_8h_aec603cbee3cb7c94bd65301e41d83a58}\label{hangman_8h_aec603cbee3cb7c94bd65301e41d83a58}} 
 \index{hangman.h@{hangman.h}!emptyStream@{emptyStream}}
 \index{emptyStream@{emptyStream}!hangman.h@{hangman.h}}
 \doxysubsubsection{\texorpdfstring{emptyStream()}{emptyStream()}}
-{\footnotesize\ttfamily int empty\+Stream (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{int}]{nb\+Char\+Dumped }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int empty\+Stream (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{const int}]{nb\+Char\+Dumped }\end{DoxyParamCaption})}
 
 
 
@@ -65,11 +72,11 @@ ATTENTION! si le buffer spécifié est stdin et est vide, attendra la saisie d\t
 0 si tout s\textquotesingle{}est bien déroulé~\newline
  valeur non nulle si quelque chose s\textquotesingle{}est mal passé (se référer au code de retour de ferror()) ou si stream est NULL 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}\label{hangman_8h_a00229d15ec677f6ee0e70c8fb2fd9d3d}} 
+\mbox{\Hypertarget{hangman_8h_a81e06db1fd765aede3b341319fdf155d}\label{hangman_8h_a81e06db1fd765aede3b341319fdf155d}} 
 \index{hangman.h@{hangman.h}!hangman@{hangman}}
 \index{hangman@{hangman}!hangman.h@{hangman.h}}
 \doxysubsubsection{\texorpdfstring{hangman()}{hangman()}}
-{\footnotesize\ttfamily int hangman (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int hangman (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{tab\+Mots }\end{DoxyParamCaption})}
 
 
 
@@ -77,15 +84,20 @@ Fonction permettant de lancer un jeu du pendu.
 
 Utiliser cette fonction permet d\textquotesingle{}avoir tout le comportement du pendu
 
+
+\begin{DoxyParams}{Paramètres}
+{\em tab\+Mots} & les mots possibles pour le jeu du hangman\\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 -\/1 si la récupération d\textquotesingle{}un mot pour le jeu c\textquotesingle{}est mal passé, ou que l\textquotesingle{}alphabet n\textquotesingle{}a pu etre alloué~\newline
  0 si le jeu a été perdu, donc que le mot n\textquotesingle{}a pu etre deviné 1 si le mot a été deviné 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_add7e24cb393310fd6b12ba69672e85f6}\label{hangman_8h_add7e24cb393310fd6b12ba69672e85f6}} 
+\mbox{\Hypertarget{hangman_8h_a29ef1b9957ad4fad3e5267c0d62d34d5}\label{hangman_8h_a29ef1b9957ad4fad3e5267c0d62d34d5}} 
 \index{hangman.h@{hangman.h}!loadWords@{loadWords}}
 \index{loadWords@{loadWords}!hangman.h@{hangman.h}}
 \doxysubsubsection{\texorpdfstring{loadWords()}{loadWords()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionnary}{Dictionnary}} $\ast$ load\+Words (\begin{DoxyParamCaption}\item[{char $\ast$}]{path\+To\+File }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ load\+Words (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path\+To\+File }\end{DoxyParamCaption})}
 
 
 
@@ -100,6 +112,57 @@ Stocke dans le dictionnaire retourné les chaînes de caractères se trouvant da
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-NULL si le fichier n\textquotesingle{}a pu etre ouvert en mode lecture ou mal lu~\newline
- l\textquotesingle{}adresse du dictionnaire de mot récupéré sinon (à vider avec destroy\+Dictionnary 
+NULL si le fichier n\textquotesingle{}a pu etre ouvert en mode lecture, si path\+To\+File est NULL ou vide, ou si le fichier a été mal lu~\newline
+ l\textquotesingle{}adresse du dictionnaire de mot récupéré sinon (à vider avec destroy\+Dictionary 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hangman_8h_ad16e5e62f3579a7048e6b981b172885e}\label{hangman_8h_ad16e5e62f3579a7048e6b981b172885e}} 
+\index{hangman.h@{hangman.h}!menu@{menu}}
+\index{menu@{menu}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+point d\textquotesingle{}entrée du programme global 
+
+affiche un menu permettant d\textquotesingle{}accéder aux fonctions principales, dont hangman et put\+Words\+To\+File. Déclare un dictionnaire \mbox{\Hypertarget{hangman_8h_adb064dbf8f81701af37c8453c1496432}\label{hangman_8h_adb064dbf8f81701af37c8453c1496432}} 
+\index{hangman.h@{hangman.h}!printUserInterface@{printUserInterface}}
+\index{printUserInterface@{printUserInterface}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{printUserInterface()}{printUserInterface()}}
+{\footnotesize\ttfamily void print\+User\+Interface (\begin{DoxyParamCaption}\item[{const int}]{nb\+Errors,  }\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} $\ast$}]{word\+To\+Print,  }\item[{const \mbox{\hyperlink{struct_alphabet}{Alphabet}} $\ast$}]{alphabet\+To\+Print }\end{DoxyParamCaption})}
+
+
+
+affiche les éléments statiques de l\textquotesingle{}interface du hangman 
+
+affiche a des coordonnées précises les différents éléments principaux ATTENTION! pensez à replacer le curseur à l\textquotesingle{}aide de console\+Goto\+Coords pour savoir où se trouve votre curseur
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Errors} & nombre d\textquotesingle{}erreurs influançant sur l\textquotesingle{}affichage du pendu \\
+\hline
+{\em word\+To\+Print} & mot à deviner lors du jeu \\
+\hline
+{\em alphabet\+To\+Print} & lettres dont il faut afficher celles utilisables \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hangman_8h_afd4fc7acc94afdbd1860951ee592e641}\label{hangman_8h_afd4fc7acc94afdbd1860951ee592e641}} 
+\index{hangman.h@{hangman.h}!putWordsToFile@{putWordsToFile}}
+\index{putWordsToFile@{putWordsToFile}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{putWordsToFile()}{putWordsToFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ put\+Words\+To\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path\+To\+File,  }\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{actual\+Words }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}ajouter des mots dans un fichier 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path\+To\+File} & chemin vers le fichier dont il faut récupérer les données puis ajouter des données \\
+\hline
+{\em actual\+Words} & les mots déjà présents, afin d\textquotesingle{}éviter les doublons dans ceux proposés \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}adresse des mots déjà présents, auquels se sont ajoutés ceux créés durant la fonction NULL si quelque chose s\textquotesingle{}est mal passé (comme path\+To\+File ou actual\+Words valant NULL) 
 \end{DoxyReturn}

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['tolowercase_0',['toLowerCase',['../da/db3/embedded_string_8h.html#a9df9ae476e452817255c6b7aa4c19be0',1,'embeddedString.h']]],
-  ['touppercase_1',['toUpperCase',['../da/db3/embedded_string_8h.html#a404d0a6893711f562fead3995f3e2fe0',1,'embeddedString.h']]],
-  ['transforminembeddedstr_2',['transformInEmbeddedStr',['../da/db3/embedded_string_8h.html#a44dbb5917d993f2c24f4ca4f57be46ae',1,'embeddedString.h']]],
-  ['transforminstr_3',['transformInStr',['../da/db3/embedded_string_8h.html#a93bc5a33dd6edf25639f7dcb836723f5',1,'embeddedString.h']]]
+  ['menu_0',['menu',['../d9/df9/hangman_8h.html#ad16e5e62f3579a7048e6b981b172885e',1,'hangman.h']]],
+  ['mixedstrcmp_1',['mixedStrcmp',['../da/db3/embedded_string_8h.html#aa0cde7a11cdfbb0a107b275a4e646574',1,'embeddedString.h']]]
 ];

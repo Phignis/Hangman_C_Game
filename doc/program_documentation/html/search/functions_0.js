@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['createalphabet_0',['createAlphabet',['../dd/d90/alphabet_8h.html#a2a532880617c8b8347a073216c420117',1,'alphabet.h']]],
-  ['createdictionnary_1',['createDictionnary',['../da/d5a/dictionnary_8h.html#aac9ccc6213a6b4ff6ad0fa5a141beaa4',1,'dictionnary.h']]]
+  ['addword_0',['addWord',['../d6/dfd/dictionary_8h.html#a0ee9e2b0533e69722d2e247cbec331b7',1,'dictionary.h']]],
+  ['addwordstofile_1',['addWordsToFile',['../d6/dfd/dictionary_8h.html#a26552eac6c4feb80b20cead130aecc2e',1,'dictionary.h']]]
 ];

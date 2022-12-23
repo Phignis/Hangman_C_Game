@@ -109,24 +109,35 @@ $(document).ready(function(){initNavTree('d9/df9/hangman_8h.html','../../'); ini
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../da/db3/embedded_string_8h_source.html">embeddedString/embeddedString.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d90/alphabet_8h_source.html">alphabet/alphabet.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d5a/dictionnary_8h_source.html">dictionnary/dictionnary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dfd/dictionary_8h_source.html">dictionary/dictionary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d77/print_8h_source.html">utils/print/print.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d9/df9/hangman_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ab47a738a3eada35524d6c6f2f2dce784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">emptyStream</a> (FILE *stream, int nbCharDumped)</td></tr>
-<tr class="memdesc:ab47a738a3eada35524d6c6f2f2dce784"><td class="mdescLeft">&#160;</td><td class="mdescRight">vide un flux d'un certain nombre de charactère  <a href="../../d9/df9/hangman_8h.html#ab47a738a3eada35524d6c6f2f2dce784">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ab47a738a3eada35524d6c6f2f2dce784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7e24cb393310fd6b12ba69672e85f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d5a/struct_dictionnary.html">Dictionnary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#add7e24cb393310fd6b12ba69672e85f6">loadWords</a> (char *pathToFile)</td></tr>
-<tr class="memdesc:add7e24cb393310fd6b12ba69672e85f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné  <a href="../../d9/df9/hangman_8h.html#add7e24cb393310fd6b12ba69672e85f6">Plus de détails...</a><br /></td></tr>
-<tr class="separator:add7e24cb393310fd6b12ba69672e85f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae38baf2993b915f6797189e5379d7945"><td class="memItemLeft" align="right" valign="top"><a id="ae38baf2993b915f6797189e5379d7945" name="ae38baf2993b915f6797189e5379d7945"></a>
-char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char *pathToFile, char **wordsToAdd, int logicalSizeToAdd, int *logicalSizeUpdatedWords)</td></tr>
-<tr class="separator:ae38baf2993b915f6797189e5379d7945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00229d15ec677f6ee0e70c8fb2fd9d3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">hangman</a> (void)</td></tr>
-<tr class="memdesc:a00229d15ec677f6ee0e70c8fb2fd9d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de lancer un jeu du pendu.  <a href="../../d9/df9/hangman_8h.html#a00229d15ec677f6ee0e70c8fb2fd9d3d">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a00229d15ec677f6ee0e70c8fb2fd9d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec603cbee3cb7c94bd65301e41d83a58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#aec603cbee3cb7c94bd65301e41d83a58">emptyStream</a> (FILE *stream, const int nbCharDumped)</td></tr>
+<tr class="memdesc:aec603cbee3cb7c94bd65301e41d83a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">vide un flux d'un certain nombre de charactère  <a href="../../d9/df9/hangman_8h.html#aec603cbee3cb7c94bd65301e41d83a58">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aec603cbee3cb7c94bd65301e41d83a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb064dbf8f81701af37c8453c1496432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#adb064dbf8f81701af37c8453c1496432">printUserInterface</a> (const int nbErrors, const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> *wordToPrint, const <a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> *alphabetToPrint)</td></tr>
+<tr class="memdesc:adb064dbf8f81701af37c8453c1496432"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche les éléments statiques de l'interface du hangman  <a href="../../d9/df9/hangman_8h.html#adb064dbf8f81701af37c8453c1496432">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adb064dbf8f81701af37c8453c1496432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6de8b3ed7d436e988a58b2280b942e3"><td class="memItemLeft" align="right" valign="top"><a id="ab6de8b3ed7d436e988a58b2280b942e3" name="ab6de8b3ed7d436e988a58b2280b942e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printMenuOptions</b> (void)</td></tr>
+<tr class="memdesc:ab6de8b3ed7d436e988a58b2280b942e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">affichage des options du menu, avec leurs icones <br /></td></tr>
+<tr class="separator:ab6de8b3ed7d436e988a58b2280b942e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ef1b9957ad4fad3e5267c0d62d34d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#a29ef1b9957ad4fad3e5267c0d62d34d5">loadWords</a> (const char *pathToFile)</td></tr>
+<tr class="memdesc:a29ef1b9957ad4fad3e5267c0d62d34d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné  <a href="../../d9/df9/hangman_8h.html#a29ef1b9957ad4fad3e5267c0d62d34d5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a29ef1b9957ad4fad3e5267c0d62d34d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4fc7acc94afdbd1860951ee592e641"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#afd4fc7acc94afdbd1860951ee592e641">putWordsToFile</a> (const char *pathToFile, const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *actualWords)</td></tr>
+<tr class="memdesc:afd4fc7acc94afdbd1860951ee592e641"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet d'ajouter des mots dans un fichier  <a href="../../d9/df9/hangman_8h.html#afd4fc7acc94afdbd1860951ee592e641">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd4fc7acc94afdbd1860951ee592e641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e06db1fd765aede3b341319fdf155d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#a81e06db1fd765aede3b341319fdf155d">hangman</a> (const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *tabMots)</td></tr>
+<tr class="memdesc:a81e06db1fd765aede3b341319fdf155d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de lancer un jeu du pendu.  <a href="../../d9/df9/hangman_8h.html#a81e06db1fd765aede3b341319fdf155d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a81e06db1fd765aede3b341319fdf155d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16e5e62f3579a7048e6b981b172885e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df9/hangman_8h.html#ad16e5e62f3579a7048e6b981b172885e">menu</a> (void)</td></tr>
+<tr class="memdesc:ad16e5e62f3579a7048e6b981b172885e"><td class="mdescLeft">&#160;</td><td class="mdescRight">point d'entrée du programme global  <a href="../../d9/df9/hangman_8h.html#ad16e5e62f3579a7048e6b981b172885e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad16e5e62f3579a7048e6b981b172885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p >Définit le comportement global du jeu du pendu. </p>
@@ -135,8 +146,8 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
 <dl class="section date"><dt>Date</dt><dd>12 décembre 2022 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ab47a738a3eada35524d6c6f2f2dce784" name="ab47a738a3eada35524d6c6f2f2dce784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab47a738a3eada35524d6c6f2f2dce784">&#9670;&#160;</a></span>emptyStream()</h2>
+<a id="aec603cbee3cb7c94bd65301e41d83a58" name="aec603cbee3cb7c94bd65301e41d83a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec603cbee3cb7c94bd65301e41d83a58">&#9670;&#160;</a></span>emptyStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +161,7 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>nbCharDumped</em>&#160;</td>
         </tr>
         <tr>
@@ -175,8 +186,8 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
 
 </div>
 </div>
-<a id="a00229d15ec677f6ee0e70c8fb2fd9d3d" name="a00229d15ec677f6ee0e70c8fb2fd9d3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00229d15ec677f6ee0e70c8fb2fd9d3d">&#9670;&#160;</a></span>hangman()</h2>
+<a id="a81e06db1fd765aede3b341319fdf155d" name="a81e06db1fd765aede3b341319fdf155d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e06db1fd765aede3b341319fdf155d">&#9670;&#160;</a></span>hangman()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,8 +195,8 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
         <tr>
           <td class="memname">int hangman </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>tabMots</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -193,21 +204,27 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
 
 <p>Fonction permettant de lancer un jeu du pendu. </p>
 <p >Utiliser cette fonction permet d'avoir tout le comportement du pendu</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tabMots</td><td>les mots possibles pour le jeu du hangman</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Renvoie</dt><dd>-1 si la récupération d'un mot pour le jeu c'est mal passé, ou que l'alphabet n'a pu etre alloué<br  />
  0 si le jeu a été perdu, donc que le mot n'a pu etre deviné 1 si le mot a été deviné </dd></dl>
 
 </div>
 </div>
-<a id="add7e24cb393310fd6b12ba69672e85f6" name="add7e24cb393310fd6b12ba69672e85f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7e24cb393310fd6b12ba69672e85f6">&#9670;&#160;</a></span>loadWords()</h2>
+<a id="a29ef1b9957ad4fad3e5267c0d62d34d5" name="a29ef1b9957ad4fad3e5267c0d62d34d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ef1b9957ad4fad3e5267c0d62d34d5">&#9670;&#160;</a></span>loadWords()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d5a/struct_dictionnary.html">Dictionnary</a> * loadWords </td>
+          <td class="memname"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> * loadWords </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>pathToFile</em></td><td>)</td>
           <td></td>
         </tr>
@@ -223,8 +240,112 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>addWords</b> (char
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>NULL si le fichier n'a pu etre ouvert en mode lecture ou mal lu<br  />
- l'adresse du dictionnaire de mot récupéré sinon (à vider avec destroyDictionnary </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL si le fichier n'a pu etre ouvert en mode lecture, si pathToFile est NULL ou vide, ou si le fichier a été mal lu<br  />
+ l'adresse du dictionnaire de mot récupéré sinon (à vider avec destroyDictionary </dd></dl>
+
+</div>
+</div>
+<a id="ad16e5e62f3579a7048e6b981b172885e" name="ad16e5e62f3579a7048e6b981b172885e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16e5e62f3579a7048e6b981b172885e">&#9670;&#160;</a></span>menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menu </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>point d'entrée du programme global </p>
+<p >affiche un menu permettant d'accéder aux fonctions principales, dont hangman et putWordsToFile. Déclare un dictionnaire </p>
+
+</div>
+</div>
+<a id="adb064dbf8f81701af37c8453c1496432" name="adb064dbf8f81701af37c8453c1496432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb064dbf8f81701af37c8453c1496432">&#9670;&#160;</a></span>printUserInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printUserInterface </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>nbErrors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/db3/embedded_string_8h.html#a27f2c91a8f76b06f25c2f0ac2ed89766">EmbeddedString</a> *&#160;</td>
+          <td class="paramname"><em>wordToPrint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d1c/struct_alphabet.html">Alphabet</a> *&#160;</td>
+          <td class="paramname"><em>alphabetToPrint</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche les éléments statiques de l'interface du hangman </p>
+<p >affiche a des coordonnées précises les différents éléments principaux ATTENTION! pensez à replacer le curseur à l'aide de consoleGotoCoords pour savoir où se trouve votre curseur</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nbErrors</td><td>nombre d'erreurs influançant sur l'affichage du pendu </td></tr>
+    <tr><td class="paramname">wordToPrint</td><td>mot à deviner lors du jeu </td></tr>
+    <tr><td class="paramname">alphabetToPrint</td><td>lettres dont il faut afficher celles utilisables </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd4fc7acc94afdbd1860951ee592e641" name="afd4fc7acc94afdbd1860951ee592e641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4fc7acc94afdbd1860951ee592e641">&#9670;&#160;</a></span>putWordsToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> * putWordsToFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pathToFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/ddf/struct_dictionary.html">Dictionary</a> *&#160;</td>
+          <td class="paramname"><em>actualWords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>permet d'ajouter des mots dans un fichier </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pathToFile</td><td>chemin vers le fichier dont il faut récupérer les données puis ajouter des données </td></tr>
+    <tr><td class="paramname">actualWords</td><td>les mots déjà présents, afin d'éviter les doublons dans ceux proposés </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>l'adresse des mots déjà présents, auquels se sont ajoutés ceux créés durant la fonction NULL si quelque chose s'est mal passé (comme pathToFile ou actualWords valant NULL) </dd></dl>
 
 </div>
 </div>

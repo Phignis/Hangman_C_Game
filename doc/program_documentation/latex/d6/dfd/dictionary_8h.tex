@@ -1,0 +1,325 @@
+\hypertarget{dictionary_8h}{}\doxysection{Référence du fichier dictionary/dictionary.h}
+\label{dictionary_8h}\index{dictionary/dictionary.h@{dictionary/dictionary.h}}
+
+
+Définit la structure \mbox{\hyperlink{struct_dictionary}{Dictionary}} et Boolean.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../embedded\+String/embedded\+String.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_dictionary}{Dictionary}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_dictionary}{Dictionary}} est un wrapper de tableau de chaine de char. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ \mbox{\hyperlink{dictionary_8h_ae30590eb124133f447d1f1fc7675d12b}{create\+Dictionary}} (const int physical\+Size)
+\begin{DoxyCompactList}\small\item\em créé un dictionnaire de la taille demandé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dictionary_8h_aca2b106edb756d0cd1dee34fb0576219}{destroy\+Dictionary}} (\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$to\+Destroy)
+\begin{DoxyCompactList}\small\item\em permet de détruire un \mbox{\hyperlink{struct_dictionary}{Dictionary}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dictionary_8h_a0ee9e2b0533e69722d2e247cbec331b7}{add\+Word}} (\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$container, char $\ast$to\+Add)
+\begin{DoxyCompactList}\small\item\em ajoute un mot en fin de dictionnaire \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dictionary_8h_aef20898f7382cbf97d30ea0c49ac053e}{print\+Dict\+In\+Line}} (const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$to\+Print, const int nb\+Words\+On\+Line)
+\begin{DoxyCompactList}\small\item\em affiche les mots du dictionnaire, avec le nombre spécifié de mot par ligne \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dictionary_8h_a95049a69280eea404bac3636324b8757}{print\+Dict\+In\+Column}} (const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$to\+Print, const int x\+Abscissa, int y\+Ordinate)
+\begin{DoxyCompactList}\small\item\em affiche les mots du dictionnaire en colonne \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{dictionary_8h_a7f131a3ebb0d1c83f591df98fbd76422}{get\+Rdm\+Str}} (const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$dict)
+\begin{DoxyCompactList}\small\item\em retourne un mot au hasard du dictionnaire passé en paramètre \end{DoxyCompactList}\item 
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_afe61bbca2e83833a7ce9c6472ea5283a}{is\+Words\+In}} (const \mbox{\hyperlink{struct_dictionary}{Dictionary}} searching\+Context, const char $\ast$word\+Searched)
+\begin{DoxyCompactList}\small\item\em Permet de savoir si un mot est déjà présent dans un dictionnaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_ab10f099854b76be9d66bae8218ca3ebd}{is\+Str\+AWord}} (char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Permet de savoir si une chaine de char est un mot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_a1dc937596b8fb608d66e3adff4e36328}{delete\+Word}} (\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$containing, const int index\+Word\+To\+Delete)
+\begin{DoxyCompactList}\small\item\em supprime un mot d\textquotesingle{}un dictionnaire à l\textquotesingle{}index spécifié \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ \mbox{\hyperlink{dictionary_8h_af70ddf444d5e98931a4a78d166e94663}{import\+Words}} (FILE $\ast$source)
+\begin{DoxyCompactList}\small\item\em importe dans un dictionnaire des mots présents dans un fichier source \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dictionary_8h_a7d7b2209b3c7c7f8d9ad00436f5b3a56}{write\+Words}} (FILE $\ast$place\+To\+Save, const \mbox{\hyperlink{struct_dictionary}{Dictionary}} words\+To\+Write)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}écrire une liste de mots dans un flux \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ \mbox{\hyperlink{dictionary_8h_a26552eac6c4feb80b20cead130aecc2e}{add\+Words\+To\+File}} (const char $\ast$path\+To\+File, \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$words\+To\+Add)
+\begin{DoxyCompactList}\small\item\em ajoute des mots à la fin d\textquotesingle{}un fichier, et renvoit le contenu du fichier modifié \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit la structure \mbox{\hyperlink{struct_dictionary}{Dictionary}} et Boolean. 
+
+\mbox{\hyperlink{struct_dictionary}{Dictionary}}, Boolean et leurs comportement sont définis. \mbox{\hyperlink{struct_dictionary}{Dictionary}} est un tableau de chaine de char, avec sa taille logique et physique
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{dictionary_8h_a0ee9e2b0533e69722d2e247cbec331b7}\label{dictionary_8h_a0ee9e2b0533e69722d2e247cbec331b7}} 
+\index{dictionary.h@{dictionary.h}!addWord@{addWord}}
+\index{addWord@{addWord}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{addWord()}{addWord()}}
+{\footnotesize\ttfamily int add\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{container,  }\item[{char $\ast$}]{to\+Add }\end{DoxyParamCaption})}
+
+
+
+ajoute un mot en fin de dictionnaire 
+
+Copie la valeur de to\+Add a la fin du dictionnaire, incrémente la taille logique. Effectue le redimensionnement du tableau si nécessaire
+
+
+\begin{DoxyParams}{Paramètres}
+{\em container} & dictionnaire recevant le mot \\
+\hline
+{\em to\+Add} & le mot à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{-\/2}} si l\textquotesingle{}insertion si l\textquotesingle{}allocation dynamique a échoué ou que la copie en elle même échoue {\bfseries{-\/1}} si un des paramètre est vaut NULL, ou words\+Array de container. Si to\+Add est une chaine vide, retourne cette valeur {\bfseries{0}} si tout s\textquotesingle{}est bien passé 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_a26552eac6c4feb80b20cead130aecc2e}\label{dictionary_8h_a26552eac6c4feb80b20cead130aecc2e}} 
+\index{dictionary.h@{dictionary.h}!addWordsToFile@{addWordsToFile}}
+\index{addWordsToFile@{addWordsToFile}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{addWordsToFile()}{addWordsToFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ add\+Words\+To\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path\+To\+File,  }\item[{\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{words\+To\+Add }\end{DoxyParamCaption})}
+
+
+
+ajoute des mots à la fin d\textquotesingle{}un fichier, et renvoit le contenu du fichier modifié 
+
+ATTENTION! Peut ne pas insérer tout les mots présents dans words\+To\+Add n\textquotesingle{}ajoutes dans le fichier que les mots pas encore présents, afin de garentir l\textquotesingle{}unicité n\textquotesingle{}ajoutes que les mots ne contenant que des lettres
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path\+To\+File} & chemin vers le fichier dont il faut récupérer les données \\
+\hline
+{\em words\+To\+Add} & dictionnaire contenant les mots a ajouter au fichier. a la fin, seuls ceux rééllement enlevés restent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{NULL}} si l\textquotesingle{}ouverture de fichier n\textquotesingle{}a pu se faire, que l\textquotesingle{}ancien contenu n\textquotesingle{}a pû être lu, ou que path\+To\+File ou words\+Array de words\+To\+Add valent NULL un \mbox{\hyperlink{struct_dictionary}{Dictionary}} contenant tout les mots présent après insertions réussies dans le fichier 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_ae30590eb124133f447d1f1fc7675d12b}\label{dictionary_8h_ae30590eb124133f447d1f1fc7675d12b}} 
+\index{dictionary.h@{dictionary.h}!createDictionary@{createDictionary}}
+\index{createDictionary@{createDictionary}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{createDictionary()}{createDictionary()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ create\+Dictionary (\begin{DoxyParamCaption}\item[{const int}]{physical\+Size }\end{DoxyParamCaption})}
+
+
+
+créé un dictionnaire de la taille demandé 
+
+créé un dictionnaire permettant de contenir le nombre de str indiqué par physical\+Size ATTENTION! ne créé la place que pour contenir les pointeurs sur char ATTENTION! pour libérer proprement la mémoire dynamiquement alloué, se référer à la fonction destroy\+Dictionary
+
+
+\begin{DoxyParams}{Paramètres}
+{\em physical\+Size} & nombre de str contenable dans le \mbox{\hyperlink{struct_dictionary}{Dictionary}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL si physical\+Size est négatif ou que quelque chose s\textquotesingle{}est mal passé~\newline
+ l\textquotesingle{}adresse où se trouve le \mbox{\hyperlink{struct_dictionary}{Dictionary}} créée sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_a1dc937596b8fb608d66e3adff4e36328}\label{dictionary_8h_a1dc937596b8fb608d66e3adff4e36328}} 
+\index{dictionary.h@{dictionary.h}!deleteWord@{deleteWord}}
+\index{deleteWord@{deleteWord}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{deleteWord()}{deleteWord()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} delete\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{containing,  }\item[{const int}]{index\+Word\+To\+Delete }\end{DoxyParamCaption})}
+
+
+
+supprime un mot d\textquotesingle{}un dictionnaire à l\textquotesingle{}index spécifié 
+
+libère la mémoire dynamique du mot supprimé avant de le faire disparaitre en mettant le dernier mot du dictionnaire à sa place
+
+
+\begin{DoxyParams}{Paramètres}
+{\em containing} & dictionnaire contenant le mot à supprimer \\
+\hline
+{\em index\+Word\+To\+Delete} & index du mot à supprimer. Un index commence à 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si la suppression a été effectuée~\newline
+ False si words\+Array de containing vaut NULL, ou bien que index\+Word\+To\+Delete n\textquotesingle{}est pas un index\+Possible (strictement positif et strictement inférieur à la taille logique) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_aca2b106edb756d0cd1dee34fb0576219}\label{dictionary_8h_aca2b106edb756d0cd1dee34fb0576219}} 
+\index{dictionary.h@{dictionary.h}!destroyDictionary@{destroyDictionary}}
+\index{destroyDictionary@{destroyDictionary}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{destroyDictionary()}{destroyDictionary()}}
+{\footnotesize\ttfamily void destroy\+Dictionary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{to\+Destroy }\end{DoxyParamCaption})}
+
+
+
+permet de détruire un \mbox{\hyperlink{struct_dictionary}{Dictionary}} 
+
+permet de détruire de manière propre un dictionnaire créé via la fonction create\+Dictionary libère aussi la mémoire des chaînes présentes dans le dictionnaire
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Destroy} & adresse du \mbox{\hyperlink{struct_dictionary}{Dictionary}} à détruire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{dictionary_8h_a7f131a3ebb0d1c83f591df98fbd76422}\label{dictionary_8h_a7f131a3ebb0d1c83f591df98fbd76422}} 
+\index{dictionary.h@{dictionary.h}!getRdmStr@{getRdmStr}}
+\index{getRdmStr@{getRdmStr}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{getRdmStr()}{getRdmStr()}}
+{\footnotesize\ttfamily char $\ast$ get\+Rdm\+Str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{dict }\end{DoxyParamCaption})}
+
+
+
+retourne un mot au hasard du dictionnaire passé en paramètre 
+
+le mot retourné est copié, il ne pointe pas sur celui du dictionnaire
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dict} & dictionnaire d\textquotesingle{}où le mot est pris \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL si malloc rate adresse du premier char du mot tiré 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_af70ddf444d5e98931a4a78d166e94663}\label{dictionary_8h_af70ddf444d5e98931a4a78d166e94663}} 
+\index{dictionary.h@{dictionary.h}!importWords@{importWords}}
+\index{importWords@{importWords}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{importWords()}{importWords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$ import\+Words (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{source }\end{DoxyParamCaption})}
+
+
+
+importe dans un dictionnaire des mots présents dans un fichier source 
+
+Le fichier source est attendu comme contenant par ligne un seul mot de 7 charactères max~\newline
+ ATTENTION! il est attendu que le flux passé en paramètre possède des droits de lecture ATTENTION! le flux de données n\textquotesingle{}est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.~\newline
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em source} & flux de données utilisés pour remplir le dictionnaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL si source est NULL ou que la lecture s\textquotesingle{}est mal passé~\newline
+ adresse du dictionnaire créé sinon. Se référer à destroy\+Dictionary pour libérer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_ab10f099854b76be9d66bae8218ca3ebd}\label{dictionary_8h_ab10f099854b76be9d66bae8218ca3ebd}} 
+\index{dictionary.h@{dictionary.h}!isStrAWord@{isStrAWord}}
+\index{isStrAWord@{isStrAWord}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{isStrAWord()}{isStrAWord()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Str\+AWord (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir si une chaine de char est un mot. 
+
+Une str est un mot si\+:
+\begin{DoxyItemize}
+\item il possède au moins un caractère
+\item il ne contient que des lettres
+\item aucuns chiffres ou caractères spéciaux
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em string} & chaine de char a tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+False si string n\textquotesingle{}est pas un mot~\newline
+ True sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_afe61bbca2e83833a7ce9c6472ea5283a}\label{dictionary_8h_afe61bbca2e83833a7ce9c6472ea5283a}} 
+\index{dictionary.h@{dictionary.h}!isWordsIn@{isWordsIn}}
+\index{isWordsIn@{isWordsIn}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{isWordsIn()}{isWordsIn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Words\+In (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}}}]{searching\+Context,  }\item[{const char $\ast$}]{word\+Searched }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir si un mot est déjà présent dans un dictionnaire. 
+
+Cherche si au moins une occurence de word\+Searched est présente dans searching\+Context ATTENTION! si word\+Searched ou les str dans searching\+Conext ne sont pas des chaines de char valide, un comportement indéfini est prévu
+
+
+\begin{DoxyParams}{Paramètres}
+{\em searching\+Context} & le dictionnaire dans lequel le mot est cherché \\
+\hline
+{\em word\+Searched} & mot qui est cherché \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si le mot cherché est présent~\newline
+ False sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dictionary_8h_a95049a69280eea404bac3636324b8757}\label{dictionary_8h_a95049a69280eea404bac3636324b8757}} 
+\index{dictionary.h@{dictionary.h}!printDictInColumn@{printDictInColumn}}
+\index{printDictInColumn@{printDictInColumn}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{printDictInColumn()}{printDictInColumn()}}
+{\footnotesize\ttfamily void print\+Dict\+In\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{to\+Print,  }\item[{const int}]{x\+Abscissa,  }\item[{int}]{y\+Ordinate }\end{DoxyParamCaption})}
+
+
+
+affiche les mots du dictionnaire en colonne 
+
+chaque mot seront affichés alignés verticalement, sur une ligne chacun
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Print} & dictionnaire a afficher \\
+\hline
+{\em x\+Abscissa} & abscisse où placer le premier mot du dictionnaire \\
+\hline
+{\em y\+Ordinate} & ordonnée où placer le premier mot du dictionnaire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{dictionary_8h_aef20898f7382cbf97d30ea0c49ac053e}\label{dictionary_8h_aef20898f7382cbf97d30ea0c49ac053e}} 
+\index{dictionary.h@{dictionary.h}!printDictInLine@{printDictInLine}}
+\index{printDictInLine@{printDictInLine}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{printDictInLine()}{printDictInLine()}}
+{\footnotesize\ttfamily void print\+Dict\+In\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}} $\ast$}]{to\+Print,  }\item[{const int}]{nb\+Words\+On\+Line }\end{DoxyParamCaption})}
+
+
+
+affiche les mots du dictionnaire, avec le nombre spécifié de mot par ligne 
+
+les mots seront séparés par deux tabluations, avec entre un symbole de pipe
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to\+Print} & dictionnaire a afficher \\
+\hline
+{\em nb\+Words\+On\+Line} & nombre de mots sur une seule ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{dictionary_8h_a7d7b2209b3c7c7f8d9ad00436f5b3a56}\label{dictionary_8h_a7d7b2209b3c7c7f8d9ad00436f5b3a56}} 
+\index{dictionary.h@{dictionary.h}!writeWords@{writeWords}}
+\index{writeWords@{writeWords}!dictionary.h@{dictionary.h}}
+\doxysubsubsection{\texorpdfstring{writeWords()}{writeWords()}}
+{\footnotesize\ttfamily int write\+Words (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{place\+To\+Save,  }\item[{const \mbox{\hyperlink{struct_dictionary}{Dictionary}}}]{words\+To\+Write }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}écrire une liste de mots dans un flux 
+
+Ecrira les chaînes de charactères présents dans words\+To\+Write à partir de l\textquotesingle{}endroit indiqué par le flux. ATTENTION! donnez un flux possédant des droits d\textquotesingle{}écritures et sans mode binaire~\newline
+ ATTENTION! le flux de données n\textquotesingle{}est ni ouvert ni fermé dans la fonction. Charge à la fonction appelante de gérer ouverture et fermuture.~\newline
+ ATTENTION! le nombre de mots écrits rééllement est renvoyé. Si au cours de l\textquotesingle{}écriture, une erreur survient, il se peut que seulement une partie des mots soient écrits.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em place\+To\+Save} & flux de données où stocker les mots de words\+To\+Write \\
+\hline
+{\em words\+To\+Write} & dictionnaire dont il faut écrire les mots dans le flux donné \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{-\/1}} si place\+To\+Save ou words\+Array présent dans words\+To\+Write vaut NULL~\newline
+ le nombre de mots écrits rééllement sinon 
+\end{DoxyReturn}

@@ -57,7 +57,7 @@ void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, c
 void printMenuOptions(void);
 
 /**
- * \fn Dictionary* loadWords(char *pathToFile);
+ * \fn Dictionary* loadWords(const char *pathToFile);
  * \brief Récupère d'un fichier au formatage particulier des mots, et les stockes dans le dictionnaire retourné
  * 
  * Stocke dans le dictionnaire retourné les chaînes de caractères se trouvant dans le fichier indiqué par pathToFile<br>
@@ -71,12 +71,17 @@ Dictionary* loadWords(const char *pathToFile);
 
 /**
  * \fn Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords);
- * \brief 
+ * \brief permet d'ajouter des mots dans un fichier
+ * 
+ * \param pathToFile chemin vers le fichier dont il faut récupérer les données puis ajouter des données
+ * \param actualWords les mots déjà présents, afin d'éviter les doublons dans ceux proposés
+ * \return l'adresse des mots déjà présents, auquels se sont ajoutés ceux créés durant la fonction
+ * 			NULL si quelque chose s'est mal passé (comme pathToFile ou actualWords valant NULL)
  */
 Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords);
 
 /**
- * \fn int hangman(void);
+ * \fn int hangman(const Dictionary* tabMots);
  * \brief Fonction permettant de lancer un jeu du pendu
  * 
  * Utiliser cette fonction permet d'avoir tout le comportement du pendu

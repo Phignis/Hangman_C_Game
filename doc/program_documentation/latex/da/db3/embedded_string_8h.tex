@@ -5,7 +5,10 @@
 Définit la structure Embedded\+String, ainsi que le type enum Boolean.  
 
 
-{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../utils/print/print.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,15 +19,6 @@ struct \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}
 \item 
 typedef \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} $\ast$ \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}
 \begin{DoxyCompactList}\small\item\em Embedded\+String est un pointeur sur un \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ {\bfseries False}
-, {\bfseries True}
-, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}
-, \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}}
- \}
-\begin{DoxyCompactList}\small\item\em Enum d\textquotesingle{}un type Boolean. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,7 +26,7 @@ void \mbox{\hyperlink{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}{to\+
 \begin{DoxyCompactList}\small\item\em transform capitals letters in lowercase letters \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}{to\+Upper\+Case}} (char $\ast$to\+Convert)
 \begin{DoxyCompactList}\small\item\em transform lowercase letters in uppercase letters \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}{print\+Embedded\+Str}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Print)
+void \mbox{\hyperlink{embedded_string_8h_ac9fb33c84bea5c83404f6d0835dc37a8}{print\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Print)
 \begin{DoxyCompactList}\small\item\em Affiche la chaine de char contenu dans to\+Print, si trouvé \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embedded\+Strlen}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Count)
 \begin{DoxyCompactList}\small\item\em renvoit le nombre de char de la string \end{DoxyCompactList}\item 
@@ -48,7 +42,7 @@ char $\ast$ \mbox{\hyperlink{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f
 \begin{DoxyCompactList}\small\item\em transforme un Embedded\+String en string \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{update\+Find\+Embedded\+Str}} (\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} to\+Update, char suggested\+Char)
 \begin{DoxyCompactList}\small\item\em passe en état trouvé les char du mot correspondant au char suggéré \end{DoxyCompactList}\item 
-\mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{is\+Embedded\+Str\+Finded}} (const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}} word)
 \begin{DoxyCompactList}\small\item\em permet de savoir si une chaîne est entièrement trouvée \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -84,30 +78,6 @@ Il est pensé pour être utiliser comme tableau de \mbox{\hyperlink{struct_embed
 
 
 Il se finit donc par conséquence par un \mbox{\hyperlink{struct_embedded_char}{Embedded\+Char}} contenant en value \textquotesingle{}\textbackslash{}0\textquotesingle{} pour être valide. 
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}} 
-\index{embeddedString.h@{embeddedString.h}!Boolean@{Boolean}}
-\index{Boolean@{Boolean}!embeddedString.h@{embeddedString.h}}
-\doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
-
-
-
-Enum d\textquotesingle{}un type Boolean. 
-
-Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens booléen du terme.~\newline
- En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n\textquotesingle{}importe quelle valeur autre que 0. \begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{False@{False}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!False@{False}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}} 
-False&étiquette pour la valeur 0 \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{True@{True}!embeddedString.h@{embeddedString.h}}\index{embeddedString.h@{embeddedString.h}!True@{True}}}\mbox{\Hypertarget{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}\label{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}} 
-True&étiquette pour la valeur 1 \\
-\hline
-
-\end{DoxyEnumFields}
-
 
 \doxysubsection{Documentation des fonctions}
 \mbox{\Hypertarget{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}\label{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}} 
@@ -182,7 +152,7 @@ le nombre de caractères dans la chaîne to\+Count, \textquotesingle{}\textbacks
 \index{embeddedString.h@{embeddedString.h}!isEmbeddedStrFinded@{isEmbeddedStrFinded}}
 \index{isEmbeddedStrFinded@{isEmbeddedStrFinded}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{isEmbeddedStrFinded()}{isEmbeddedStrFinded()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Embedded\+Str\+Finded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{word }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} is\+Embedded\+Str\+Finded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{word }\end{DoxyParamCaption})}
 
 
 
@@ -225,11 +195,11 @@ ATTENTION! Si les string ne se finissent pas par \textquotesingle{}\textbackslas
  1 si la chaîne 1 est {\bfseries{supérieure lexicographiquement}} à la chaîne 2~\newline
  -\/1 si la chaîne 1 est {\bfseries{inférieure lexicographiquement}} à la chaîne 2 
 \end{DoxyReturn}
-\mbox{\Hypertarget{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}\label{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}} 
+\mbox{\Hypertarget{embedded_string_8h_ac9fb33c84bea5c83404f6d0835dc37a8}\label{embedded_string_8h_ac9fb33c84bea5c83404f6d0835dc37a8}} 
 \index{embeddedString.h@{embeddedString.h}!printEmbeddedStr@{printEmbeddedStr}}
 \index{printEmbeddedStr@{printEmbeddedStr}!embeddedString.h@{embeddedString.h}}
 \doxysubsubsection{\texorpdfstring{printEmbeddedStr()}{printEmbeddedStr()}}
-{\footnotesize\ttfamily void print\+Embedded\+Str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{to\+Print }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+Embedded\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{Embedded\+String}}}]{to\+Print }\end{DoxyParamCaption})}
 
 
 

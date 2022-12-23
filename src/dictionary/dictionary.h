@@ -122,14 +122,14 @@ void printDictInLine(const Dictionary *toPrint, const int nbWordsOnLine);
 void printDictInColumn(const Dictionary *toPrint, const int xAbscissa, int yOrdinate);
 
 /**
- * \fn int getRdmIndex(const Dictionary *toPick);
- * \brief return a random word from dict
+ * \fn char* getRdmStr(const Dictionary *dict);
+ * \brief retourne un mot au hasard du dictionnaire passé en paramètre
  * 
- * Str is copied, and don't point to char in dictionnary.
+ * le mot retourné est copié, il ne pointe pas sur celui du dictionnaire
  * 
- * \param dict dictionnary where index is taken from
- * \return NULL if malloc failed
- * 			adress to first char of str if everything worked
+ * \param dict dictionnaire d'où le mot est pris
+ * \return NULL si malloc rate
+ * 			adresse du premier char du mot tiré
  */
 char* getRdmStr(const Dictionary *dict);
 
@@ -149,7 +149,7 @@ char* getRdmStr(const Dictionary *dict);
 Boolean isWordsIn(const Dictionary searchingContext, const char* wordSearched);
 
 /**
- * \fn Boolean isStrAWord(const char *string);
+ * \fn Boolean isStrAWord(char *string);
  * \brief Permet de savoir si une chaine de char est un mot
  * 
  * Une str est un mot si:
@@ -214,7 +214,7 @@ Dictionary* importWords(FILE *source);
 int writeWords(FILE *placeToSave, const Dictionary wordsToWrite);
 
 /**
- * \fn Dictionary* addWordsToFile(const char *pathToFile, const Dictionary wordsToAdd);
+ * \fn Dictionary* addWordsToFile(const char *pathToFile, Dictionary* wordsToAdd);
  * \brief ajoute des mots à la fin d'un fichier, et renvoit le contenu du fichier modifié
  * 
  * ATTENTION! Peut ne pas insérer tout les mots présents dans wordsToAdd

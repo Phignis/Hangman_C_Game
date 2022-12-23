@@ -1,0 +1,207 @@
+\hypertarget{print_8h}{}\doxysection{Référence du fichier utils/print/print.h}
+\label{print_8h}\index{utils/print/print.h@{utils/print/print.h}}
+
+
+Définit des fonctions utiles pour l\textquotesingle{}affichage.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ {\bfseries False} = 0
+, {\bfseries True}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum d\textquotesingle{}un type Boolean. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{print_8h_aaee2282f78ef59dcb2f61e631bba9c82}{init\+Console}} (void)
+\begin{DoxyCompactList}\small\item\em permet de setup la console pour l\textquotesingle{}application \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8h_ae9d7c095ca39d1bbed153524124420f7}{clear\+Console}} (void)
+\begin{DoxyCompactList}\small\item\em permet de clear la console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8h_aca41a60e62ada1c4ea4ec285ae85c3e6}{console\+Goto\+Coords}} (const int x, const int y)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}aller aux coordonnées données en paramètres si les coordonnées ne sont pas strictement supérieures à 0, la fonction n\textquotesingle{}effectue rien \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8h_a8530adc32b53e7759cfad9b8202cb3cd}{print\+Blank\+Part}} (int length)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}afficher un certain nombre d\textquotesingle{}espace blanc \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8h_a1a50eb041ed990dec8bafe8757dfb1a6}{print\+Delimited\+Line}} (int length)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}afficher une ligne vide délimitée par des barres (comprise dans length) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8h_ada0a28ab3a7caa795ebe2232625eb29a}{print\+Filled\+Line}} (int length)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}afficher une ligne pleine de carrés (char 219) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{print_8h_a0fa8352cc76476e03fde51391427c6b6}{print\+Hangman}} (const int nb\+Errors, const int x\+Axis\+Origin, int y\+Axis\+Origin)
+\begin{DoxyCompactList}\small\item\em affiche un pendu, dont l\textquotesingle{}avancement dépend du nombre d\textquotesingle{}erreur donné en param \end{DoxyCompactList}\item 
+\mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{print_8h_aea85bfa6669fb74c646ef18e72fcf606}{print\+Image}} (const char $\ast$path\+To\+Image, const int x\+Axis\+Origin, int y\+Axis\+Origin)
+\begin{DoxyCompactList}\small\item\em affiche une image \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définit des fonctions utiles pour l\textquotesingle{}affichage. 
+
+Definit des fonctions utiles pour diverses parties du code
+
+\begin{DoxyAuthor}{Auteur}
+FOUCRAS Baptiste, TOURE Makalé 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+22 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}\label{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}} 
+\index{print.h@{print.h}!Boolean@{Boolean}}
+\index{Boolean@{Boolean}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
+
+
+
+Enum d\textquotesingle{}un type Boolean. 
+
+Attention! Etant donné que True est une étiquette pour 1, il n\textquotesingle{}est pas possible de vérifier qu\textquotesingle{}une sortie est vraie au sens booléen du terme.~\newline
+ En comparant avec True, cela revient à tester que ce soit égal à 1, et non pas à n\textquotesingle{}importe quelle valeur autre que 0. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{print_8h_ae9d7c095ca39d1bbed153524124420f7}\label{print_8h_ae9d7c095ca39d1bbed153524124420f7}} 
+\index{print.h@{print.h}!clearConsole@{clearConsole}}
+\index{clearConsole@{clearConsole}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{clearConsole()}{clearConsole()}}
+{\footnotesize\ttfamily void clear\+Console (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+permet de clear la console. 
+
+Clear stdout, normalement la console (sauf si redirection) \mbox{\Hypertarget{print_8h_aca41a60e62ada1c4ea4ec285ae85c3e6}\label{print_8h_aca41a60e62ada1c4ea4ec285ae85c3e6}} 
+\index{print.h@{print.h}!consoleGotoCoords@{consoleGotoCoords}}
+\index{consoleGotoCoords@{consoleGotoCoords}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{consoleGotoCoords()}{consoleGotoCoords()}}
+{\footnotesize\ttfamily void console\+Goto\+Coords (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}aller aux coordonnées données en paramètres si les coordonnées ne sont pas strictement supérieures à 0, la fonction n\textquotesingle{}effectue rien 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & abscisse à atteindre \\
+\hline
+{\em y} & ordonnée à atteindre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{print_8h_aaee2282f78ef59dcb2f61e631bba9c82}\label{print_8h_aaee2282f78ef59dcb2f61e631bba9c82}} 
+\index{print.h@{print.h}!initConsole@{initConsole}}
+\index{initConsole@{initConsole}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{initConsole()}{initConsole()}}
+{\footnotesize\ttfamily int init\+Console (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+permet de setup la console pour l\textquotesingle{}application 
+
+setup nottamment pour windows le support des escapes sequences, utilisé pour positionner le curseur entre autre
+
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{-\/2}} si le mode actuel de la console en in ou out n\textquotesingle{}a pu être récupéré {\bfseries{-\/1}} si le changement de mode n\textquotesingle{}a pu être effectué {\bfseries{0}} si l\textquotesingle{}init a fonctionné 
+\end{DoxyReturn}
+\mbox{\Hypertarget{print_8h_a8530adc32b53e7759cfad9b8202cb3cd}\label{print_8h_a8530adc32b53e7759cfad9b8202cb3cd}} 
+\index{print.h@{print.h}!printBlankPart@{printBlankPart}}
+\index{printBlankPart@{printBlankPart}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printBlankPart()}{printBlankPart()}}
+{\footnotesize\ttfamily void print\+Blank\+Part (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}afficher un certain nombre d\textquotesingle{}espace blanc 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em length} & nombre d\textquotesingle{}espace blanc \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{print_8h_a1a50eb041ed990dec8bafe8757dfb1a6}\label{print_8h_a1a50eb041ed990dec8bafe8757dfb1a6}} 
+\index{print.h@{print.h}!printDelimitedLine@{printDelimitedLine}}
+\index{printDelimitedLine@{printDelimitedLine}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printDelimitedLine()}{printDelimitedLine()}}
+{\footnotesize\ttfamily void print\+Delimited\+Line (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}afficher une ligne vide délimitée par des barres (comprise dans length) 
+
+affiche d\textquotesingle{}abord une barre verticale, puis le nombre de char vide (length -\/ 2), puis une autre barre verticale. Revient à la ligne après
+
+
+\begin{DoxyParams}{Paramètres}
+{\em length} & taille de la ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{print_8h_ada0a28ab3a7caa795ebe2232625eb29a}\label{print_8h_ada0a28ab3a7caa795ebe2232625eb29a}} 
+\index{print.h@{print.h}!printFilledLine@{printFilledLine}}
+\index{printFilledLine@{printFilledLine}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printFilledLine()}{printFilledLine()}}
+{\footnotesize\ttfamily void print\+Filled\+Line (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}afficher une ligne pleine de carrés (char 219) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em length} & taille de la ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{print_8h_a0fa8352cc76476e03fde51391427c6b6}\label{print_8h_a0fa8352cc76476e03fde51391427c6b6}} 
+\index{print.h@{print.h}!printHangman@{printHangman}}
+\index{printHangman@{printHangman}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printHangman()}{printHangman()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} print\+Hangman (\begin{DoxyParamCaption}\item[{const int}]{nb\+Errors,  }\item[{const int}]{x\+Axis\+Origin,  }\item[{int}]{y\+Axis\+Origin }\end{DoxyParamCaption})}
+
+
+
+affiche un pendu, dont l\textquotesingle{}avancement dépend du nombre d\textquotesingle{}erreur donné en param 
+
+affiche une partie du pendu concordant avec le nombre d\textquotesingle{}erreur. x\+Axis\+Origin et y\+Axis\+Origin donne l\textquotesingle{}origine du premier char composant le pendu en haut a gauche
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Errors} & le nombre d\textquotesingle{}erreurs commises, répercutant sur l\textquotesingle{}affiche du pendu. Plus il y a d\textquotesingle{}erreurs, plus les parties s\textquotesingle{}affichent, tout cela jusque 11 \\
+\hline
+{\em x\+Axis\+Origin} & abscisse de début du dessin \\
+\hline
+{\em y\+Axis\+Origin} & ordonnée de début du dessin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si le pendu a été affiché au moins en partit~\newline
+ False si x\+Axis\+Origin ou y\+Axis\+Origin ne sont pas strictement supérieur à 0, ou que le fichier src/ressources/hangman.\+don n\textquotesingle{}a pu être ouvert 
+\end{DoxyReturn}
+\mbox{\Hypertarget{print_8h_aea85bfa6669fb74c646ef18e72fcf606}\label{print_8h_aea85bfa6669fb74c646ef18e72fcf606}} 
+\index{print.h@{print.h}!printImage@{printImage}}
+\index{printImage@{printImage}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printImage()}{printImage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} print\+Image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path\+To\+Image,  }\item[{const int}]{x\+Axis\+Origin,  }\item[{int}]{y\+Axis\+Origin }\end{DoxyParamCaption})}
+
+
+
+affiche une image 
+
+affiche l\textquotesingle{}image dont le chemin est donné en paramtère x\+Axis\+Origin et y\+Axis\+Origin donne l\textquotesingle{}origine du premier char composant l\textquotesingle{}image en haut a gauche
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path\+To\+Image} & chemin vers l\textquotesingle{}image a afficher \\
+\hline
+{\em x\+Axis\+Origin} & abscisse de début du dessin \\
+\hline
+{\em y\+Axis\+Origin} & ordonnée de début du dessin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si l\textquotesingle{}image a été affiché au moins en partit~\newline
+ False si x\+Axis\+Origin ou y\+Axis\+Origin ne sont pas strictement supérieur à 0, ou que le fichier dont le chemin est donné n\textquotesingle{}a pu être ouvert 
+\end{DoxyReturn}

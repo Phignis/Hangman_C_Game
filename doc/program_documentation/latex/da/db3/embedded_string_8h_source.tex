@@ -12,54 +12,57 @@
 \DoxyCodeLine{19 }
 \DoxyCodeLine{20 }
 \DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stddef.h>}}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <string.h>}}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef BOOLEAN\_TF }\textcolor{comment}{// on ne créé qu'une fois le type boolean}}
-\DoxyCodeLine{27 \textcolor{preprocessor}{\#define BOOLEAN\_TF}}
-\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{37     \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13af9d46b7804d93a4fcde88489a1b68c24}{False}}, }
-\DoxyCodeLine{38     \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13a6d32c34708a0a3507c4bdb89219d650b}{True}} }
-\DoxyCodeLine{39 \} \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}};}
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42 }
-\DoxyCodeLine{52 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{53     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_embedded_char_ac7607809114d78d0db658512bb875ad0}{value}}; }
-\DoxyCodeLine{54     \mbox{\hyperlink{embedded_string_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{struct_embedded_char_a15a702cdf4a211a83c0468edc3e6c667}{isFinded}}; }
-\DoxyCodeLine{55 \} \mbox{\hyperlink{struct_embedded_char}{EmbeddedChar}};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57 }
-\DoxyCodeLine{67 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_embedded_char}{EmbeddedChar}} *\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{EmbeddedString}};}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70 }
-\DoxyCodeLine{80 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}{toLowerCase}}(\textcolor{keywordtype}{char} *toConvert);}
-\DoxyCodeLine{90 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}{toUpperCase}}(\textcolor{keywordtype}{char} *toConvert);}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{100 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_aa3dea05056847359eb3999f5ea62f4e6}{printEmbeddedStr}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toPrint);}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{111 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embeddedStrlen}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toCount);}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113 }
-\DoxyCodeLine{128 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embeddedStrcmp}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str1, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str2);}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{144 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_aa0cde7a11cdfbb0a107b275a4e646574}{mixedStrcmp}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2);}
-\DoxyCodeLine{145 }
-\DoxyCodeLine{146 }
-\DoxyCodeLine{158 \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} \mbox{\hyperlink{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}{embeddedStrcpy}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} dest, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} src);}
-\DoxyCodeLine{159 }
-\DoxyCodeLine{160 }
-\DoxyCodeLine{171 \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} \mbox{\hyperlink{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}{transformInEmbeddedStr}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} dest, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src);}
-\DoxyCodeLine{172 }
-\DoxyCodeLine{181 \textcolor{keywordtype}{char}* \mbox{\hyperlink{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f5}{transformInStr}}(\textcolor{keywordtype}{char} *dest, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} src);}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183 }
-\DoxyCodeLine{197 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{updateFindEmbeddedStr}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toUpdate, \textcolor{keywordtype}{char} suggestedChar);}
-\DoxyCodeLine{198 }
-\DoxyCodeLine{210 \mbox{\hyperlink{alphabet_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{isEmbeddedStrFinded}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} word);}
-\DoxyCodeLine{211 }
-\DoxyCodeLine{212 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EMBEDDEDSTRING\_H\_TF}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../utils/print/print.h"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifndef BOOLEAN\_TF }\textcolor{comment}{// on ne créé qu'une fois le type boolean}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define BOOLEAN\_TF}}
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{40     False = 0, }
+\DoxyCodeLine{41     True }
+\DoxyCodeLine{42 \} \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}};}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{56     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_embedded_char_ac7607809114d78d0db658512bb875ad0}{value}}; }
+\DoxyCodeLine{57     \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{struct_embedded_char_a15a702cdf4a211a83c0468edc3e6c667}{isFinded}}; }
+\DoxyCodeLine{58 \} \mbox{\hyperlink{struct_embedded_char}{EmbeddedChar}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{70 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_embedded_char}{EmbeddedChar}} *\mbox{\hyperlink{embedded_string_8h_a27f2c91a8f76b06f25c2f0ac2ed89766}{EmbeddedString}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{83 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_a9df9ae476e452817255c6b7aa4c19be0}{toLowerCase}}(\textcolor{keywordtype}{char} *toConvert);}
+\DoxyCodeLine{93 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_a404d0a6893711f562fead3995f3e2fe0}{toUpperCase}}(\textcolor{keywordtype}{char} *toConvert);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{103 \textcolor{keywordtype}{void} \mbox{\hyperlink{embedded_string_8h_ac9fb33c84bea5c83404f6d0835dc37a8}{printEmbeddedStr}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toPrint);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{114 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{embedded_string_8h_a4a278caeeec171157dab343f53172a89}{embeddedStrlen}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toCount);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{131 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_a0c3a73c35331ebcaf7259eec593e975f}{embeddedStrcmp}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str1, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str2);}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{147 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_aa0cde7a11cdfbb0a107b275a4e646574}{mixedStrcmp}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 }
+\DoxyCodeLine{161 \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} \mbox{\hyperlink{embedded_string_8h_abcafd24e93ea01478a42c3895439cc72}{embeddedStrcpy}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} dest, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} src);}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 }
+\DoxyCodeLine{174 \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} \mbox{\hyperlink{embedded_string_8h_a44dbb5917d993f2c24f4ca4f57be46ae}{transformInEmbeddedStr}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} dest, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{184 \textcolor{keywordtype}{char}* \mbox{\hyperlink{embedded_string_8h_a93bc5a33dd6edf25639f7dcb836723f5}{transformInStr}}(\textcolor{keywordtype}{char} *dest, \textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} src);}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 }
+\DoxyCodeLine{200 \textcolor{keywordtype}{int} \mbox{\hyperlink{embedded_string_8h_a61d20febc95f087ea9ceaacd42573f17}{updateFindEmbeddedStr}}(\mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} toUpdate, \textcolor{keywordtype}{char} suggestedChar);}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{213 \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{embedded_string_8h_a6670841f10aefecc66f2dfa5784b2a68}{isEmbeddedStrFinded}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_embedded_char}{EmbeddedString}} word);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EMBEDDEDSTRING\_H\_TF}}
 
 \end{DoxyCode}

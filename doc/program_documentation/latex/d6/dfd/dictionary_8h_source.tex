@@ -1,0 +1,64 @@
+\hypertarget{dictionary_8h_source}{}\doxysection{dictionary.\+h}
+\label{dictionary_8h_source}\index{dictionary/dictionary.h@{dictionary/dictionary.h}}
+\mbox{\hyperlink{dictionary_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef DICTIONARY\_H\_TF}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define DICTIONARY\_H\_TF}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../embeddedString/embeddedString.h"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef BOOLEAN\_TF }\textcolor{comment}{// on ne créé qu'une fois le type boolean, définition dans ../embeddedString/embedddedString.h aussi}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define BOOLEAN\_TF}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{39     False = 0,}
+\DoxyCodeLine{40     True }
+\DoxyCodeLine{41 \} \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}};}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{51 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{52     \textcolor{keywordtype}{char} **\mbox{\hyperlink{struct_dictionary_a69b1a54aa34f02d92f23cc279e94c009}{wordsArray}}; }
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_dictionary_a305c6b054980e1a33264f8286028069f}{logicalSize}}; }
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_dictionary_a78a715845d18b15190da64c5df2eccae}{physicalSize}}; }
+\DoxyCodeLine{55 \} \mbox{\hyperlink{struct_dictionary}{Dictionary}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{72 \mbox{\hyperlink{struct_dictionary}{Dictionary}}* \mbox{\hyperlink{dictionary_8h_ae30590eb124133f447d1f1fc7675d12b}{createDictionary}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} physicalSize);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{83 \textcolor{keywordtype}{void} \mbox{\hyperlink{dictionary_8h_aca2b106edb756d0cd1dee34fb0576219}{destroyDictionary}}(\mbox{\hyperlink{struct_dictionary}{Dictionary}} *toDestroy);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{98 \textcolor{keywordtype}{int} \mbox{\hyperlink{dictionary_8h_a0ee9e2b0533e69722d2e247cbec331b7}{addWord}}(\mbox{\hyperlink{struct_dictionary}{Dictionary}} *container, \textcolor{keywordtype}{char}* toAdd);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{110 \textcolor{keywordtype}{void} \mbox{\hyperlink{dictionary_8h_aef20898f7382cbf97d30ea0c49ac053e}{printDictInLine}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} *toPrint, \textcolor{keyword}{const} \textcolor{keywordtype}{int} nbWordsOnLine);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{void} \mbox{\hyperlink{dictionary_8h_a95049a69280eea404bac3636324b8757}{printDictInColumn}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} *toPrint, \textcolor{keyword}{const} \textcolor{keywordtype}{int} xAbscissa, \textcolor{keywordtype}{int} yOrdinate);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{134 \textcolor{keywordtype}{char}* \mbox{\hyperlink{dictionary_8h_a7f131a3ebb0d1c83f591df98fbd76422}{getRdmStr}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} *dict);}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{149 \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_afe61bbca2e83833a7ce9c6472ea5283a}{isWordsIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} searchingContext, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* wordSearched);}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{164 \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_ab10f099854b76be9d66bae8218ca3ebd}{isStrAWord}}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string});}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{179 \mbox{\hyperlink{print_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{dictionary_8h_a1dc937596b8fb608d66e3adff4e36328}{deleteWord}}(\mbox{\hyperlink{struct_dictionary}{Dictionary}} *containing, \textcolor{keyword}{const} \textcolor{keywordtype}{int} indexWordToDelete);}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{194 \mbox{\hyperlink{struct_dictionary}{Dictionary}}* \mbox{\hyperlink{dictionary_8h_af70ddf444d5e98931a4a78d166e94663}{importWords}}(FILE *source);}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{214 \textcolor{keywordtype}{int} \mbox{\hyperlink{dictionary_8h_a7d7b2209b3c7c7f8d9ad00436f5b3a56}{writeWords}}(FILE *placeToSave, \textcolor{keyword}{const} \mbox{\hyperlink{struct_dictionary}{Dictionary}} wordsToWrite);}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{230 \mbox{\hyperlink{struct_dictionary}{Dictionary}}* \mbox{\hyperlink{dictionary_8h_a26552eac6c4feb80b20cead130aecc2e}{addWordsToFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *pathToFile, \mbox{\hyperlink{struct_dictionary}{Dictionary}}* wordsToAdd);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICTIONARY\_H\_TF}}
+
+\end{DoxyCode}
