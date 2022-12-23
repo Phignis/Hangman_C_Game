@@ -134,7 +134,7 @@ int testImportWords(void) {
 	
 	if(importWords(NULL)) return -1;
 	
-	data = fopen("test.don", "r");
+	data = fopen("./src/dictionary/test.don", "r");
 	if(!data) {
 		printf("Soucis lors de l'ouverture du fichier de données\n");
 		return -1;
@@ -186,7 +186,7 @@ int testAddWordsToFile(void) {
 	
 	dict->logicalSize = 4;
 	
-	updated = addWordsToFile("test.don", dict);
+	updated = addWordsToFile("./src/dictionary/test.don", dict);
 	
 	if(updated->logicalSize != 5) return 1;
 	

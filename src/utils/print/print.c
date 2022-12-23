@@ -91,7 +91,7 @@ Boolean printHangman(const int nbErrors, const int xAxisOrigin, int yAxisOrigin)
 		FILE *image;
 		int indexError;
 		
-		image = fopen("./ressources/hangman.don", "r");
+		image = fopen("./src/ressources/hangman.don", "r");
 		if(!image) return False;
 		
 		consoleGotoCoords(xAxisOrigin, yAxisOrigin);

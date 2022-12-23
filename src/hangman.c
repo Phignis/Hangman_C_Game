@@ -28,15 +28,15 @@ void printUserInterface(const int nbErrors, const EmbeddedString* wordToPrint, c
 
 void printMenuOptions(void) {
 	puts("\nMenu hangman\n");
-	printImage("./ressources/print.don", 1, 3);
+	printImage("./src/ressources/print.don", 1, 3);
 	consoleGotoCoords(12, 5);
 	puts("a - Afficher la liste de mots possibles lors du pendu\n");
 	
-	printImage("./ressources/play.don", 3, 9);
+	printImage("./src/ressources/play.don", 3, 9);
 	consoleGotoCoords(12, 11);
 	puts("b - Jouer au jeu du pendu\n");
 	
-	printImage("./ressources/save.don", 1, 15);
+	printImage("./src/ressources/save.don", 1, 15);
 	consoleGotoCoords(12, 17);
 	puts("c - Insérer des mots possibles supplémentaires\n\n");
 	
@@ -125,7 +125,7 @@ int hangman(const Dictionary* tabMots) {
 	
 	if(tabMots->logicalSize == 0) {
 		puts("Il n'y a actuellement pas de mots diponibles. Veuillez en saisir:");
-		tabMots = putWordsToFile("./ressources/dictionary.don", tabMots);
+		tabMots = putWordsToFile("./src/ressources/dictionary.don", tabMots);
 		emptyStream(stdin, -1);
 	}
   
@@ -296,7 +296,7 @@ void menu(void) {
 			case 'a':
 				clearConsole();
 				
-				wordsAvailable = loadWords("./ressources/dictionary.don");
+				wordsAvailable = loadWords("./src/ressources/dictionary.don");
 				if(!wordsAvailable) {
 					puts("Erreur fatale lors du chargement des mots\n");
 					puts("Cela peut etre du a une erreur d'allocation dynamique");
@@ -316,7 +316,7 @@ void menu(void) {
 			
 				clearConsole();
 				
-				wordsAvailable = loadWords("./ressources/dictionary.don");
+				wordsAvailable = loadWords("./src/ressources/dictionary.don");
 				if(!wordsAvailable) {
 					puts("Erreur fatale lors du chargement des mots\n");
 					puts("Cela peut etre du a une erreur d'allocation dynamique");
@@ -336,14 +336,14 @@ void menu(void) {
 			
 				clearConsole();
 				
-				wordsAvailable = loadWords("./ressources/dictionary.don");
+				wordsAvailable = loadWords("./src/ressources/dictionary.don");
 				if(!wordsAvailable) {
 					puts("Erreur fatale lors du chargement des mots\n");
 					puts("Cela peut etre du a une erreur d'allocation dynamique");
 					return;
 				}
 				
-				newerTab = putWordsToFile("./ressources/dictionary.don", wordsAvailable);
+				newerTab = putWordsToFile("./src/ressources/dictionary.don", wordsAvailable);
 				
 				if(!newerTab) {
 					puts("Soucis lors du put");
