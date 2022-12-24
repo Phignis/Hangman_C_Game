@@ -78,10 +78,15 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 		
 		do {
 			
-			consoleGotoCoords(100, 2);
+			consoleGotoCoords(80, 2);
 			fputs("| ", stdout);
-			puts("Mots déjà présents dans le fichier:");
-			printDictInColumn(actualWords, 100, 5);
+			puts("Mots déjà disponibles:");
+			printDictInColumn(actualWords, 80, 5);
+			consoleGotoCoords(120, 2);
+			fputs("| ", stdout);
+			puts("Mots à ajouter:");
+			printDictInColumn(toAdd, 120, 5);
+			
 			
 			consoleGotoCoords(1, 4);
 			puts("Saisir un nouveau mot (max 7 char): (stop pour arreter)                                         ");
