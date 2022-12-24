@@ -89,6 +89,7 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 			puts("                                                         ");
 			consoleGotoCoords(1, 5);
 			scanf("%7s", proposition);
+			emptyStream(stdin, -1);
 			toLowerCase(proposition); // pour simplifier le test de boucle
 			
 			while(!isStrAWord(proposition) || isWordsIn(*actualWords, proposition)
@@ -97,8 +98,8 @@ Dictionary* putWordsToFile(const char *pathToFile, const Dictionary *actualWords
 				printf("Le mot est déjà présent ou possède des caractères spéciaux ou des chiffres.\nRessaisissez (max 7 char): (stop pour arreter)\n");
 				puts("                      ");
 				consoleGotoCoords(1, 6);
-				emptyStream(stdin, -1);
 				scanf("%7s", proposition);
+				emptyStream(stdin, -1);
 				toLowerCase(proposition); // pour simplifier le test de boucle
 			}
 			
