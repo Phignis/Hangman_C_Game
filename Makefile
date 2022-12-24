@@ -4,6 +4,10 @@
 help:
 	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%7s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
+#########################
+## Documentation
+#########################
+
 docu: ## permet de générer la documentation dans doc/program_documentation
 	@doxygen doxyFileConfig
 
@@ -14,7 +18,7 @@ src/ressources/:
 	@mkdir -p $@
 # $@ est une var automatique redonnant le nom de la target de la règle, ici src/ressources/
 
-emptyTestData: ## remet le fichier src/dictionary/test.don à son état d'origine
+emptyTestData: ## remet le fichier src/dictionary/test.don à son état d'origine prévu pour les tests de Dictionnary
 	@printf 'souris\npapier\ntitus\n' > ./src/dictionary/test.don
 # utilisation de printf plutot que echo -e car le code de echo est trop dépendant de la distrib 
 	
