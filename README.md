@@ -9,7 +9,7 @@
 
 ## Premier lancement
 >
-> *En cours de rédaction*
+> Veuillez ouvrir le fichier [de compte rendu au format pdf](./3AINFO1_FOUCRAS_TOURE_compte_rendu.pdf).
 >
 
 ## Consignes encadrant le projet
@@ -26,7 +26,7 @@
 
 ## Période du projet
 >
-> du 28 novembre 2022 au
+> du 28 novembre 2022 au 23 décembre 2022
 >
 
 ## Arborescence du projet
